@@ -23,20 +23,34 @@ with open(file_path, 'rb') as fp:
     iprtr = PDFPageInterpreter(rmgr, device)
 
     # PDFファイルから1ページずつ解析(テキスト抽出)処理する
-    # for page in PDFPage.get_pages(fp):
-    #     # page = page.rstrip('\n')
-    #     iprtr.process_page(page)
+    for page in PDFPage.get_pages(fp):
+        # page = page.rstrip('\n')
+        iprtr.process_page(page)
     
 
-    # # Pythonコンソールへの出力内容を取得
-    # text = output_text.getvalue()
+    # Pythonコンソールへの出力内容を取得
+    text = output_text.getvalue().strip()
     # text = extract_text(file_path)
 
-    extract_text_to_fp(fp, output_text)
-    text = output_text.getvalue().strip()
+    # extract_text_to_fp(fp, output_text)
+    # text = output_text.getvalue().strip()
 
     # 閉じる
     output_text.close()
     device.close()
 
-    print(text)
+    # print(text)
+    # textの中の改行コードを削除
+    # i = 0
+    # str = ''
+    # for o in text:
+    #     # print(o)
+    #     print(i)
+    #     if o != '\n':
+    #         str += o
+    #     else:
+    #         # if str != "\n": 
+    #         print(str)
+    #         str = ''
+    #     i += 1
+    #     if i == 100: break
