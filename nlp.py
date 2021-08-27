@@ -20,7 +20,8 @@ from spacy import displacy
 
 nlp = spacy.load('ja_ginza')
 
-doc = scrub(nlp(pdf.text))
+# doc = nlp(scrub(pdf.text))
+doc = nlp(pdf.text)
 
 for sent in doc.sents:
     print(sent)
