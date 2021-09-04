@@ -68,7 +68,7 @@ import pandas as pd
 import tabula
 
 # lattice=Trueでテーブルの軸線でセルを判定
-dfs = tabula.read_pdf(pdf_file_path, lattice=True, pages = 'all')
+dfs = tabula.read_pdf(pdf_file_path, pages = 'all')
 
 # PDFの表をちゃんと取得できているか確認
 for df in dfs:
