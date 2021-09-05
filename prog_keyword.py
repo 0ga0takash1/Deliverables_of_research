@@ -18,7 +18,7 @@ paths = [
 
 def add(keyword, list_num):
     path = os.getcwd()
-    if list_num < 5: path += paths[list_num-1]
+    path += paths[list_num-1]
     # elif list_num > 60: path += paths[5][list_num%10-1]
     fp = open(path, mode='w')
     fp.write(keyword)
@@ -28,3 +28,18 @@ def add(keyword, list_num):
 
 # add("パスワード", 1)
 # add("パスワード", 61)
+
+def delete(keyword, list_num):
+    path = os.getcwd()
+    path += paths[list_num-1]
+    fp = open(path, 'r+')
+    new = fp.readlines()
+    fp.seek(0)
+    for key in new:
+        if keyword not in key:
+            fp.write(key)
+    fp.truncate()
+    fp.close()
+    return True
+
+# delete("キーワード", 1)
