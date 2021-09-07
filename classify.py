@@ -60,3 +60,16 @@ def print_result():
         print(fp.readline())
         fp.close()
     return True
+
+def output_files_clear():
+    for i in range(len(paths)):
+        path_dir = os.getcwd()
+        path_dir += paths[i]
+        path = path_dir+"_.txt"
+        fp = open(path, 'w')
+        fp.close()
+        path = path_dir+"__.txt"
+        fp = open(path, 'w')
+        fp.close()
+        print(Chapters[i], "Complete clear!")
+    return True

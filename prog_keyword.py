@@ -19,7 +19,6 @@ paths = [
 def add(keyword, list_num):
     path = os.getcwd()
     path += paths[list_num-1]
-    # elif list_num > 60: path += paths[5][list_num%10-1]
     fp = open(path, mode='w')
     fp.write(keyword)
     fp.close()
