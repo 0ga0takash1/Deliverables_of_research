@@ -71,5 +71,5 @@ import tabula
 dfs = tabula.read_pdf(pdf_file_path, pages = 'all')
 
 # PDFの表をちゃんと取得できているか確認
-for df in dfs:
-    print(df)
+# for df in dfs:
+#     print(df)

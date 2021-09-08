@@ -19,9 +19,8 @@ paths = [
 def add(keyword, list_num):
     path = os.getcwd()
     path += paths[list_num-1]
-    fp = open(path, mode='w')
-    fp.write(keyword)
-    fp.close()
+    with open(path, mode='w') as fp:
+        fp.write(keyword)
     print("keyword addition completed!")
     return True
 
@@ -31,14 +30,13 @@ def add(keyword, list_num):
 def delete(keyword, list_num):
     path = os.getcwd()
     path += paths[list_num-1]
-    fp = open(path, 'r+')
-    new = fp.readlines()
-    fp.seek(0)
-    for key in new:
-        if keyword not in key:
-            fp.write(key)
-    fp.truncate()
-    fp.close()
+    with open(path, 'r+') as fp:
+        new = fp.readlines()
+        fp.seek(0)
+        for key in new:
+            if keyword not in key:
+                fp.write(key)
+        fp.truncate()
     return True
 
 # delete("キーワード", 1)

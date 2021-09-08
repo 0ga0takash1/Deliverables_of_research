@@ -1,4 +1,5 @@
 import os
+import prog_keyword as pk
 
 paths = [
     "/output_lists/1_Interface_with_outside/",
@@ -32,44 +33,55 @@ Chapters = [
     "移植性"
 ]
 
-def add(text, list_num, out):
+def add(text, list_num, is_candi):
     path_dir = os.getcwd()
-    path_dir += paths[list_num-1]
-    if out == 1: 
+    path_dir += paths[list_num]
+    if is_candi == 0: 
         path = path_dir+"_.txt"
     else: 
         path = path_dir+"__.txt"
-    fp = open(path, mode='w')
-    fp.write(text)
-    fp.close()
+    with open(path, mode='w') as fp:
+        fp.write(text)
     # print("Classification succeeded!")
     return True
+
+def classify_to_txt(text, is_candi):
+    for i in range(len(pk.paths)):
+        path = os.getcwd()
+        path += pk.paths[i]
+        with open(path) as fp:
+            keywords = fp.readline()
+            for keyword in keywords:
+                if keyword == text:
+                    add(text, i, is_candi)
 
 def print_result():
     for i in range(len(paths)):
         print(Chapters[i])
         path_dir = os.getcwd()
         path_dir += paths[i]
+
         path = path_dir+"_.txt"
-        fp = open(path)
-        print(fp.readline())
-        fp.close()
+        with open(path) as fp:
+            print(fp.readline())
+
         print(Chapters[i], "候補")
         path = path_dir+"__.txt"
-        fp = open(path)
-        print(fp.readline())
-        fp.close()
+        with open(path) as fp:
+            print(fp.readline())
     return True
 
 def output_files_clear():
     for i in range(len(paths)):
         path_dir = os.getcwd()
         path_dir += paths[i]
+ 
         path = path_dir+"_.txt"
-        fp = open(path, 'w')
-        fp.close()
+        with open(path, 'w'):
+            pass
+ 
         path = path_dir+"__.txt"
-        fp = open(path, 'w')
-        fp.close()
+        with open(path, 'w'):
+            pass
         print(Chapters[i], "Complete clear!")
     return True
