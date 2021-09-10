@@ -45,14 +45,14 @@ def add(text, list_num, is_candi):
     # print("Classification succeeded!")
     return True
 
-def classify_to_txt(text, is_candi):
+def classify_to_txt(text, sent, is_candi):
     for i in range(len(pk.paths)):
         path = os.getcwd()
         path += pk.paths[i]
         with open(path) as fp:
             keywords = fp.readline()
             for keyword in keywords:
-                if keyword == text:
+                if keyword == sent:
                     add(text, i, is_candi)
 
 def print_result():
