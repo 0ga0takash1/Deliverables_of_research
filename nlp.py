@@ -1,6 +1,6 @@
 from numpy import tile
 import pdf_read
-import classify
+import classify_to_txt as cl
 
 import spacy
 from spacy import displacy
@@ -51,7 +51,6 @@ def root_of_sent(doc):
             root_text.append([token.text, 0])
             if token.dep_ == 'ROOT':
                 root_text[token.i][1] = 1
-        for token in sent:
             if token.head.dep_ == 'ROOT':
                 root_text[token.i][1] = 1
         add_to_root = 10
@@ -71,4 +70,4 @@ for txt in pdf_read.text:
     doc = nlp(root_of_sent(doc_ori))
     for sent in doc.sents:
         if subject_is_human(doc) == 0:
-            classify.classify_to_txt(txt, sent, is_candidate(sent))
+            cl.classify_to_txt(txt, sent, is_candidate(sent))

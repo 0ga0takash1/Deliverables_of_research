@@ -1,23 +1,7 @@
 import os
 import prog_keyword as pk
 
-paths = [
-    "/output_lists/1_Interface_with_outside/",
-    "/output_lists/2_Functional_requirements/",
-    "/output_lists/3_Performance_requirements/",
-    "/output_lists/4_Logical_database_requirements/",
-    "/output_lists/5_Design_constraints/",
-    "/output_lists/6_1_Functional_compatibility/",
-    "/output_lists/6_2_Performance_efficiency/",
-    "/output_lists/6_3_Compatibility/",
-    "/output_lists/6_4_Usability/",
-    "/output_lists/6_5_Reliability/",
-    "/output_lists/6_6_Security/",
-    "/output_lists/6_7_Maintainability/",
-    "/output_lists/6_8_Portability/"
-]
-
-Chapters = [
+Require_factors = [
     "外部とのインタフェース",
     "機能要求",
     "性能要求",
@@ -33,19 +17,29 @@ Chapters = [
     "移植性"
 ]
 
-def add(text, list_num, is_candi):
-    path_dir = os.getcwd()
-    path_dir += paths[list_num]
-    if is_candi == 0: 
-        path = path_dir+"_.txt"
-    else: 
-        path = path_dir+"__.txt"
-    with open(path, mode='w') as fp:
-        fp.write(text)
-    # print("Classification succeeded!")
-    return True
+# [text, chapter, [elements]]
+# elements = [num, candi]
+doc_classify = []
 
-def classify_to_txt(text, sent, is_candi):
+# [text, chapter, [other elements]]
+result = [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+]
+
+def classify_to_array(text, sent, now_chapter, is_candi):
+    applicable_factors = []
     for i in range(len(pk.paths)):
         path = os.getcwd()
         path += pk.paths[i]
@@ -53,11 +47,19 @@ def classify_to_txt(text, sent, is_candi):
             keywords = fp.readline()
             for keyword in keywords:
                 if keyword == sent:
-                    add(text, i, is_candi)
+                    # add(text, i, is_candi)
+                    applicable_factors.append([i, is_candi])
+                    break
+    doc_classify.append([text, now_chapter, applicable_factors])
 
-def print_result():
+def leveling_to_result_array():
+    for sent in doc_classify: # [text, chapter, [elements]]
+        elements = sent[2]
+
+
+def print_all_result():
     for i in range(len(paths)):
-        print(Chapters[i])
+        print(Require_factors[i])
         path_dir = os.getcwd()
         path_dir += paths[i]
 
@@ -65,10 +67,26 @@ def print_result():
         with open(path) as fp:
             print(fp.readline())
 
-        print(Chapters[i], "候補")
+        print(Require_factors[i], "候補")
         path = path_dir+"__.txt"
         with open(path) as fp:
             print(fp.readline())
+    return True
+
+def print_one_result(i):
+    i -= 1
+    print(Require_factors[i])
+    path_dir = os.getcwd()
+    path_dir += paths[i]
+
+    path = path_dir+"_.txt"
+    with open(path) as fp:
+        print(fp.readline())
+
+    print(Require_factors[i], "候補")
+    path = path_dir+"__.txt"
+    with open(path) as fp:
+        print(fp.readline())
     return True
 
 def output_files_clear():
@@ -83,5 +101,5 @@ def output_files_clear():
         path = path_dir+"__.txt"
         with open(path, 'w'):
             pass
-        print(Chapters[i], "Complete clear!")
+        print(Require_factors[i], "Complete clear!")
     return True
