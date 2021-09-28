@@ -5,5 +5,5 @@ import prog_keyword as pk
 # キーワードから文章を抽出・分配
 import nlp
 # 分配した文章を出力
-import classify as cl
+import classify_to_array as cl
 cl.print_result()

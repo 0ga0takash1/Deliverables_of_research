@@ -1,6 +1,6 @@
 from io import StringIO
 from numpy import extract
-import classify
+import classify_to_txt as cl
 
 from pdfminer.converter import TextConverter
 from pdfminer.layout import LAParams

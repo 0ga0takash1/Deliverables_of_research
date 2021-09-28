@@ -17,26 +17,28 @@ Require_factors = [
     "移植性"
 ]
 
-# [text, chapter, [elements]]
-# elements = [num, candi]
+# [text, chapter, [factors]]
+# factors = [factor num, is candi]
 doc_classify = []
 
-# [text, chapter, [other elements]]
-result = [
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    []
+# [[requirement], [candidate]]
+    # [text, chapter, [other factors]]
+for_result = [
+    [[], []],
+    [[], []],
+    [[], []],
+    [[], []],
+    [[], []],
+    [[], []],
+    [[], []],
+    [[], []],
+    [[], []],
+    [[], []],
+    [[], []],
+    [[], []],
+    [[], []],
 ]
+result = for_result
 
 def classify_to_array(text, sent, now_chapter, is_candi):
     applicable_factors = []
@@ -53,53 +55,54 @@ def classify_to_array(text, sent, now_chapter, is_candi):
     doc_classify.append([text, now_chapter, applicable_factors])
 
 def leveling_to_result_array():
-    for sent in doc_classify: # [text, chapter, [elements]]
-        elements = sent[2]
-
+    for sent in doc_classify: # sent == [text, chapter, [factors]]
+        for i in range(sent[2]):
+            other_factors = sent[2]
+            see = other_factors.pop(i) # see = [factor num, is candi]
+            result[see[0]][see[1]].append([sent[0], sent[1], other_factors])
 
 def print_all_result():
-    for i in range(len(paths)):
-        print(Require_factors[i])
-        path_dir = os.getcwd()
-        path_dir += paths[i]
-
-        path = path_dir+"_.txt"
-        with open(path) as fp:
-            print(fp.readline())
-
-        print(Require_factors[i], "候補")
-        path = path_dir+"__.txt"
-        with open(path) as fp:
-            print(fp.readline())
+    for factor in range(len(result)):
+        i = 0
+        for req in result[factor]: # req == array of [text, chapter, [other factors]]
+            if i == 0:
+                print(Require_factors[i])
+            else :
+                print(Require_factors[i], "候補")
+            
+            if len(req) == 0:
+                print("There is no sentences corresponding to this element.")
+                continue
+            
+            for text in req: # text == [text, chapter, [other factors]]
+                print("Chapter:", text[1])
+                print(text[0])
+                print("Other applicable factors:")
+                for num in text[2]:
+                    print(Require_factors[num], ".")
+            i += 1
+            
     return True
 
 def print_one_result(i):
     i -= 1
-    print(Require_factors[i])
-    path_dir = os.getcwd()
-    path_dir += paths[i]
+    for req in result[i]: # req == array of [text, chapter, [other factors]]
+            if i == 0:
+                print(Require_factors[i])
+            else :
+                print(Require_factors[i], "候補")
 
-    path = path_dir+"_.txt"
-    with open(path) as fp:
-        print(fp.readline())
-
-    print(Require_factors[i], "候補")
-    path = path_dir+"__.txt"
-    with open(path) as fp:
-        print(fp.readline())
+            if len(req) == 0:
+                print("There is no sentences corresponding to this element.")
+                continue
+            
+            for text in req: # text == [text, chapter, [other factors]]
+                print("Chapter:", text[1])
+                print(text[0])
+                print("Other applicable factors:")
+                for num in text[2]:
+                    print(Require_factors[num], ".")
     return True
 
-def output_files_clear():
-    for i in range(len(paths)):
-        path_dir = os.getcwd()
-        path_dir += paths[i]
- 
-        path = path_dir+"_.txt"
-        with open(path, 'w'):
-            pass
- 
-        path = path_dir+"__.txt"
-        with open(path, 'w'):
-            pass
-        print(Require_factors[i], "Complete clear!")
-    return True
+def result_clear():
+    return for_result
