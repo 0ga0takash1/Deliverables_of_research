@@ -1,6 +1,6 @@
 from numpy import tile
-import pdf_read
-import classify_to_txt as cl
+import document_read as dr
+import classify_to_array as cl
 
 import spacy
 from spacy import displacy
@@ -28,6 +28,11 @@ def subject_is_human(doc):
         return 1
     return 0
 
+def correct_root_dep_(dep):
+    if dep == 'acl':
+        return 1
+    return 0
+
 def correct_dep_(dep):
     if dep == 'case' \
         or dep == 'aux' \
@@ -45,24 +50,25 @@ def make_root_of_sent(root_text):
     return res
 
 def root_of_sent(doc):
-    root_text = []
+    root_text = [] # array of [word, is root word]
     for sent in doc.sents:
         for token in sent:
             root_text.append([token.text, 0])
             if token.dep_ == 'ROOT':
                 root_text[token.i][1] = 1
-            if token.head.dep_ == 'ROOT':
+            if token.head.dep_ == 'ROOT' \
+                and correct_root_dep_(token.dep_):
                 root_text[token.i][1] = 1
-        add_to_root = 10
-        while add_to_root > 0:
-            add_to_root = 0
+        words_to_add_to_root = 10
+        while words_to_add_to_root > 0:
+            words_to_add_to_root = 0
             for token in sent:
                 if root_text[token.head.i][1] == 1 \
                     and token.dep_ != 'ROOT':
                     if correct_dep_(token.dep_) == 1:
                         if root_text[token.i][1] != 1:
                             root_text[token.i][1] = 1
-                            add_to_root += 1
+                            words_to_add_to_root += 1
     return make_root_of_sent(root_text)
 
 for txt in pdf_read.text:
@@ -70,4 +76,4 @@ for txt in pdf_read.text:
     doc = nlp(root_of_sent(doc_ori))
     for sent in doc.sents:
         if subject_is_human(doc) == 0:
-            cl.classify_to_txt(txt, sent, is_candidate(sent))
+            cl.classify_to_array(txt, sent, is_candidate(sent))

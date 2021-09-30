@@ -1,6 +1,22 @@
 import os
 import prog_keyword as pk
 
+for_result = [
+    [[], []],
+    [[], []],
+    [[], []],
+    [[], []],
+    [[], []],
+    [[], []],
+    [[], []],
+    [[], []],
+    [[], []],
+    [[], []],
+    [[], []],
+    [[], []],
+    [[], []],
+]
+
 Require_factors = [
     "外部とのインタフェース",
     "機能要求",
@@ -23,21 +39,6 @@ doc_classify = []
 
 # [[requirement], [candidate]]
     # [text, chapter, [other factors]]
-for_result = [
-    [[], []],
-    [[], []],
-    [[], []],
-    [[], []],
-    [[], []],
-    [[], []],
-    [[], []],
-    [[], []],
-    [[], []],
-    [[], []],
-    [[], []],
-    [[], []],
-    [[], []],
-]
 result = for_result
 
 def classify_to_array(text, sent, now_chapter, is_candi):
@@ -67,7 +68,7 @@ def print_all_result():
         for req in result[factor]: # req == array of [text, chapter, [other factors]]
             if i == 0:
                 print(Require_factors[i])
-            else :
+            else:
                 print(Require_factors[i], "候補")
             
             if len(req) == 0:
@@ -81,7 +82,6 @@ def print_all_result():
                 for num in text[2]:
                     print(Require_factors[num], ".")
             i += 1
-            
     return True
 
 def print_one_result(i):
@@ -89,7 +89,7 @@ def print_one_result(i):
     for req in result[i]: # req == array of [text, chapter, [other factors]]
             if i == 0:
                 print(Require_factors[i])
-            else :
+            else:
                 print(Require_factors[i], "候補")
 
             if len(req) == 0:
