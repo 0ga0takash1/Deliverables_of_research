@@ -71,7 +71,7 @@ def root_of_sent(doc):
                             words_to_add_to_root += 1
     return make_root_of_sent(root_text)
 
-for txt in pdf_read.text:
+for txt in dr.text:
     doc_ori = nlp(txt)
     doc = nlp(root_of_sent(doc_ori))
     for sent in doc.sents:

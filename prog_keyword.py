@@ -19,7 +19,7 @@ paths = [
 def add(keyword, list_num):
     path = os.getcwd()
     path += paths[list_num-1]
-    with open(path, mode='w') as fp:
+    with open(path, 'w') as fp:
         fp.write(keyword)
     print("keyword addition completed!")
     return True
