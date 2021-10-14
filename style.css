@@ -1,3 +1,27 @@
-span.chapter{font-size:large;}
-span.other_factors{font-size:large;}
+span.chapter{
+    font-size:large;
+    background-color:cadetblue;
+    padding:5px;
+}
+span.other_factors{
+    font-size:large;
+    background-color:darkorange;
+    padding:5px;
+}
 span.sentence{font-size:x-large;}
+span.factors{color:blue;}
+
+
+ol {counter-reset: section;}
+li.factors {
+    list-style: none;
+}
+li.output{
+    list-style: none;
+    background:rgba(200, 200, 200, 0.5);
+    padding: 1px;
+}
+ol>li:before {
+    content : counters(section, '.') '. ';
+    counter-increment : section;
+}
