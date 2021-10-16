@@ -1,15 +1,21 @@
+span.factors{color: blue;}
+span.subtitle{font-size: small;}
 span.chapter{
-    font-size:large;
-    background-color:cadetblue;
+    font-size:  large;
+    font-weight: bold;
+    background-color: cadetblue;
     padding:5px;
 }
 span.other_factors{
     font-size:large;
-    background-color:darkorange;
+    font-weight: bold;
+    background-color: darkorange;
     padding:5px;
 }
-span.sentence{font-size:x-large;}
-span.factors{color:blue;}
+span.sentence{
+    font-size: x-large;
+    font-weight: bold;
+}
 
 
 ol {counter-reset: section;}
@@ -18,10 +24,10 @@ li.factors {
 }
 li.output{
     list-style: none;
-    background:rgba(200, 200, 200, 0.5);
+    background: rgba(200, 200, 200, 0.3);
     padding: 1px;
 }
 ol>li:before {
     content : counters(section, '.') '. ';
-    counter-increment : section;
+    counter-increment: section;
 }
