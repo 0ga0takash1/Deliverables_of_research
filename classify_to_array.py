@@ -73,4 +73,5 @@ def print_all_result():
     return True
 
 def result_clear():
-    return for_result
+    result = for_result
+    return True

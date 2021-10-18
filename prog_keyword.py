@@ -6,7 +6,8 @@ def add(keyword, list_num):
     path += "/keyword_lists/"
     path += ar.id_list[list_num-1]
     path += "/_.txt"
-    with open(path, 'w') as fp:
+    with open(path, 'a') as fp:
+        fp.write('\n')
         fp.write(keyword)
     print("keyword addition completed!")
     return True

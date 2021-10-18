@@ -49,33 +49,39 @@ def one(chapter_array, other_factors_array, sentence):
 # print(one(['1. aa', '(1) bb', '① cc'], ['機能', '使用性'], 'あああ'))
 
 def clear():
-    cl.result_clear()
-    with open('index.html') as index:
-        soup = BeautifulSoup(index, 'html.parser')
+    html = ''
+    with open('index.html') as f:
+        html = f.read()
+        soup = BeautifulSoup(html, 'html.parser')
         for i in range(len(cl.result)):
             for j in range(2):
-                ID = pk.id_list[i]
+                ID = ar.id_list[i]
                 if j != 0:
                     ID += '_candi'
             
                 conp = soup.find('ul', attrs={'id':ID})
                 conp.clear()
+    with open('index.html', 'w') as f:
+        f.write(html)
     return True
 
 def push():
-    clear()
+    # clear()
     # [[requirement], [candidate]]
         # [text, chapter, [other factors]]
-    for factor in range(len(cl.result)):
-        i = 0
-        for req in cl.result[factor]: # req == array of [text, chapter, [other factors]]
-            ID = pk.id_list[i]
-            if i != 0:
+    for i in range(len(cl.result)):
+        for j in range(len(cl.result[i])): 
+            req = cl.result[i][j] # req == array of [text, chapter, [other factors]]
+            ID = ar.id_list[i]
+            if j != 0:
                 ID += '_candi'
             
-            with open('index.html') as index:
-                soup = BeautifulSoup(index, 'html.parser')
+            html = ''
+            with open('index.html') as f:
+                html = f.read()
+                soup = BeautifulSoup(html, 'html.parser')
                 conp = soup.find('ul', attrs={'id':ID})
+                # print(conp)
 
                 if len(req) == 0:
                     conp.string = '該当なし'
@@ -83,5 +89,7 @@ def push():
                 
                 for text in req: # text == [text, chapter, [other factors]]
                     conp.append(one(text[1], text[2], text[0]))
-            i += 1
+            # print(html)
+            with open('index.html', 'w') as f:
+                f.write(html)
     return True
