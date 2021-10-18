@@ -11,27 +11,26 @@ from pdfminer.pdfparser import PDFParser
 from pdfminer.high_level import extract_text
 from pdfminer.high_level import extract_text_to_fp
 
-pdf_file_path = "/media/ogawatakafumi/HDD_1TB/lab_研/2021/省庁RFP/ニュース速報.pdf"
+def read(file_path):
+    with open(file_path, 'rb') as fp:
+        # 出力先をPythonコンソールにするためのメソッドを取得
+        output_text = StringIO()
 
-with open(pdf_file_path, 'rb') as fp:
-    # 出力先をPythonコンソールにするためのメソッドを取得
-    output_text = StringIO()
+        # 各種テキスト抽出に必要なPdfminer.sixのオブジェクトを取得する処理
+        rmgr = PDFResourceManager() 
+        lprms = LAParams()
+        device = TextConverter(rmgr, output_text, laparams=lprms)
+        iprtr = PDFPageInterpreter(rmgr, device)
 
-    # 各種テキスト抽出に必要なPdfminer.sixのオブジェクトを取得する処理
-    rmgr = PDFResourceManager() 
-    lprms = LAParams()
-    device = TextConverter(rmgr, output_text, laparams=lprms)
-    iprtr = PDFPageInterpreter(rmgr, device)
+        # PDFファイルから1ページずつ解析(テキスト抽出)処理する
+        for page in PDFPage.get_pages(fp):
+            # page = page.rstrip('\n')
+            iprtr.process_page(page)
+        
 
-    # PDFファイルから1ページずつ解析(テキスト抽出)処理する
-    for page in PDFPage.get_pages(fp):
-        # page = page.rstrip('\n')
-        iprtr.process_page(page)
-    
+        # Pythonコンソールへの出力内容を取得
+        text = output_text.getvalue().strip()
 
-    # Pythonコンソールへの出力内容を取得
-    text = output_text.getvalue().strip()
-
-    # 閉じる
-    output_text.close()
-    device.close()
+        # 閉じる
+        output_text.close()
+        device.close()

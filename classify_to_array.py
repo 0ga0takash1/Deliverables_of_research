@@ -1,5 +1,6 @@
 import os
 import prog_keyword as pk
+import array as ar
 
 for_result = [
     [[], []],
@@ -15,22 +16,6 @@ for_result = [
     [[], []],
     [[], []],
     [[], []],
-]
-
-Require_factors = [
-    "外部とのインタフェース",
-    "機能要求",
-    "性能要求",
-    "論理データベース要求",
-    "設計制約",
-    "時間効率性",
-    "資源効率性",
-    "互換性",
-    "使用性",
-    "信頼性",
-    "セキュリティ",
-    "保守性",
-    "移植性"
 ]
 
 # [text, chapter, [factors]]
@@ -62,46 +47,29 @@ def leveling_to_result_array():
             see = other_factors.pop(i) # see = [factor num, is candi]
             result[see[0]][see[1]].append([sent[0], sent[1], other_factors])
 
-def print_all_result():
-    for factor in range(len(result)):
-        i = 0
-        for req in result[factor]: # req == array of [text, chapter, [other factors]]
-            if i == 0:
-                print(Require_factors[i])
+def print_one_result(i):
+    for req in result[i]: # req == [[requirement], [candidate]]
+        for j in range(2):
+            if j == 0:
+                print(ar.Require_factors[i])
             else:
-                print(Require_factors[i], "候補")
-            
-            if len(req) == 0:
+                print(ar.Require_factors[i], "候補")
+
+            if len(req[j]) == 0:
                 print("There is no sentences corresponding to this element.")
                 continue
             
             for text in req: # text == [text, chapter, [other factors]]
                 print("Chapter:", text[1])
-                print(text[0])
                 print("Other applicable factors:")
                 for num in text[2]:
-                    print(Require_factors[num], ".")
-            i += 1
+                    print(ar.Require_factors[num], ".")
+                print(text[0])
     return True
 
-def print_one_result(i):
-    i -= 1
-    for req in result[i]: # req == array of [text, chapter, [other factors]]
-            if i == 0:
-                print(Require_factors[i])
-            else:
-                print(Require_factors[i], "候補")
-
-            if len(req) == 0:
-                print("There is no sentences corresponding to this element.")
-                continue
-            
-            for text in req: # text == [text, chapter, [other factors]]
-                print("Chapter:", text[1])
-                print(text[0])
-                print("Other applicable factors:")
-                for num in text[2]:
-                    print(Require_factors[num], ".")
+def print_all_result():
+    for i in range(len(result)):
+        print_one_result(i)
     return True
 
 def result_clear():
