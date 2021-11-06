@@ -88,8 +88,6 @@ def push():
             
             with open('index.html') as f:
                 soup = BeautifulSoup(f.read(), 'html.parser')
-                # contents = soup.find('ul', attrs={'id':ID})
-                # print(soup.find('ul', attrs={'id':ID}))
 
                 if len(req) == 0:
                     no_one_tag = soup.new_tag('li')
@@ -100,7 +98,7 @@ def push():
                     for text in req: # text == [text, chapter, [other factors]]
                         soup.find('ul', attrs={'id':ID}).append(one(text[1], text[2], text[0]))
                         soup.find('ul', attrs={'id':ID}).append(soup.new_tag('br'))
-                # print(soup.prettify())
+
                 out = soup.prettify()
                 with open('index.html', 'w') as f:
                     f.write(out)

@@ -23,7 +23,7 @@ def is_candidate(sent):
         return 1
     return 0
 
-def subject_is_human(doc):
+def subject_is_system(doc):
     if doc:
         return 1
     return 0
@@ -71,9 +71,10 @@ def root_of_sent(doc):
                             words_to_add_to_root += 1
     return make_root_of_sent(root_text)
 
-for txt in dr.text:
+# 
+def nlp_classify(txt, now_chapter_array):
     doc_ori = nlp(txt)
     doc = nlp(root_of_sent(doc_ori))
     for sent in doc.sents:
-        if subject_is_human(doc) == 0:
-            cl.classify_to_array(txt, sent, is_candidate(sent))
+        if not subject_is_system(doc):
+            cl.classify_to_array(txt, sent, now_chapter_array, is_candidate(sent))

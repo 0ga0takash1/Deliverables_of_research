@@ -18,15 +18,15 @@ for_result = [
     [[], []],
 ]
 
-# [text, chapter, [factors]]
+# [text, chapter array, [factors]]
 # factors = [factor num, is candi]
 doc_classify = []
 
 # [[requirement], [candidate]]
-    # [text, chapter, [other factors]]
+    # [text, chapter array, [other factors]]
 result = for_result
 
-def classify_to_array(text, sent, now_chapter, is_candi):
+def classify_to_array(text, sent, now_chapter_array, is_candi):
     applicable_factors = []
     for i in range(len(pk.paths)):
         path = os.getcwd()
@@ -38,10 +38,10 @@ def classify_to_array(text, sent, now_chapter, is_candi):
                     # add(text, i, is_candi)
                     applicable_factors.append([i, is_candi])
                     break
-    doc_classify.append([text, now_chapter, applicable_factors])
+    doc_classify.append([text, now_chapter_array, applicable_factors])
 
 def leveling_to_result_array():
-    for sent in doc_classify: # sent == [text, chapter, [factors]]
+    for sent in doc_classify: # sent == [text, chapter array, [factors]]
         for i in range(sent[2]):
             other_factors = sent[2]
             see = other_factors.pop(i) # see = [factor num, is candi]
@@ -59,7 +59,7 @@ def print_one_result(i):
                 print("There is no sentences corresponding to this element.")
                 continue
             
-            for text in req: # text == [text, chapter, [other factors]]
+            for text in req: # text == [text, chapter array, [other factors]]
                 print("Chapter:", text[1])
                 print("Other applicable factors:")
                 for num in text[2]:
