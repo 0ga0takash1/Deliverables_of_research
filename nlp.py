@@ -14,8 +14,8 @@ def is_specific_syntax(sent):
             and token.dep_ != 'nummod':
                 return 1
         # reference syntax
-        if token.i:
-            return 1
+        # if token.i:
+        #     return 1
     return 0
 
 def is_candidate(sent):
@@ -24,9 +24,9 @@ def is_candidate(sent):
     return 0
 
 def subject_is_system(doc):
-    if doc:
-        return 1
-    return 0
+    # if doc:
+    return 1
+    # return 0
 
 def correct_root_dep_(dep):
     if dep == 'acl':
@@ -73,8 +73,8 @@ def root_of_sent(doc):
 
 # 
 def nlp_classify(txt, now_chapter_array):
-    doc_ori = nlp(txt)
-    doc = nlp(root_of_sent(doc_ori))
+    doc = nlp(txt)
+    # doc = nlp(root_of_sent(doc_ori))
     for sent in doc.sents:
         if not subject_is_system(doc):
             cl.classify_to_array(txt, sent, now_chapter_array, is_candidate(sent))

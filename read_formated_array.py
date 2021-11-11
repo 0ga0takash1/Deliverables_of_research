@@ -1,15 +1,23 @@
-import format_document_to_array as format_doc
 import nlp
 
-now_chapter_array = []
-def read_process(formated_array):
-    for chapter in formated_array:
-        now_chapter_array.append(chapter[0])
+def read_formated_table(table):
+    return True
+    # for i in range(table[0][2][0]):
+    #     for j in range(table[0][2][1]):
+    #         pass
 
-        for chapter_or_text in chapter[1]:
-            if isinstance(chapter_or_text, str):
-                nlp.nlp_classify(chapter_or_text, now_chapter_array)
-            elif isinstance(chapter_or_text, list):
-                read_process(chapter_or_text)
+now_chapter_array = []
+def read_process(chapter):
+    now_chapter_array.append(chapter[0])
+
+    for chap_txt_tbl in chapter[1]:
+        if isinstance(chap_txt_tbl, str):
+            nlp.nlp_classify(chap_txt_tbl, now_chapter_array)
+        elif isinstance(chap_txt_tbl, list):
+            if chap_txt_tbl[0][0] == "is table":
+                read_formated_table(chap_txt_tbl)
+                continue
+            read_process(chap_txt_tbl)
         
-        now_chapter_array.pop()
+    now_chapter_array.pop()
+    return True

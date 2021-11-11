@@ -30,7 +30,11 @@ def read(file_path):
 
         # Pythonコンソールへの出力内容を取得
         text = output_text.getvalue().strip()
+        print(text)
 
         # 閉じる
         output_text.close()
         device.close()
+
+file_path = "/media/ogawatakafumi/HDD_1TB/lab_研/2021/省庁RFP/統計分析.pdf"
+# read(file_path)
