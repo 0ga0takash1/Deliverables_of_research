@@ -2,21 +2,8 @@ import os
 import prog_keyword as pk
 import array as ar
 
-for_result = [
-    [[], []],
-    [[], []],
-    [[], []],
-    [[], []],
-    [[], []],
-    [[], []],
-    [[], []],
-    [[], []],
-    [[], []],
-    [[], []],
-    [[], []],
-    [[], []],
-    [[], []],
-]
+for_result = []
+for i in range(13): for_result.append([[], []])
 
 # [text, chapter array, [factors]]
 # factors = [factor num, is candi]
@@ -26,16 +13,13 @@ doc_classify = []
     # [text, chapter array, [other factors]]
 result = for_result
 
-def classify_to_array(text, sent, now_chapter_array, is_candi):
-    applicable_factors = []
-    for i in range(len(pk.paths)):
-        path = os.getcwd()
-        path += pk.paths[i]
-        with open(path) as fp:
-            keywords = fp.readline()
+def classify_to_array(text, now_chapter_array, is_candi):
+    applicable_factors = [] # [factor num, is candi]
+    for i in range(len(ar.id_list)):
+        with open(pk.get_path(i)) as fp:
+            keywords = [word.strip() for word in fp.readline()]
             for keyword in keywords:
-                if keyword == sent:
-                    # add(text, i, is_candi)
+                if keyword in text:
                     applicable_factors.append([i, is_candi])
                     break
     doc_classify.append([text, now_chapter_array, applicable_factors])

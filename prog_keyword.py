@@ -1,12 +1,15 @@
 import os
 import array as ar
 
-def add(keyword, list_num):
+def get_path(list_num):
     path = os.getcwd()
     path += "/keyword_lists/"
-    path += ar.id_list[list_num-1]
+    path += ar.id_list[list_num]
     path += "/_.txt"
-    with open(path, 'a') as fp:
+    return path
+
+def add(keyword, list_num):
+    with open(get_path(list_num-1), 'a') as fp:
         fp.write('\n')
         fp.write(keyword)
     print("keyword addition completed!")
@@ -16,11 +19,7 @@ def add(keyword, list_num):
 # add("パスワード", 61)
 
 def delete(keyword, list_num):
-    path = os.getcwd()
-    path += "/keyword_lists/"
-    path += ar.id_list[list_num-1]
-    path += "/_.txt"
-    with open(path, 'r+') as fp:
+    with open(get_path(list_num-1), 'r+') as fp:
         new = fp.readlines()
         fp.seek(0)
         for key in new:

@@ -18,9 +18,10 @@ def is_specific_syntax(sent):
         #     return 1
     return 0
 
-def is_candidate(sent):
-    if is_specific_syntax(sent):
-        return 1
+def is_candidate(doc):
+    for sent in doc.sents:
+        if is_specific_syntax(sent):
+            return 1
     return 0
 
 def subject_is_system(doc):
@@ -74,7 +75,7 @@ def root_of_sent(doc):
 # 
 def nlp_classify(txt, now_chapter_array):
     doc = nlp(txt)
-    # doc = nlp(root_of_sent(doc_ori))
-    for sent in doc.sents:
-        if not subject_is_system(doc):
-            cl.classify_to_array(txt, sent, now_chapter_array, is_candidate(sent))
+    # # doc = nlp(root_of_sent(doc_ori))
+    # for sent in doc.sents:
+    if not subject_is_system(doc):
+        cl.classify_to_array(txt, now_chapter_array, is_candidate(doc))

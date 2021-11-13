@@ -7,7 +7,8 @@ def read_formated_table(table):
     #         pass
 
 now_chapter_array = []
-def read_process(chapter):
+def read_and_process(chapter):
+    # print("\n", "see: ", chapter, "\n")
     now_chapter_array.append(chapter[0])
 
     for chap_txt_tbl in chapter[1]:
@@ -17,7 +18,12 @@ def read_process(chapter):
             if chap_txt_tbl[0][0] == "is table":
                 read_formated_table(chap_txt_tbl)
                 continue
-            read_process(chap_txt_tbl)
+            read_and_process(chap_txt_tbl)
         
     now_chapter_array.pop()
+    return True
+
+def main(formated_array):
+    for chapter in formated_array:
+        read_and_process(chapter)
     return True

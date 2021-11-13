@@ -14,14 +14,14 @@ from doc_examples import toukei_bunseki as sample
 # 3. キーワードから文章を抽出・分配
 # import format_document_to_array as f_doc_ar
 import read_formated_array as r_f_ar
+import classify_to_array as cl
 formated_array = sample.formated_array
-r_f_ar.read_process(formated_array)
+r_f_ar.main(formated_array)
 # ----------------------------------- #
 # 4. 分配した文章をhtmlにpush
-import classify_to_array as cl
 cl.leveling_to_result_array()
 import to_result_html as to_html
 to_html.push()
 # ----------------------------------- #
 # 5. html用のローカルサーバをたてる
-# import server
+import server
