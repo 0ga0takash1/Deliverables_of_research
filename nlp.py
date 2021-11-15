@@ -26,7 +26,7 @@ def is_candidate(doc):
 
 def subject_is_system(doc):
     # if doc:
-    return 1
+    return True
     # return 0
 
 def correct_root_dep_(dep):
@@ -77,5 +77,5 @@ def nlp_classify(txt, now_chapter_array):
     doc = nlp(txt)
     # # doc = nlp(root_of_sent(doc_ori))
     # for sent in doc.sents:
-    if not subject_is_system(doc):
-        cl.classify_to_array(txt, now_chapter_array, is_candidate(doc))
+    if subject_is_system(doc):
+        cl.classify(txt, now_chapter_array, is_candidate(doc))

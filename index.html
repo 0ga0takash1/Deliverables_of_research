@@ -143,8 +143,77 @@
   </h2>
   <ul id="3_Performance_requirements">
    <li class="output">
-    該当なし
+    <p>
+     <span class="chapter">
+     </span>
+     <br/>
+     <br/>
+     <span class="other_factors">
+      信頼性にも該当
+     </span>
+    </p>
+    <span class="sentence">
+     ・本システムは、ネットワークを介して処理を行うため、ネットワークによる障害及びアプリケーションによる障害、利用者による中断に対して十分考慮して開発すること。
+    </span>
    </li>
+   <br/>
+   <li class="output">
+    <p>
+     <span class="chapter">
+     </span>
+     <br/>
+     <br/>
+     <span class="other_factors">
+     </span>
+    </p>
+    <span class="sentence">
+     本サイトの利用者は、情報システム厚生課の担当者２～３名、中小企業庁調査課の担当者２～３名である。
+    </span>
+   </li>
+   <br/>
+   <li class="output">
+    <p>
+     <span class="chapter">
+     </span>
+     <br/>
+     <br/>
+     <span class="other_factors">
+     </span>
+    </p>
+    <span class="sentence">
+     ・多数の職員の利用に際し、快適な作業を実現できる処理速度を有すること。
+    </span>
+   </li>
+   <br/>
+   <li class="output">
+    <p>
+     <span class="chapter">
+     </span>
+     <br/>
+     <br/>
+     <span class="other_factors">
+     </span>
+    </p>
+    <span class="sentence">
+     ・レスポンス時間の目標値は平常時３秒以内、ピーク時５秒以内とする。
+    </span>
+   </li>
+   <br/>
+   <li class="output">
+    <p>
+     <span class="chapter">
+     </span>
+     <br/>
+     <br/>
+     <span class="other_factors">
+      論理データベース要求，移植性にも該当
+     </span>
+    </p>
+    <span class="sentence">
+     ・将来、データ量、利用者数等が調達時に指定した量の5割増となっても、プログラムやファイル等の改修なく対応できるよう、データベースやファイル等の容量に余裕を持たせること。
+    </span>
+   </li>
+   <br/>
   </ul>
   <h3>
    候補
@@ -159,8 +228,34 @@
   </h2>
   <ul id="4_Logical_database_requirements">
    <li class="output">
-    該当なし
+    <p>
+     <span class="chapter">
+     </span>
+     <br/>
+     <br/>
+     <span class="other_factors">
+     </span>
+    </p>
+    <span class="sentence">
+     現システムが利用している通関統計加工分析用データベースに登録されている全てのデータを、本開発において構築されるデータベースに登録すること。
+    </span>
    </li>
+   <br/>
+   <li class="output">
+    <p>
+     <span class="chapter">
+     </span>
+     <br/>
+     <br/>
+     <span class="other_factors">
+      性能要求，移植性にも該当
+     </span>
+    </p>
+    <span class="sentence">
+     ・将来、データ量、利用者数等が調達時に指定した量の5割増となっても、プログラムやファイル等の改修なく対応できるよう、データベースやファイル等の容量に余裕を持たせること。
+    </span>
+   </li>
+   <br/>
   </ul>
   <h3>
    候補
@@ -175,8 +270,117 @@
   </h2>
   <ul id="5_Design_constraints">
    <li class="output">
-    該当なし
+    <p>
+     <span class="chapter">
+     </span>
+     <br/>
+     <br/>
+     <span class="other_factors">
+     </span>
+    </p>
+    <span class="sentence">
+     本作業は、別添の「通関統計加工分析システムのクライアント・サーバ方式への移植作業」に係る仕様書に基づき同システムの基本設計、詳細設計、プログラム開発、システムテスト、ドキュメント作成ならびにコンテンツ作成を行うものである。
+    </span>
    </li>
+   <br/>
+   <li class="output">
+    <p>
+     <span class="chapter">
+     </span>
+     <br/>
+     <br/>
+     <span class="other_factors">
+     </span>
+    </p>
+    <span class="sentence">
+     ・本システムは、経済産業省の省内 PC-LAN に接続された一般執務用パソコン、開発用パソコン、および個別業務用イントラネットサーバより構成される。
+    </span>
+   </li>
+   <br/>
+   <li class="output">
+    <p>
+     <span class="chapter">
+     </span>
+     <br/>
+     <br/>
+     <span class="other_factors">
+     </span>
+    </p>
+    <span class="sentence">
+     ・本システムはクライアント・サーバ方式で稼働すること。
+    </span>
+   </li>
+   <br/>
+   <li class="output">
+    <p>
+     <span class="chapter">
+     </span>
+     <br/>
+     <br/>
+     <span class="other_factors">
+     </span>
+    </p>
+    <span class="sentence">
+     ・ ネットワークトラフィックの効率化を図るために、冗長なトラフィックを発生させないようにすること。
+    </span>
+   </li>
+   <br/>
+   <li class="output">
+    <p>
+     <span class="chapter">
+     </span>
+     <br/>
+     <br/>
+     <span class="other_factors">
+     </span>
+    </p>
+    <span class="sentence">
+     対象業務の内容や手順等を変更することなく、現システムをクライアント・サーバ方式で処理するようにシステムを開発するとともに、システムの稼働に必要なコンテンツを作成する。
+    </span>
+   </li>
+   <br/>
+   <li class="output">
+    <p>
+     <span class="chapter">
+     </span>
+     <br/>
+     <br/>
+     <span class="other_factors">
+     </span>
+    </p>
+    <span class="sentence">
+     ・本システムは、経済産業省の省内 PC-LAN に接続された一般執務用パソコン、開発用パソコン、および個別業務用イントラネットサーバより構成される。
+    </span>
+   </li>
+   <br/>
+   <li class="output">
+    <p>
+     <span class="chapter">
+     </span>
+     <br/>
+     <br/>
+     <span class="other_factors">
+     </span>
+    </p>
+    <span class="sentence">
+     ・本システムはクライアント・サーバ方式で稼働すること。
+    </span>
+   </li>
+   <br/>
+   <li class="output">
+    <p>
+     <span class="chapter">
+     </span>
+     <br/>
+     <br/>
+     <span class="other_factors">
+     </span>
+    </p>
+    <span class="sentence">
+     ・ ネットワークトラフィックの効率化を図るために、冗長なトラフィックを発生させないようにすること。
+    </span>
+   </li>
+   <br/>
   </ul>
   <h3>
    候補
@@ -229,8 +433,20 @@
   </h2>
   <ul id="6_2_Compatibility">
    <li class="output">
-    該当なし
+    <p>
+     <span class="chapter">
+     </span>
+     <br/>
+     <br/>
+     <span class="other_factors">
+      移植性にも該当
+     </span>
+    </p>
+    <span class="sentence">
+     ・OS、ミドルウェア等のベンダーからバージョンアップ情報が既に提供されている場合には、それにも対応できるようにシステムを構築すること。
+    </span>
    </li>
+   <br/>
   </ul>
   <h3>
    候補
@@ -245,8 +461,20 @@
   </h2>
   <ul id="6_3_Usability">
    <li class="output">
-    該当なし
+    <p>
+     <span class="chapter">
+     </span>
+     <br/>
+     <br/>
+     <span class="other_factors">
+      信頼性にも該当
+     </span>
+    </p>
+    <span class="sentence">
+     ・ アクセシビリティを確保するために、「障害者・高齢者等情報処理機器アクセシビリティ指針」（平成 12 年 6 月通商産業省）に従うこと。
+    </span>
    </li>
+   <br/>
   </ul>
   <h3>
    候補
@@ -261,8 +489,91 @@
   </h2>
   <ul id="6_4_Reliability">
    <li class="output">
-    該当なし
+    <p>
+     <span class="chapter">
+     </span>
+     <br/>
+     <br/>
+     <span class="other_factors">
+      性能要求にも該当
+     </span>
+    </p>
+    <span class="sentence">
+     ・本システムは、ネットワークを介して処理を行うため、ネットワークによる障害及びアプリケーションによる障害、利用者による中断に対して十分考慮して開発すること。
+    </span>
    </li>
+   <br/>
+   <li class="output">
+    <p>
+     <span class="chapter">
+     </span>
+     <br/>
+     <br/>
+     <span class="other_factors">
+     </span>
+    </p>
+    <span class="sentence">
+     ・特定の日付が原因となって発生するトラブルについて対応しており、いかなる日付においてもシステムが支障なく稼働すること。
+    </span>
+   </li>
+   <br/>
+   <li class="output">
+    <p>
+     <span class="chapter">
+     </span>
+     <br/>
+     <br/>
+     <span class="other_factors">
+     </span>
+    </p>
+    <span class="sentence">
+     ・障害に伴うシステム停止は年１回以内とすること。
+    </span>
+   </li>
+   <br/>
+   <li class="output">
+    <p>
+     <span class="chapter">
+     </span>
+     <br/>
+     <br/>
+     <span class="other_factors">
+     </span>
+    </p>
+    <span class="sentence">
+     ・受注者の瑕疵となる障害が発生した場合は、担当者からの連絡を受けてから３時間以内に回復できること。
+    </span>
+   </li>
+   <br/>
+   <li class="output">
+    <p>
+     <span class="chapter">
+     </span>
+     <br/>
+     <br/>
+     <span class="other_factors">
+     </span>
+    </p>
+    <span class="sentence">
+     ・障害復旧の際、データ復旧はすべてバックアップデータのリストアで対応できること。
+    </span>
+   </li>
+   <br/>
+   <li class="output">
+    <p>
+     <span class="chapter">
+     </span>
+     <br/>
+     <br/>
+     <span class="other_factors">
+      使用性にも該当
+     </span>
+    </p>
+    <span class="sentence">
+     ・ アクセシビリティを確保するために、「障害者・高齢者等情報処理機器アクセシビリティ指針」（平成 12 年 6 月通商産業省）に従うこと。
+    </span>
+   </li>
+   <br/>
   </ul>
   <h3>
    候補
@@ -277,8 +588,19 @@
   </h2>
   <ul id="6_5_Security">
    <li class="output">
-    該当なし
+    <p>
+     <span class="chapter">
+     </span>
+     <br/>
+     <br/>
+     <span class="other_factors">
+     </span>
+    </p>
+    <span class="sentence">
+     ・システム内の機能や取扱データは、その機能やデータの利用権限を持つユーザのみが利用可能であること。
+    </span>
    </li>
+   <br/>
   </ul>
   <h3>
    候補
@@ -309,8 +631,49 @@
   </h2>
   <ul id="6_7_Portability">
    <li class="output">
-    該当なし
+    <p>
+     <span class="chapter">
+     </span>
+     <br/>
+     <br/>
+     <span class="other_factors">
+      性能要求，論理データベース要求にも該当
+     </span>
+    </p>
+    <span class="sentence">
+     ・将来、データ量、利用者数等が調達時に指定した量の5割増となっても、プログラムやファイル等の改修なく対応できるよう、データベースやファイル等の容量に余裕を持たせること。
+    </span>
    </li>
+   <br/>
+   <li class="output">
+    <p>
+     <span class="chapter">
+     </span>
+     <br/>
+     <br/>
+     <span class="other_factors">
+     </span>
+    </p>
+    <span class="sentence">
+     ・ 将来、本システムが他システムと接続する際のプロトコルは、TCP/IP を前提とすること。
+    </span>
+   </li>
+   <br/>
+   <li class="output">
+    <p>
+     <span class="chapter">
+     </span>
+     <br/>
+     <br/>
+     <span class="other_factors">
+      互換性にも該当
+     </span>
+    </p>
+    <span class="sentence">
+     ・OS、ミドルウェア等のベンダーからバージョンアップ情報が既に提供されている場合には、それにも対応できるようにシステムを構築すること。
+    </span>
+   </li>
+   <br/>
   </ul>
   <h3>
    候補

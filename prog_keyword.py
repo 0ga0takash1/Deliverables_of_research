@@ -1,5 +1,5 @@
 import os
-import array as ar
+import arrays as ar
 
 def get_path(list_num):
     path = os.getcwd()

@@ -17,7 +17,7 @@ def other_factors(array):
     res = ''
     if len(array):
         for i in range(len(array)):
-            res += ar.Require_factors[array[i]]
+            res += ar.Require_factors[array[i][0]]
             if i < len(array)-1:
                 res += '，'
         res += 'にも該当'
