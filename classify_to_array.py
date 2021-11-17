@@ -24,7 +24,7 @@ def classify(text, now_chapter_array, is_candi):
                 if keyword in text:
                     applicable_factors.append([i, is_candi])
                     break
-    doc_classify.append([text, now_chapter_array, applicable_factors])
+    doc_classify.append([text, now_chapter_array[:], applicable_factors])
 
 def leveling_to_result_array():
     for sent in doc_classify: # sent == [text, chapter array, [factors]]
