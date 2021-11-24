@@ -1,4 +1,83 @@
-span.factors{color: blue;}
+*{
+    margin: 0px;
+}
+
+header {
+    position: fixed;
+    width:100%;
+    padding: 8px;
+    background: gray;
+    color: whitesmoke;
+    border-bottom: 2px solid white;
+}
+
+main {
+    background: whitesmoke;
+    padding-top: 6%;
+}
+
+div.main {
+    display: flex;
+}
+
+div.bar {
+    position: fixed;
+    margin-left: 2.5%;
+    width: 20%;
+}
+
+div.bar_item {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: #5d627b;
+    background: white;
+    border-top: solid 5px #5d627b;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+}
+
+div.bar_item p {
+    margin: 0;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+div.contents {
+    line-height: 1.6;
+    margin: 0 20% 0 25%;
+    padding: 1%;
+    width: 60%;
+    background: white;
+    border-left: 2px solid #ccc;
+    border-right: 2px solid #ccc;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+}
+
+h1 {
+    margin: 8px;
+    padding-bottom: .5em;
+    border-bottom: 2px solid #ccc;
+}
+
+h2 {
+    margin: 8px;
+    padding: .25em 0 .5em .75em;
+    border-left: 6px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+h3 {
+    margin: 8px;
+    padding: .25em 0 .5em .75em;
+    border-left: 6px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+/* --------------span--------------*/
+span.cyan{color:cyan;}
+span.factors{
+    font-weight: bold;
+    color: blue;
+}
 span.subtitle{font-size: small;}
 span.chapter{
     font-size:  large;
@@ -23,8 +102,9 @@ li.factors {
     list-style: none;
 }
 li.output{
+    margin: 8px;
     list-style: none;
-    background: rgba(200, 200, 200, 0.3);
+    background: gainsboro;
     padding: 1px;
 }
 ol>li:before {

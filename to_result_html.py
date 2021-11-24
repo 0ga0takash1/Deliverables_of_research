@@ -36,7 +36,6 @@ def one(chapter_array, other_factors_array, sentence):
     p.append(chapter_tag)
 
     p.append(soup.new_tag('br'))
-    p.append(soup.new_tag('br'))
 
     other_factors_tag = soup.new_tag('span')
     other_factors_tag.attrs['class'] = "other_factors"
