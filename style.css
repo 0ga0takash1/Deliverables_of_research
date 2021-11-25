@@ -1,113 +1,158 @@
-*{
-    margin: 0px;
+* {
+  margin: 0px;
 }
 
 header {
-    position: fixed;
-    width:100%;
-    padding: 8px;
-    background: gray;
-    color: whitesmoke;
-    border-bottom: 2px solid white;
+  position: fixed;
+  width: 100%;
+  padding: 8px;
+  background: gray;
+  color: whitesmoke;
+  border-bottom: 2px solid whitesmoke;
+}
+
+header h2 {
+  margin: 8px;
+  padding-bottom: .5em;
+  border-bottom: 2px solid #ccc;
 }
 
 main {
-    background: whitesmoke;
-    padding-top: 6%;
+  background: whitesmoke;
+  padding-top: 5%;
+}
+
+div.fixed_area {
+  position: fixed;
 }
 
 div.main {
-    display: flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
-div.bar {
-    position: fixed;
-    margin-left: 2.5%;
-    width: 20%;
+div.main h2 {
+  margin: 8px;
+  padding: .25em 0 .5em .75em;
+  border-left: 6px solid #ccc;
+  border-bottom: 1px solid #ccc;
 }
 
-div.bar_item {
-    padding: 0.5em 1em;
-    margin: 2em 0;
-    color: #5d627b;
-    background: white;
-    border-top: solid 5px #5d627b;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+div.main h3 {
+  margin: 8px;
+  padding: .25em 0 .5em .75em;
+  border-left: 6px solid #ccc;
+  border-bottom: 1px solid #ccc;
 }
 
-div.bar_item p {
-    margin: 0;
-    padding-top: 4px;
-    padding-bottom: 4px;
+div.left_area {
+  width: 20%;
+  background: red;
+}
+
+div.select_list {
+  width: 80%;
+  background: darkgray;
+}
+
+div.select_item {
+  width: 100%;
+}
+
+div.main_area {
+  width: 55%;
+}
+
+div.right_area {
+  width: 25%;
+}
+
+div.memo {
+  width: 90%;
+  margin: 0 auto;
+}
+
+div.memo_item {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  background: white;
+  border-top: solid 5px #5d627b;
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+          box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+}
+
+div.memo_item p {
+  margin: 0;
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 
 div.contents {
-    line-height: 1.6;
-    margin: 0 20% 0 25%;
-    padding: 1%;
-    width: 60%;
-    background: white;
-    border-left: 2px solid #ccc;
-    border-right: 2px solid #ccc;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+  line-height: 1.6;
+  margin: auto;
+  width: 95%;
+  padding: 1%;
+  background: white;
+  border-left: 2px solid #ccc;
+  border-right: 2px solid #ccc;
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+          box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
 }
 
-h1 {
-    margin: 8px;
-    padding-bottom: .5em;
-    border-bottom: 2px solid #ccc;
+span.cyan {
+  padding: 0 3px;
+  font-weight: bold;
+  color: cyan;
 }
 
-h2 {
-    margin: 8px;
-    padding: .25em 0 .5em .75em;
-    border-left: 6px solid #ccc;
-    border-bottom: 1px solid #ccc;
+span.d_cyan {
+  padding: 0 3px;
+  font-weight: bold;
+  color: darkcyan;
 }
 
-h3 {
-    margin: 8px;
-    padding: .25em 0 .5em .75em;
-    border-left: 6px solid #ccc;
-    border-bottom: 1px solid #ccc;
+span.factors {
+  font-weight: bold;
+  color: blue;
 }
 
-/* --------------span--------------*/
-span.cyan{color:cyan;}
-span.factors{
-    font-weight: bold;
-    color: blue;
-}
-span.subtitle{font-size: small;}
-span.chapter{
-    font-size:  large;
-    font-weight: bold;
-    background-color: cadetblue;
-    padding:5px;
-}
-span.other_factors{
-    font-size:large;
-    font-weight: bold;
-    background-color: darkorange;
-    padding:5px;
-}
-span.sentence{
-    font-size: x-large;
-    font-weight: bold;
+span.chapter {
+  font-size: large;
+  font-weight: bold;
+  background-color: cadetblue;
+  padding: 5px;
 }
 
+span.other_factors {
+  font-size: large;
+  font-weight: bold;
+  background-color: darkorange;
+  padding: 5px;
+}
 
-ol {counter-reset: section;}
+span.sentence {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+ol {
+  counter-reset: section;
+}
+
+ol > li:before {
+  content: counters(section, ".") ". ";
+  counter-increment: section;
+}
+
 li.factors {
-    list-style: none;
+  list-style: none;
 }
-li.output{
-    margin: 8px;
-    list-style: none;
-    background: gainsboro;
-    padding: 1px;
+
+li.output {
+  margin: 8px;
+  list-style: none;
+  background: gainsboro;
+  padding: 1px;
 }
-ol>li:before {
-    content : counters(section, '.') '. ';
-    counter-increment: section;
-}
+/*# sourceMappingURL=style.css.map */

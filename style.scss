@@ -1,0 +1,142 @@
+*{
+    margin: 0px;
+}
+
+header {
+    position: fixed;
+    width:100%;
+    padding: 8px;
+    background: gray;
+    color: whitesmoke;
+    border-bottom: 2px solid whitesmoke;
+
+    & h2 {
+        margin: 8px;
+        padding-bottom: .5em;
+        border-bottom: 2px solid #ccc;
+    }
+}
+
+main {
+    background: whitesmoke;
+    padding-top: 5%;
+}
+
+div {
+    &.fixed_area {position: fixed;}
+
+    &.main {
+        display: flex;
+        & h2 {
+            margin: 8px;
+            padding: .25em 0 .5em .75em;
+            border-left: 6px solid #ccc;
+            border-bottom: 1px solid #ccc;
+        }
+        
+        & h3 {
+            margin: 8px;
+            padding: .25em 0 .5em .75em;
+            border-left: 6px solid #ccc;
+            border-bottom: 1px solid #ccc;
+        }
+    }
+
+    &.left_area {
+        width: 20%;
+        background: red;
+    }
+    &.select_list {
+        width: 80%;
+        background: darkgray;
+    }
+    &.select_item {
+        width: 100%;
+    }
+
+    &.main_area {width: 55%;}
+    &.right_area {width: 25%;}
+
+    &.memo {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    &.memo_item {
+        padding: 0.5em 1em;
+        margin: 2em 0;
+        background: white;
+        border-top: solid 5px #5d627b;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+
+        & p {
+            margin: 0;
+            padding-top: 4px;
+            padding-bottom: 4px;
+        }
+    }
+
+    &.contents {
+        line-height: 1.6;
+        margin: auto;
+        width: 95%;
+        padding: 1%;
+        background: white;
+        border-left: 2px solid #ccc;
+        border-right: 2px solid #ccc;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+    }
+}
+
+span {
+    &.cyan{
+        padding: 0 3px;
+        font-weight: bold;
+        color: cyan;
+    }
+
+    &.d_cyan{
+        padding: 0 3px;
+        font-weight: bold;
+        color: darkcyan;
+    }
+
+    &.factors{
+        font-weight: bold;
+        color: blue;
+    }
+    &.chapter{
+        font-size:  large;
+        font-weight: bold;
+        background-color: cadetblue;
+        padding:5px;
+    }
+    &.other_factors{
+        font-size:large;
+        font-weight: bold;
+        background-color: darkorange;
+        padding:5px;
+    }
+    &.sentence{
+        font-size: x-large;
+        font-weight: bold;
+    }
+}
+
+ol {
+    counter-reset: section;
+    &>li:before {
+        content : counters(section, '.') '. ';
+        counter-increment: section;
+    }
+}
+li {
+    &.factors {list-style: none;}
+
+    &.output{
+        margin: 8px;
+        list-style: none;
+        background: gainsboro;
+        padding: 1px;
+    }
+}
