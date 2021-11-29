@@ -24,7 +24,7 @@ def other_factors(array):
         res += 'にも該当'
     return res
 
-def replace_keyword_to_tag(text: str, target: str) -> str:
+def replace_keyword_to_tag(text, target):
     return re.sub(rf"(?<!<span>)({target})(?!</span>)", r"<span>\1</span>", text)
 
 def one(chapter_array, other_factors_array, text_keyword):
@@ -48,15 +48,8 @@ def one(chapter_array, other_factors_array, text_keyword):
 
     text = text_keyword[0]
     keyword = text_keyword[1]
-    # for keyword in keywords:
-    # keyword_highlight = soup.new_tag('span')
-    # keyword_highlight.string = keyword
-    # tag = html.unescape(str(keyword_highlight))
-    # print(tag)
-    # text = text.replace(keyword, tag)
 
     text = replace_keyword_to_tag(text, keyword)
-    print("a: " ,text)
 
     text_tag = soup.new_tag('div')
     text_tag.attrs['class'] = "sentence"
@@ -99,4 +92,11 @@ def push():
                 out = soup.prettify()
                 with open('index.html', 'w') as f:
                     f.write(out)
+
+    with open('index.html') as fp:
+        file = fp.read()
+        file = file.replace("&lt;span&gt;", r"<span>")
+        file = file.replace("&lt;/span&gt;", r"</span>")
+        with open('index.html', 'w') as f:
+            f.write(file)
     return True
