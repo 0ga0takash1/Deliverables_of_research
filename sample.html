@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-    <html lang="ja" dir="ltr">
+<html lang="ja" dir="ltr">
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="style.css" type="text/css">
@@ -14,8 +14,77 @@
         <main>
             <div class="main">
                 <div class="left_area">
-                    <div class="select_list">
-                        <div class="select_item">
+                    <div class="fixed_area">
+                        <div class="select_list">
+                            <div class="select_item">
+                                <h3>表示する要求要素にチェック</h3>
+                        
+                                <div>
+                                    <input type="radio" id="all" name="all_or_part" value="all">
+                                    <label for="select_all">すべての要求要素を表示する</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="part" name="all_or_part" value="part">
+                                    <label for="select_part">選択した要求要素だけを表示する</label>
+                                    <div>
+                                        <div>
+                                            <input type="checkbox" id="select1">
+                                            <label for="1">1. 外部とのインタフェース</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" id="select2">
+                                            <label for="2">2. 機能要求</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" id="select3">
+                                            <label for="3">3. 性能要求</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" id="select4">
+                                            <label for="4">4. 論理データベース要求</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" id="select5">
+                                            <label for="5">5. 設計制約</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" id="select611">
+                                            <label for="611">6.1.1. 時間効率性</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" id="select612">
+                                            <label for="612">6.1.2. 資源効率性</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" id="select62">
+                                            <label for="62">6.2. 互換性</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" id="select63">
+                                            <label for="63">6.3. 使用性</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" id="select64">
+                                            <label for="64">6.4. 信頼性</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" id="select65">
+                                            <label for="65">6.5. セキュリティ</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" id="select66">
+                                            <label for="66">6.6. 保守性</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" id="select67">
+                                            <label for="67">6.7. 移植性</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button type="submit">submit</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -23,120 +92,121 @@
                 <div class="main_area">
                     <div class="contents">
                         <h2>1. 外部とのインタフェース</h2>
-                        <ul id="1_Interface_with_outside">
+                        <div id="1_Interface_with_outside">
                             
-                            </ul>
+                            </div>
                             <h3>候補</h3>
-                                <ul id="1_Interface_with_outside_candi">
+                                <div id="1_Interface_with_outside_candi">
                 
-                                </ul>
+                                </div>
                         <h2>2. 機能要求</h2>
-                            <ul id="2_Functional_requirements">
+                            <div id="2_Functional_requirements">
                                     
-                            </ul>
+                            </div>
                             <h3>候補</h3>
-                                <ul id="2_Functional_requirements_candi">
+                                <div id="2_Functional_requirements_candi">
                                     
-                                </ul>
+                                </div>
                         <h2>3. 性能要求</h2>
-                            <ul id="3_Performance_requirements">
+                            <div id="3_Performance_requirements">
                                     
-                            </ul>
+                            </div>
                             <h3>候補</h3>
-                                <ul id="3_Performance_requirements_candi">
+                                <div id="3_Performance_requirements_candi">
                                     
-                                </ul>
+                                </div>
                                 <h2>4. 論理データベース要求</h2>
-                                <ul id="4_Logical_database_requirements">
+                                <div id="4_Logical_database_requirements">
                                     
-                            </ul>
+                            </div>
                             <h3>候補</h3>
-                            <ul id="4_Logical_database_requirements_candi">
+                            <div id="4_Logical_database_requirements_candi">
                                     
-                                </ul>
+                                </div>
                         <h2>5. 設計制約</h2>
-                        <ul id="5_Design_constraints">
+                        <div id="5_Design_constraints">
                             
-                        </ul>
+                        </div>
                             <h3>候補</h3>
-                                <ul id="5_Design_constraints_candi">
+                                <div id="5_Design_constraints_candi">
                                     
-                                </ul>
+                                </div>
                         <h2>6. システムの属性</h2>    
                         <h2>6.1. 性能効率性</h2>
                             <h3>6.1.1. 時間効率性</h3>
-                                <ul id="6_1_1_Time_behaviour">
+                                <div id="6_1_1_Time_behaviour">
                                     
-                                </ul>
+                                </div>
                                 <h3>候補</h3>
-                                <ul id="6_1_1_Time_behaviour_candi">
+                                <div id="6_1_1_Time_behaviour_candi">
                                     
-                                    </ul>
+                                    </div>
                             <h3>6.1.2. 資源効率性</h3>
-                                <ul id="6_1_2_Resource_utilization">
+                                <div id="6_1_2_Resource_utilization">
                                     
-                                </ul>
+                                </div>
                                 <h3>候補</h3>
-                                    <ul id="6_1_2_Resource_utilization_candi">
+                                    <div id="6_1_2_Resource_utilization_candi">
                                         
-                                    </ul>
+                                    </div>
                         <h2>6.2. 互換性</h2>
-                            <ul id="6_2_Compatibility">
+                            <div id="6_2_Compatibility">
                                     
-                            </ul>
+                            </div>
                             <h3>候補</h3>
-                            <ul id="6_2_Compatibility_candi">
+                            <div id="6_2_Compatibility_candi">
                                     
-                                </ul>
+                                </div>
                         <h2>6.3. 使用性</h2>
-                        <ul id="6_3_Usability">
+                        <div id="6_3_Usability">
                                     
-                            </ul>
+                            </div>
                             <h3>候補</h3>
-                                <ul id="6_3_Usability_candi">
+                                <div id="6_3_Usability_candi">
                                     
-                                </ul>
+                                </div>
                                 <h2>6.4. 信頼性</h2>
-                            <ul id="6_4_Reliability">
+                            <div id="6_4_Reliability">
                                     
-                            </ul>
+                            </div>
                             <h3>候補</h3>
-                                <ul id="6_4_Reliability_candi">
+                                <div id="6_4_Reliability_candi">
                                     
-                                </ul>
+                                </div>
                                 <h2>6.5. セキュリティ</h2>
-                                <ul id="6_5_Security">
+                                <div id="6_5_Security">
                                     
-                            </ul>
+                            </div>
                             <h3>候補</h3>
-                                <ul id="6_5_Security_candi">
+                                <div id="6_5_Security_candi">
                                     
-                                </ul>
+                                </div>
                         <h2>6.6. 保守性</h2>
-                            <ul id="6_6_Maintainability">
+                            <div id="6_6_Maintainability">
                                 
-                            </ul>
+                            </div>
                             <h3>候補</h3>
-                                <ul id="6_6_Maintainability_candi">
+                                <div id="6_6_Maintainability_candi">
                                     
-                                </ul>
+                                </div>
                         <h2>6.7. 移植性</h2>
-                            <ul id="6_7_Portability">
+                            <div id="6_7_Portability">
                                     
-                            </ul>
+                            </div>
                             <h3>候補</h3>
-                            <ul id="6_7_Portability_candi">
+                            <div id="6_7_Portability_candi">
                                     
-                                </ul>
+                                </div>
                     </div>
                 </div>
                 <div class="right_area">
                     <div class="fixed_area">
                         <div class="memo">
                             <div class="memo_item">
-                                <p>ハイライトの説明</p>
-                                <p><span class="chapter">その文章がある章や節</span></p>
-                                <p><span class="other_factors">該当する他の要求要素</span></p>
+                                <p>ハイライトについて</p>
+                                <div class="chapter">その文章がある章や節</div>
+                                <div class="other_factors">該当する他の要求要素</div>
+                                <span class="gold">文章中に含まれるキーワード</span>
                             </div>
                             <div class="memo_item">
                                 <p>文書中の要求に関する文章を、<br><span class="d_cyan">要求要素</span>別に出力します。</p>
@@ -151,25 +221,25 @@
                                     <summary><span class="d_cyan">要求要素</span>とは</summary>
                                     <span class="d_cyan">要求要素</span>とは、<br>以下の青字になっている13個です。
                                     <ol>
-                                        <li class="factors"><span class="blue">外部とのインタフェース</span></li>
-                                        <li class="factors"><span class="blue">機能要求</span></li>
-                                        <li class="factors"><span class="blue">性能要求</span></li>
-                                        <li class="factors"><span class="blue">論理データベース要求</span></li>
-                                        <li class="factors"><span class="blue">設計制約</span></li>
-                                        <li class="factors">システムの属性
+                                        <li><span>外部とのインタフェース</span></li>
+                                        <li><span>機能要求</span></li>
+                                        <li><span>性能要求</span></li>
+                                        <li><span>論理データベース要求</span></li>
+                                        <li><span>設計制約</span></li>
+                                        <li>システムの属性
                                             <ol>
-                                                <li class="factors">性能効率性
+                                                <li>性能効率性
                                                     <ol>
-                                                        <li class="factors"><span class="blue">時間効率性</span></li>
-                                                        <li class="factors"><span class="blue">資源効率性</span></li>
+                                                        <li><span>時間効率性</span></li>
+                                                        <li><span>資源効率性</span></li>
                                                     </ol>
                                                 </li>
-                                                <li class="factors"><span class="blue">互換性</span></li>
-                                                <li class="factors"><span class="blue">使用性</span></li>
-                                                <li class="factors"><span class="blue">信頼性</span></li>
-                                                <li class="factors"><span class="blue">セキュリティ</span></li>
-                                                <li class="factors"><span class="blue">保守性</span></li>
-                                                <li class="factors"><span class="blue">移植性</span></li>
+                                                <li><span>互換性</span></li>
+                                                <li><span>使用性</span></li>
+                                                <li><span>信頼性</span></li>
+                                                <li><span>セキュリティ</span></li>
+                                                <li><span>保守性</span></li>
+                                                <li><span>移植性</span></li>
                                             </ol>
                                         </li>
                                     </ol>
@@ -181,4 +251,4 @@
             </div>
         </main>
     </body>
-    </html>
+</html>

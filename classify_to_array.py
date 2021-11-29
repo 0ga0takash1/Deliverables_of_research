@@ -6,15 +6,15 @@ for_result = []
 for i in range(13): for_result.append([[], []])
 
 # [text, chapter array, [factors]]
-# factors = [factor num, is candi]
+# factors = [factor num, is candi, keywords]
 doc_classify = []
 
 # [[requirement], [candidate]]
-    # [text, chapter array, [other factors]]
+    # [[text, keyword], chapter array, [other factors]]
 result = for_result
 
 def classify(text, now_chapter_array, is_candi):
-    applicable_factors = [] # [factor num, is candi]
+    applicable_factors = [] # [factor num, is candi, keyword]
     for i in range(len(ar.id_list)):
         with open(pk.get_path(i)) as fp:
             keywords = []
@@ -22,7 +22,7 @@ def classify(text, now_chapter_array, is_candi):
                 keywords.append(word.rstrip('\n'))
             for keyword in keywords:
                 if keyword in text:
-                    applicable_factors.append([i, is_candi])
+                    applicable_factors.append([i, is_candi, keyword])
                     break
     doc_classify.append([text, now_chapter_array[:], applicable_factors])
 
@@ -30,8 +30,8 @@ def leveling_to_result_array():
     for sent in doc_classify: # sent == [text, chapter array, [factors]]
         for i in range(len(sent[2])):
             other_factors = sent[2][:]
-            see = other_factors.pop(i) # see == [factor num, is candi]
-            result[see[0]][see[1]].append([sent[0], sent[1], other_factors])
+            see = other_factors.pop(i) # see == [factor num, is candi, keyword]
+            result[see[0]][see[1]].append([[sent[0], see[2]], sent[1], other_factors])
 
 def print_one_result(i):
     for req in result[i]: # req == [[requirement], [candidate]]
