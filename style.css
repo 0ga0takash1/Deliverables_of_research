@@ -31,7 +31,7 @@ div.fixed_area {
   position: fixed;
 }
 
-div.main {
+div.flex_area {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -42,11 +42,6 @@ div.left_area {
 }
 
 div.select_list {
-  width: 100%;
-  margin: 0 auto;
-}
-
-div.select_list .select_item {
   background: gray;
   color: whitesmoke;
 }
@@ -61,20 +56,6 @@ div.select_list .select_item div {
 
 div.main_area {
   width: 55%;
-}
-
-div.main_area h2 {
-  margin: 8px;
-  padding: .25em 0 .5em .75em;
-  border-left: 6px solid #ccc;
-  border-bottom: 1px solid #ccc;
-}
-
-div.main_area h3 {
-  margin: 8px;
-  padding: .25em 0 .5em .75em;
-  border-left: 6px solid #ccc;
-  border-bottom: 1px solid #ccc;
 }
 
 div.right_area {
@@ -121,22 +102,49 @@ div .contents {
           box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
 }
 
+div .contents .factor {
+  margin: 16px 8px;
+  background-color: #f7f7f7;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+}
+
+div .contents .factor .factor_title {
+  padding: 8px 16px;
+  background: #ccc;
+  border-radius: 4px 4px 0 0;
+}
+
+div .contents .factor .factor_candi_title {
+  margin: 8px 0;
+  padding: 8px 16px;
+  background: #ccc;
+}
+
 div .contents .output {
   margin: 16px;
   background: rgba(200, 200, 220, 0.5);
+  border-radius: 16px;
 }
 
 div .contents .output .sentence {
+  padding: 8px;
   font-size: x-large;
   font-weight: bold;
 }
 
 div .contents .output .sentence span {
-  padding: 0 8px;
+  padding: 0 4px;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   background-color: gold;
+}
+
+div .contents .output .no_one {
+  padding: 8px 16px;
+  font-weight: bold;
+  color: orangered;
 }
 
 div .chapter {

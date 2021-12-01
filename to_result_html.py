@@ -2,9 +2,8 @@ import classify_to_array as cl
 import arrays as ar
 
 from bs4 import BeautifulSoup
-import html
 import re
-# from xml.sax.saxutils import unescape
+from xml.sax.saxutils import unescape
 
 def chapter(array):
     res = ''
@@ -24,7 +23,7 @@ def other_factors(array):
         res += 'にも該当'
     return res
 
-def replace_keyword_to_tag(text, target):
+def replace_keyword_to_tag(text: str, target: str) ->str:
     return re.sub(rf"(?<!<span>)({target})(?!</span>)", r"<span>\1</span>", text)
 
 def one(chapter_array, other_factors_array, text_keyword):
@@ -36,7 +35,7 @@ def one(chapter_array, other_factors_array, text_keyword):
 
     chapter_tag = soup.new_tag('div')
     chapter_tag.attrs['class'] = "chapter"
-    chapter_tag.string = html.unescape(chapter(chapter_array))
+    chapter_tag.string = unescape(chapter(chapter_array))
     p.append(chapter_tag)
 
     other_factors_tag = soup.new_tag('div')
@@ -65,6 +64,15 @@ def clear():
             f2.write(f.read())
     return True
 
+def fix_escape():
+    with open('index.html') as fp:
+        file = fp.read()
+        file = file.replace("&lt;span&gt;", r"<span>")
+        file = file.replace("&lt;/span&gt;", r"</span>")
+        with open('index.html', 'w') as f:
+            f.write(file)
+    return True
+
 def push():
     clear()
     # [[requirement], [candidate]]
@@ -82,21 +90,17 @@ def push():
                 if len(req) == 0:
                     no_one_tag = soup.new_tag('div')
                     no_one_tag.attrs['class'] = "output"
-                    no_one_tag.string = '該当なし'
+                    inside = soup.new_tag('div')
+                    inside.attrs['class'] = "no_one"
+                    inside.string = '該当なし'
+                    no_one_tag.append(inside)
                     soup.find('div', attrs={'id':ID}).append(no_one_tag)
                 else:
                     for text in req: # [[text, keyword], chapter, [other factors]]
-                        # new = replace_keyword_to_tag(new.find('div', attrs={'class':"sentence"}).string, text[0][1])
                         soup.find('div', attrs={'id':ID}).append(one(text[1], text[2], text[0]))
 
                 out = soup.prettify()
                 with open('index.html', 'w') as f:
                     f.write(out)
-
-    with open('index.html') as fp:
-        file = fp.read()
-        file = file.replace("&lt;span&gt;", r"<span>")
-        file = file.replace("&lt;/span&gt;", r"</span>")
-        with open('index.html', 'w') as f:
-            f.write(file)
+    fix_escape()
     return True

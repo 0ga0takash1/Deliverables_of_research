@@ -28,20 +28,15 @@ main {
 
 div {
     &.fixed_area {position: fixed;}
-
-    &.main {
-        display: flex;
-    }
+    &.flex_area {display: flex;}
 
     &.left_area {
         width: 20%;
     }
     &.select_list {
-        width: 100%;
-        margin: 0 auto;
+        background: gray;
+        color: whitesmoke;
         & .select_item {
-            background: gray;
-            color: whitesmoke;
             & h3 {
                 padding: 8px 4px;
             }
@@ -51,19 +46,6 @@ div {
 
     &.main_area {
         width: 55%;
-        & h2 {
-            margin: 8px;
-            padding: .25em 0 .5em .75em;
-            border-left: 6px solid #ccc;
-            border-bottom: 1px solid #ccc;
-        }
-        
-        & h3 {
-            margin: 8px;
-            padding: .25em 0 .5em .75em;
-            border-left: 6px solid #ccc;
-            border-bottom: 1px solid #ccc;
-        }
     }
     &.right_area {
         width: 25%;
@@ -102,10 +84,29 @@ div {
         border-right: 2px solid #ccc;
         box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
 
+        & .factor {
+            margin: 16px 8px;  
+            background-color: #f7f7f7;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            & .factor_title {
+                padding: 8px 16px;
+                background: #ccc;
+                border-radius: 4px 4px 0 0;
+            }
+            & .factor_candi_title {
+                margin: 8px 0;
+                padding: 8px 16px;
+                background: #ccc;
+            }
+        }
+
         & .output {
             margin: 16px;
             background: rgba(200, 200, 220, 0.5);
+            border-radius: 16px;
             & .sentence {
+                padding: 8px;
                 font-size: x-large;
                 font-weight: bold;
                 & span {
@@ -113,6 +114,11 @@ div {
                     width: fit-content;
                     background-color: gold;
                 }
+            }
+            & .no_one {
+                padding: 8px 16px;
+                font-weight: bold;
+                color: orangered;
             }
         }
     }
