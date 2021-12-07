@@ -7,27 +7,34 @@ from spacy import displacy
 
 nlp = spacy.load('ja_ginza')
 
-def is_specific_syntax(sent):
-    for token in sent:
-        # following syntax
-        if token.head.text == "以下" \
-            and token.dep_ != 'nummod':
-                return 1
-        # reference syntax
-        # if token.i:
-        #     return 1
+def is_reference_sentence(text):
+    keywords = ["別紙", "別添", "参照"]
+    for keyword in keywords:
+        if keyword in text:
+            return True
+    return False
+
+def is_specific_syntax(text):
+    # reference syntax
+    if is_reference_sentence(text): return 1
+    
+    doc = nlp(text)
+    for sent in doc.sents:
+        for token in sent:
+            # following syntax
+            if token.head.text == "以下" \
+                and token.dep_ != 'nummod':
+                    return 1
     return 0
 
-def is_candidate(doc):
-    for sent in doc.sents:
-        if is_specific_syntax(sent):
-            return 1
+def is_candidate(text):
+    if is_specific_syntax(text):
+        return 1
     return 0
 
 def subject_is_system(doc):
     # if doc:
     return True
-    # return 0
 
 def correct_root_dep_(dep):
     if dep == 'acl':
@@ -50,8 +57,10 @@ def make_root_of_sent(root_text):
             res += sent[0]
     return res
 
-def root_of_sent(doc):
+def root_of_sent(text):
     root_text = [] # array of [word, is root word]
+
+    doc = nlp(text)
     for sent in doc.sents:
         for token in sent:
             root_text.append([token.text, 0])
@@ -72,10 +81,8 @@ def root_of_sent(doc):
                             words_to_add_to_root += 1
     return make_root_of_sent(root_text)
 
-# 
-def nlp_classify(txt, now_chapter_array):
-    doc = nlp(txt)
-    # # doc = nlp(root_of_sent(doc_ori))
-    # for sent in doc.sents:
-    if subject_is_system(doc):
-        cl.classify(txt, now_chapter_array, is_candidate(doc))
+# main
+def nlp_classify(text, now_chapter_array):
+    # text = root_of_sent(text)
+    if subject_is_system(text):
+        cl.classify(text, now_chapter_array, is_candidate(text))

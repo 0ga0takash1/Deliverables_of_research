@@ -41,19 +41,6 @@ div.left_area {
   width: 20%;
 }
 
-div.select_list {
-  background: gray;
-  color: whitesmoke;
-}
-
-div.select_list .select_item h3 {
-  padding: 8px 4px;
-}
-
-div.select_list .select_item div {
-  margin: 4px;
-}
-
 div.main_area {
   width: 55%;
 }
@@ -62,13 +49,39 @@ div.right_area {
   width: 25%;
 }
 
+div.select_list {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 8px;
+  margin: 8px 0 0 8%;
+  background: gray;
+  color: whitesmoke;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 3px 5px dimgray;
+          box-shadow: 0 3px 5px dimgray;
+}
+
+div.select_list .select_item {
+  padding: 4px 0;
+}
+
+div.select_list .select_item h2 {
+  padding: 8px 16px;
+}
+
+div.select_list .select_item div {
+  margin: 4px 16px;
+}
+
 div.memo {
   width: 90%;
   margin: 0 auto;
 }
 
 div.memo .memo_item {
-  padding: 12px;
+  width: 380px;
+  padding: 16px;
   margin: 1.5em 0;
   background: white;
   border-top: solid 5px #5d627b;

@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="style.css" type="text/css">
+        <script type="text/javascript" src="select_list.js"></script>
         <title>要求関連文書解析結果</title>
     </head>
     <body>
@@ -17,73 +18,33 @@
                     <div class="fixed_area">
                         <div class="select_list">
                             <div class="select_item">
-                                <h3>表示する要求要素にチェック</h3>
-                        
+                                <h2>表示する要求要素にチェック</h2>
+                            </div>
+                            <div class="select_item">
+                                <form>
+                                    <div><label><input type="radio" name="all_or_part" checked onclick="checkbox_disable(true);"> すべての要求要素を表示する</label></div>
+                                    <div><label><input type="radio" name="all_or_part" onclick="checkbox_disable(false);"> 選択した要求要素だけを表示する</label></div>
+                                </form>
                                 <div>
-                                    <input type="radio" id="all" name="all_or_part" value="all">
-                                    <label for="select_all">すべての要求要素を表示する</label>
+                                    <form name="checkbox">
+                                        <div><label><input type="checkbox" disabled="true"> 1. 外部とのインタフェース</label></div>
+                                        <div><label><input type="checkbox" disabled="true"> 2. 機能要求</label></div>
+                                        <div><label><input type="checkbox" disabled="true"> 3. 性能要求</label></div>
+                                        <div><label><input type="checkbox" disabled="true"> 4. 論理データベース要求</label></div>
+                                        <div><label><input type="checkbox" disabled="true"> 5. 設計制約</label></div>
+                                        <div><label><input type="checkbox" disabled="true"> 6.1.1. 時間効率性</label></div>
+                                        <div><label><input type="checkbox" disabled="true"> 6.1.2. 資源効率性</label></div>
+                                        <div><label><input type="checkbox" disabled="true"> 6.2. 互換性</label></div>
+                                        <div><label><input type="checkbox" disabled="true"> 6.3. 使用性</label></div>
+                                        <div><label><input type="checkbox" disabled="true"> 6.4. 信頼性</label></div>
+                                        <div><label><input type="checkbox" disabled="true"> 6.5. セキュリティ</label></div>
+                                        <div><label><input type="checkbox" disabled="true"> 6.6. 保守性</label></div>
+                                        <div><label><input type="checkbox" disabled="true"> 6.7. 移植性</label></div>
+                                    </form>
                                 </div>
-                                <div>
-                                    <input type="radio" id="part" name="all_or_part" value="part">
-                                    <label for="select_part">選択した要求要素だけを表示する</label>
-                                    <div>
-                                        <div>
-                                            <input type="checkbox" id="select1">
-                                            <label for="1">1. 外部とのインタフェース</label>
-                                        </div>
-                                        <div>
-                                            <input type="checkbox" id="select2">
-                                            <label for="2">2. 機能要求</label>
-                                        </div>
-                                        <div>
-                                            <input type="checkbox" id="select3">
-                                            <label for="3">3. 性能要求</label>
-                                        </div>
-                                        <div>
-                                            <input type="checkbox" id="select4">
-                                            <label for="4">4. 論理データベース要求</label>
-                                        </div>
-                                        <div>
-                                            <input type="checkbox" id="select5">
-                                            <label for="5">5. 設計制約</label>
-                                        </div>
-                                        <div>
-                                            <input type="checkbox" id="select611">
-                                            <label for="611">6.1.1. 時間効率性</label>
-                                        </div>
-                                        <div>
-                                            <input type="checkbox" id="select612">
-                                            <label for="612">6.1.2. 資源効率性</label>
-                                        </div>
-                                        <div>
-                                            <input type="checkbox" id="select62">
-                                            <label for="62">6.2. 互換性</label>
-                                        </div>
-                                        <div>
-                                            <input type="checkbox" id="select63">
-                                            <label for="63">6.3. 使用性</label>
-                                        </div>
-                                        <div>
-                                            <input type="checkbox" id="select64">
-                                            <label for="64">6.4. 信頼性</label>
-                                        </div>
-                                        <div>
-                                            <input type="checkbox" id="select65">
-                                            <label for="65">6.5. セキュリティ</label>
-                                        </div>
-                                        <div>
-                                            <input type="checkbox" id="select66">
-                                            <label for="66">6.6. 保守性</label>
-                                        </div>
-                                        <div>
-                                            <input type="checkbox" id="select67">
-                                            <label for="67">6.7. 移植性</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <button type="submit">submit</button>
-                                </div>
+                            </div>
+                            <div class="select_item">
+                                <div><button onclick="action_select_list();">submit</button></div>
                             </div>
                         </div>
                     </div>
@@ -91,7 +52,7 @@
 
                 <div class="main_area">
                     <div class="contents">
-                        <div class="factor">
+                        <div class="factor" id="factor1">
                             <div class="factor_title"><h2>1. 外部とのインタフェース</h2></div>
                                 <div id="1_Interface_with_outside">
                                 
@@ -101,7 +62,7 @@
                 
                                 </div>
                         </div>
-                        <div class="factor">
+                        <div class="factor" id="factor2">
                             <div class="factor_title"><h2>2. 機能要求</h2></div>
                                 <div id="2_Functional_requirements">
                                         
@@ -111,7 +72,7 @@
                                     
                                 </div>
                         </div>
-                        <div class="factor">
+                        <div class="factor" id="factor3">
                             <div class="factor_title"><h2>3. 性能要求</h2></div>
                                 <div id="3_Performance_requirements">
                                         
@@ -121,7 +82,7 @@
                                     
                                 </div>
                         </div>
-                        <div class="factor">
+                        <div class="factor"  id="factor4">
                             <div class="factor_title"><h2>4. 論理データベース要求</h2></div>
                                 <div id="4_Logical_database_requirements">
                                     
@@ -131,7 +92,7 @@
                                     
                                 </div>
                         </div>
-                        <div class="factor">
+                        <div class="factor" id="factor5">
                             <div class="factor_title"><h2>5. 設計制約</h2></div>
                                 <div id="5_Design_constraints">
                                     
@@ -141,11 +102,11 @@
                                         
                                 </div>
                         </div>
-                        <div class="factor">
-                            <div class="factor_title"><h2>6. システムの属性</h2></div>
-                            <div class="factor">
-                                <div class="factor_title"><h2>6.1. 性能効率性</h2></div>
-                                    <div class="factor">
+                        <div class="factor" id="factor6">
+                            <div class="factor_title"><h3>6. システムの属性</h3></div>
+                            <div class="factor" id="factor61">
+                                <div class="factor_title"><h3>6.1. 性能効率性</h3></div>
+                                    <div class="factor" id="factor611">
                                         <div class="factor_title"><h2>6.1.1. 時間効率性</h2></div>
                                             <div id="6_1_1_Time_behaviour">
                                                 
@@ -155,7 +116,7 @@
                                                 
                                             </div>
                                     </div>
-                                    <div class="factor">
+                                    <div class="factor" id="factor612">
                                         <div class="factor_title"><h2>6.1.2. 資源効率性</h2></div>
                                             <div id="6_1_2_Resource_utilization">
                                                 
@@ -166,7 +127,7 @@
                                             </div>
                                     </div>
                             </div>
-                            <div class="factor">
+                            <div class="factor" id="factor62">
                                 <div class="factor_title"><h2>6.2. 互換性</h2></div>
                                     <div id="6_2_Compatibility">
                                             
@@ -176,7 +137,7 @@
                                             
                                     </div>
                             </div>
-                            <div class="factor">
+                            <div class="factor" id="factor63">
                                 <div class="factor_title"><h2>6.3. 使用性</h2></div>
                                     <div id="6_3_Usability">
                                             
@@ -186,7 +147,7 @@
                                             
                                     </div>
                             </div>
-                            <div class="factor">
+                            <div class="factor" id="factor64">
                                 <div class="factor_title"><h2>6.4. 信頼性</h2></div>
                                     <div id="6_4_Reliability">
                                             
@@ -196,7 +157,7 @@
                                             
                                     </div>
                             </div>
-                            <div class="factor">
+                            <div class="factor" id="factor65">
                                 <div class="factor_title"><h2>6.5. セキュリティ</h2></div>
                                     <div id="6_5_Security">
                                             
@@ -206,7 +167,7 @@
                                             
                                     </div>
                             </div>
-                            <div class="factor">
+                            <div class="factor" id="factor66">
                                 <div class="factor_title"><h2>6.6. 保守性</h2></div>
                                     <div id="6_6_Maintainability">
                                         
@@ -216,13 +177,12 @@
                                             
                                     </div>
                             </div>
-                            <div class="factor">
+                            <div class="factor" id="factor67">
                                 <div class="factor_title"><h2>6.7. 移植性</h2></div>
                                     <div id="6_7_Portability">
                                             
                                     </div>
-                                                            <div class="factor_candi_title"><h3>候補</h3></div>
-
+                                <div class="factor_candi_title"><h3>候補</h3></div>
                                     <div id="6_7_Portability_candi">
                                             
                                     </div>
@@ -242,9 +202,8 @@
                             <div class="memo_item">
                                 <p>文書中の要求に関する文章を、<br><span class="d_cyan">要求要素</span>別に出力します。</p>
                                 <p>
-                                    また、<br>
-                                    「候補」欄には、<br>
-                                    その<span class="d_cyan">要求要素</span>に該当すると推測される文章を出力します。
+                                    「<span>候補</span>」欄には、<br>
+                                    <span class="d_cyan">要求要素</span>に該当すると推測される文章を出力します。
                                 </p>
                             </div>
                             <div class="memo_item">

@@ -3,6 +3,8 @@
  <head>
   <meta charset="utf-8"/>
   <link href="style.css" rel="stylesheet" type="text/css"/>
+  <script src="select_list.js" type="text/javascript">
+  </script>
   <title>
    要求関連文書解析結果
   </title>
@@ -26,103 +28,111 @@
      <div class="fixed_area">
       <div class="select_list">
        <div class="select_item">
-        <h3>
+        <h2>
          表示する要求要素にチェック
-        </h3>
-        <div>
-         <input id="all" name="all_or_part" type="radio" value="all"/>
-         <label for="select_all">
-          すべての要求要素を表示する
-         </label>
-        </div>
-        <div>
-         <input id="part" name="all_or_part" type="radio" value="part"/>
-         <label for="select_part">
-          選択した要求要素だけを表示する
-         </label>
+        </h2>
+       </div>
+       <div class="select_item">
+        <form>
          <div>
+          <label>
+           <input checked="" name="all_or_part" onclick="checkbox_disable(true);" type="radio" value="all"/>
+           すべての要求要素を表示する
+          </label>
+         </div>
+         <div>
+          <label>
+           <input name="all_or_part" onclick="checkbox_disable(false);" type="radio" value="part"/>
+           選択した要求要素だけを表示する
+          </label>
+         </div>
+        </form>
+        <div>
+         <form name="checkbox">
           <div>
-           <input id="select1" type="checkbox"/>
-           <label for="1">
+           <label>
+            <input disabled="true" type="checkbox"/>
             1. 外部とのインタフェース
            </label>
           </div>
           <div>
-           <input id="select2" type="checkbox"/>
-           <label for="2">
+           <label>
+            <input disabled="true" type="checkbox"/>
             2. 機能要求
            </label>
           </div>
           <div>
-           <input id="select3" type="checkbox"/>
-           <label for="3">
+           <label>
+            <input disabled="true" type="checkbox"/>
             3. 性能要求
            </label>
           </div>
           <div>
-           <input id="select4" type="checkbox"/>
-           <label for="4">
+           <label>
+            <input disabled="true" type="checkbox"/>
             4. 論理データベース要求
            </label>
           </div>
           <div>
-           <input id="select5" type="checkbox"/>
-           <label for="5">
+           <label>
+            <input disabled="true" type="checkbox"/>
             5. 設計制約
            </label>
           </div>
           <div>
-           <input id="select611" type="checkbox"/>
-           <label for="611">
+           <label>
+            <input disabled="true" type="checkbox"/>
             6.1.1. 時間効率性
            </label>
           </div>
           <div>
-           <input id="select612" type="checkbox"/>
-           <label for="612">
+           <label>
+            <input disabled="true" type="checkbox"/>
             6.1.2. 資源効率性
            </label>
           </div>
           <div>
-           <input id="select62" type="checkbox"/>
-           <label for="62">
+           <label>
+            <input disabled="true" type="checkbox"/>
             6.2. 互換性
            </label>
           </div>
           <div>
-           <input id="select63" type="checkbox"/>
-           <label for="63">
+           <label>
+            <input disabled="true" type="checkbox"/>
             6.3. 使用性
            </label>
           </div>
           <div>
-           <input id="select64" type="checkbox"/>
-           <label for="64">
+           <label>
+            <input disabled="true" type="checkbox"/>
             6.4. 信頼性
            </label>
           </div>
           <div>
-           <input id="select65" type="checkbox"/>
-           <label for="65">
+           <label>
+            <input disabled="true" type="checkbox"/>
             6.5. セキュリティ
            </label>
           </div>
           <div>
-           <input id="select66" type="checkbox"/>
-           <label for="66">
+           <label>
+            <input disabled="true" type="checkbox"/>
             6.6. 保守性
            </label>
           </div>
           <div>
-           <input id="select67" type="checkbox"/>
-           <label for="67">
+           <label>
+            <input disabled="true" type="checkbox"/>
             6.7. 移植性
            </label>
           </div>
-         </div>
+         </form>
         </div>
+       </div>
+       <div class="select_item">
         <div>
-         <button type="submit">
+         <button onclick="action_select_list();">
           submit
          </button>
         </div>
@@ -132,7 +142,7 @@
     </div>
     <div class="main_area">
      <div class="contents">
-      <div class="factor">
+      <div class="factor" id="factor1">
        <div class="factor_title">
         <h2>
          1. 外部とのインタフェース
@@ -158,7 +168,7 @@
         </div>
        </div>
       </div>
-      <div class="factor">
+      <div class="factor" id="factor2">
        <div class="factor_title">
         <h2>
          2. 機能要求
@@ -184,7 +194,7 @@
         </div>
        </div>
       </div>
-      <div class="factor">
+      <div class="factor" id="factor3">
        <div class="factor_title">
         <h2>
          3. 性能要求
@@ -267,7 +277,7 @@
         </div>
        </div>
       </div>
-      <div class="factor">
+      <div class="factor" id="factor4">
        <div class="factor_title">
         <h2>
          4. 論理データベース要求
@@ -313,25 +323,13 @@
         </div>
        </div>
       </div>
-      <div class="factor">
+      <div class="factor" id="factor5">
        <div class="factor_title">
         <h2>
          5. 設計制約
         </h2>
        </div>
        <div id="5_Design_constraints">
-        <div class="output">
-         <p>
-          <div class="chapter">
-           １．作業内容
-          </div>
-          <div class="other_factors">
-          </div>
-         </p>
-         <div class="sentence">
-          本作業は、別添の「通関統計加工分析システムの<span>クライアント・サーバ方式</span>への移植作業」に係る仕様書に基づき同システムの基本設計、詳細設計、プログラム開発、システムテスト、ドキュメント作成ならびにコンテンツ作成を行うものである。
-         </div>
-        </div>
         <div class="output">
          <p>
           <div class="chapter">
@@ -424,25 +422,32 @@
        </div>
        <div id="5_Design_constraints_candi">
         <div class="output">
-         <div class="no_one">
-          該当なし
+         <p>
+          <div class="chapter">
+           １．作業内容
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          本作業は、別添の「通関統計加工分析システムの<span>クライアント・サーバ方式</span>への移植作業」に係る仕様書に基づき同システムの基本設計、詳細設計、プログラム開発、システムテスト、ドキュメント作成ならびにコンテンツ作成を行うものである。
          </div>
         </div>
        </div>
       </div>
-      <div class="factor">
+      <div class="factor" id="factor6">
        <div class="factor_title">
-        <h2>
+        <h3>
          6. システムの属性
-        </h2>
+        </h3>
        </div>
-       <div class="factor">
+       <div class="factor" id="factor61">
         <div class="factor_title">
-         <h2>
+         <h3>
           6.1. 性能効率性
-         </h2>
+         </h3>
         </div>
-        <div class="factor">
+        <div class="factor" id="factor611">
          <div class="factor_title">
           <h2>
            6.1.1. 時間効率性
@@ -468,7 +473,7 @@
           </div>
          </div>
         </div>
-        <div class="factor">
+        <div class="factor" id="factor612">
          <div class="factor_title">
           <h2>
            6.1.2. 資源効率性
@@ -495,7 +500,7 @@
          </div>
         </div>
        </div>
-       <div class="factor">
+       <div class="factor" id="factor62">
         <div class="factor_title">
          <h2>
           6.2. 互換性
@@ -529,7 +534,7 @@
          </div>
         </div>
        </div>
-       <div class="factor">
+       <div class="factor" id="factor63">
         <div class="factor_title">
          <h2>
           6.3. 使用性
@@ -563,7 +568,7 @@
          </div>
         </div>
        </div>
-       <div class="factor">
+       <div class="factor" id="factor64">
         <div class="factor_title">
          <h2>
           6.4. 信頼性
@@ -652,13 +657,20 @@
         </div>
         <div id="6_4_Reliability_candi">
          <div class="output">
-          <div class="no_one">
-           該当なし
+          <p>
+           <div class="chapter">
+            ６．その他 &gt; (1)  信頼性等要件
+           </div>
+           <div class="other_factors">
+           </div>
+          </p>
+          <div class="sentence">
+           別添「5.<span>信頼性</span>等要件」を参照のこと。
           </div>
          </div>
         </div>
        </div>
-       <div class="factor">
+       <div class="factor" id="factor65">
         <div class="factor_title">
          <h2>
           6.5. セキュリティ
@@ -691,7 +703,7 @@
          </div>
         </div>
        </div>
-       <div class="factor">
+       <div class="factor" id="factor66">
         <div class="factor_title">
          <h2>
           6.6. 保守性
@@ -717,7 +729,7 @@
          </div>
         </div>
        </div>
-       <div class="factor">
+       <div class="factor" id="factor67">
         <div class="factor_title">
          <h2>
           6.7. 移植性
@@ -806,11 +818,12 @@
          別に出力します。
         </p>
         <p>
-         また、
+         「
+         <span>
+          候補
+         </span>
+         」欄には、
          <br/>
-         「候補」欄には、
-         <br/>
-         その
          <span class="d_cyan">
           要求要素
          </span>
