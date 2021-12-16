@@ -23,7 +23,7 @@ def is_specific_syntax(text):
         for token in sent:
             # following syntax
             if token.head.text == "以下" \
-                and token.dep_ != 'nummod':
+                and token.dep_ != 'case':
                     return 1
     return 0
 

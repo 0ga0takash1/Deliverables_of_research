@@ -1,56 +1,117 @@
 import re
 
-formated_array = []
+txt_array_list = []
 tmp_sentences = []
+
+front_chapter_idx = -1
+front_section_idx = -1
 front_paragraph_idx = -1
-front_theory_idx = -1
-file_path = 'sample.txt'
-theory_flag = False
 
-with open(file_path, 'r') as f:
-    for s_line in f:
-        res = re.match('.+\d.\d 第.+章.+節', s_line)
-        if res:
-            if not theory_flag:
-                formated_array[front_paragraph_idx].append([])
+section_flag = False
+paragraph_flag = False
 
-            theory_flag = True
+def rebreak(ar):
+    all_text = 1
+    for i in ar:
+        if isinstance(i, list):
+            all_text = 0
+            i[1] = rebreak(i[1])
+    if all_text and len(ar) > 1:
+        ar = (''.join(ar))
+        ar = re.findall(".*?。", ar)
+    return ar
 
-            formated_array[front_paragraph_idx][1].append([s_line.strip()])
+def main(file_path):
+    with open(file_path) as f:
+        doc = f.readlines()
+        # doc = tbl_escape(doc, tbls)
+        tbl_flag = False
+        for s_line in doc:
+            s_line = s_line.strip()
+            if s_line == "/://*--- table start ---*//:/":
+                tbl_flag = True
+                continue
+            elif s_line == "/://*--- table end ---*//:/":
+                tbl_flag = False
+                continue
+            
+            if tbl_flag == True: continue
 
-            if not front_theory_idx == -1:
-                formated_array[front_paragraph_idx][1][front_theory_idx].append(tmp_sentences)
+            # now_XXX = [title, [sentences]]
+            if front_chapter_idx >= 0: 
+                now_chapter = txt_array_list[front_chapter_idx]
+                if front_section_idx >= 0: 
+                    now_section = now_chapter[1][front_section_idx]
+                    if front_paragraph_idx >= 0:
+                        now_paragraph = now_section[1][front_paragraph_idx]
+            # 第n項
+            res = re.match('^[①-⑳]', s_line)
+            if res:
+                if not paragraph_flag:
+                    now_section.append([])
+                paragraph_flag=True
+                
+                title = s_line
+                now_section[1].append([title])
 
-            tmp_sentences = []
-            front_theory_idx += 1
-            continue
+                if not front_paragraph_idx == -1:
+                    now_paragraph.append(tmp_sentences)
+                
+                tmp_sentences = []
+                front_paragraph_idx += 1
+                continue
 
-        res = re.match('\d. 第.+章', s_line)
-        if res:
-            formated_array.append([s_line.strip()])
+            # 第n節
+            res = re.match('^(\(|（)[1-9１-９](\)|）)', s_line)
+            if res:
+                if not section_flag:
+                    now_chapter.append([])
 
-            if theory_flag == True \
-                and not front_theory_idx == -1:
-                formated_array[front_paragraph_idx][1][front_theory_idx].append(tmp_sentences)
+                if paragraph_flag == True and not front_paragraph_idx == -1:
+                    now_paragraph.append(tmp_sentences)
+                            
+                section_flag = True
 
-            if not theory_flag == True \
-                and not front_paragraph_idx == -1:
-                formated_array[front_paragraph_idx].append(tmp_sentences)
+                title = s_line
+                now_chapter[1].append([title])
 
-            tmp_sentences = []
-            front_paragraph_idx += 1
-            front_theory_idx = -1
-            theory_flag = False
-            continue
+                if not front_section_idx == -1:
+                    now_section.append(tmp_sentences)
 
-        tmp_sentences.append(s_line.strip())
+                tmp_sentences = []
+                front_section_idx += 1
+                front_paragraph_idx = -1
+                paragraph_flag = False
+                continue
 
-if theory_flag == True \
-    and not front_theory_idx == -1:
-    formated_array[front_paragraph_idx][1][front_theory_idx].append(tmp_sentences)
+            # 第n章
+            res = re.match('^[1-9１-９](．|.)', s_line)
+            if res:
+                txt_array_list.append([s_line])
+                if paragraph_flag == True and not front_paragraph_idx == -1:
+                    now_paragraph.append(tmp_sentences)
+                elif section_flag == True and not front_section_idx == -1:
+                    now_section.append(tmp_sentences)
 
-if not theory_flag == True \
-    and not front_paragraph_idx == -1:
-    formated_array[front_paragraph_idx].append(tmp_sentences)
+                if not section_flag == True and not paragraph_flag == True\
+                    and not front_chapter_idx == -1:
+                    now_chapter.append(tmp_sentences)
 
-# print(formated_array)
+                tmp_sentences = []
+                front_chapter_idx += 1
+                front_section_idx = -1
+                front_paragraph_idx = -1
+                section_flag = False
+                paragraph_flag = False
+                continue
+
+        tmp_sentences.append(s_line)
+
+    if paragraph_flag == True and not paragraph_flag == -1:
+        now_paragraph.append(tmp_sentences)
+    elif section_flag == True and not front_section_idx == -1:
+        now_section.append(tmp_sentences)
+    elif not section_flag == True and not front_chapter_idx == -1:
+        now_chapter.append(tmp_sentences)
+
+    txt_array_list = rebreak(txt_array_list)

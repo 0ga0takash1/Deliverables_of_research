@@ -1,27 +1,37 @@
+import sys
+
 # import prog_keyword as pk
-# ----------------------------------- #
-# 1. PDFを入力、PDFのPathを取得
-# file_path = "/media/ogawatakafumi/HDD_1TB/lab_研/2021/省庁RFP/ニュース速報.pdf"
-# import document_read as doc
-# doc.read(file_path)
-# ----------------------------------- #
-# 2. PDFからChapter配列を作成
-# ----------------------------------- #
-# テスト用
-from doc_examples import toukei_bunseki as sample
-# cl.result = toukei_bunseki.to_html
-# ----------------------------------- #
-# 3. キーワードから文章を抽出・分配
-# import format_document_to_array as f_doc_ar
-import read_formated_array as r_f_ar
-import classify_to_array as cl
-formated_array = sample.formated_array
-r_f_ar.main(formated_array)
-# ----------------------------------- #
-# 4. 分配した文章をhtmlにpush
-cl.leveling_to_result_array()
-import to_result_html as to_html
-to_html.push()
-# ----------------------------------- #
-# 5. html用のローカルサーバをたてる
-# import server
+
+if __name__ == "__main__":
+    # ----------------------------------- #
+    # 1. PDFを入力、PDFのPathを取得
+    file_path = sys.argv[1]
+    print("input file name: ", file_path)
+    # import document_read as doc
+    # doc.read(file_path)
+    # ----------------------------------- #
+    # 2. PDFからformated配列を作成
+    import format_document_to_array as form
+    form.main(file_path)
+    formated_array = form.txt_array_list
+    # ----------------------------------- #
+    # テスト用
+    from doc_examples import toukei_bunseki as sample
+    # cl.result = toukei_bunseki.to_html
+    # ----------------------------------- #
+    # 3. キーワードから文章を抽出・分配
+    # import format_document_to_array as f_doc_ar
+    # formated_array = sample.formated_array
+    import read_formated_array as r_f_ar
+    r_f_ar.main(formated_array)
+    print("Classification is complete.")
+    # ----------------------------------- #
+    # 4. 分配した文章をhtmlにpush
+    import classify_to_array as cl
+    cl.leveling_to_result_array()
+    import to_result_html as to_html
+    to_html.push()
+    print("Push to HTML is complete.")
+    # ----------------------------------- #
+    # 5. html用のローカルサーバをたてる
+    import server
