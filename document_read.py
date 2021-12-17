@@ -98,6 +98,7 @@ class ConvertPDF2text():
                 self.write2text(f)
 
 def make_clear_txt(out_txt):
+    print("create:", out_txt)
     with open("read_doc.txt") as fp:
         out = fp.read()
         out = out.replace(' ', '')
@@ -106,9 +107,16 @@ def make_clear_txt(out_txt):
         with open(out_txt, "w") as f:
             f.write(out)
 
-if __name__ == "__main__":
-    cnv = ConvertPDF2text(sys.argv[1:])
+def get_txt(input_file):
+    res = "doc_examples/"
+    name = os.path.basename(input_file)[:-4]
+    res += "format{}.txt".format(name)
+    return res
+
+def main(input_path):
+    cnv = ConvertPDF2text(input_path)
     cnv.convert_pdf_to_text()
-    out = "doc_examples/"
-    out += "format{}.txt".format(sys.argv[1:][0][:-4])
-    make_clear_txt(out)
+    make_clear_txt(get_txt(input_path))
+
+if __name__ == '__main__':
+    main(sys.argv[1:])

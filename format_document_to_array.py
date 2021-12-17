@@ -10,12 +10,12 @@ front_paragraph_idx = -1
 section_flag = False
 paragraph_flag = False
 
-def rebreak(ar):
+def fix_break(ar):
     all_text = 1
     for i in ar:
         if isinstance(i, list):
             all_text = 0
-            i[1] = rebreak(i[1])
+            i[1] = fix_break(i[1])
     if all_text and len(ar) > 1:
         ar = (''.join(ar))
         ar = re.findall(".*?。", ar)
@@ -114,4 +114,5 @@ def main(file_path):
     elif not section_flag == True and not front_chapter_idx == -1:
         now_chapter.append(tmp_sentences)
 
-    txt_array_list = rebreak(txt_array_list)
+    txt_array_list = fix_break(txt_array_list)
+    return txt_array_list
