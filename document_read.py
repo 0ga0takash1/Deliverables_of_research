@@ -114,9 +114,9 @@ def get_txt(input_file):
     return res
 
 def main(input_path):
-    cnv = ConvertPDF2text(input_path)
+    cnv = ConvertPDF2text([input_path])
     cnv.convert_pdf_to_text()
     make_clear_txt(get_txt(input_path))
 
 if __name__ == '__main__':
-    main(sys.argv[1:])
+    main(sys.argv[1:][0])
