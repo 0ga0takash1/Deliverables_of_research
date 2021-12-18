@@ -1,15 +1,5 @@
 import re
 
-txt_array_list = []
-tmp_sentences = []
-
-front_chapter_idx = -1
-front_section_idx = -1
-front_paragraph_idx = -1
-
-section_flag = False
-paragraph_flag = False
-
 def fix_break(ar):
     all_text = 1
     for i in ar:
@@ -21,7 +11,25 @@ def fix_break(ar):
         ar = re.findall(".*?。", ar)
     return ar
 
+def out(ar):
+    for i in ar:
+        if isinstance(i, str):
+            print(i)
+        elif isinstance(i, list):
+            print('\ntitle: ', i[0])
+            out(i[1])
+
 def main(file_path):
+    txt_array_list = []
+    tmp_sentences = []
+
+    front_chapter_idx = -1
+    front_section_idx = -1
+    front_paragraph_idx = -1
+
+    section_flag = False
+    paragraph_flag = False
+
     with open(file_path) as f:
         doc = f.readlines()
         # doc = tbl_escape(doc, tbls)
@@ -115,4 +123,5 @@ def main(file_path):
         now_chapter.append(tmp_sentences)
 
     txt_array_list = fix_break(txt_array_list)
+    out(txt_array_list)
     return txt_array_list

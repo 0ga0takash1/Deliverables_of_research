@@ -58,23 +58,23 @@ def one(chapter_array, other_factors_array, text_keyword):
 
 # print(one(['1. aa', '(1) bb', '① cc'], ['機能', '使用性'], 'あああ'))
 
-def clear():
+def clear(result_html):
     with open('sample.html') as f:
-        with open('index.html', 'w') as f2:
+        with open(result_html, 'w') as f2:
             f2.write(f.read())
     return True
 
-def fix_escape():
-    with open('index.html') as fp:
+def fix_escape(result_html):
+    with open(result_html) as fp:
         file = fp.read()
         file = file.replace("&lt;span&gt;", r"<span>")
         file = file.replace("&lt;/span&gt;", r"</span>")
-        with open('index.html', 'w') as f:
+        with open(result_html, 'w') as f:
             f.write(file)
     return True
 
-def push():
-    clear()
+def push(result_html):
+    clear(result_html)
     # [[requirement], [candidate]]
         # [[text, keyword], chapter, [other factors]]
     for i in range(len(cl.result)):
@@ -84,7 +84,7 @@ def push():
             if j != 0:
                 ID += '_candi'
             
-            with open('index.html') as f:
+            with open(result_html) as f:
                 soup = BeautifulSoup(f.read(), 'html.parser')
 
                 if len(req) == 0:
@@ -100,7 +100,7 @@ def push():
                         soup.find('div', attrs={'id':ID}).append(one(text[1], text[2], text[0]))
 
                 out = soup.prettify()
-                with open('index.html', 'w') as f:
+                with open(result_html, 'w') as f:
                     f.write(out)
-    fix_escape()
+    fix_escape(result_html)
     return True

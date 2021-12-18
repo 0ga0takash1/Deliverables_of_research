@@ -94,7 +94,6 @@ class ConvertPDF2text():
                             if self.text_r:
                                 self.write2text(f)
                             self.text_l += _text
-
                 self.write2text(f)
 
 def make_clear_txt(out_txt):
@@ -102,13 +101,15 @@ def make_clear_txt(out_txt):
     with open("read_doc.txt") as fp:
         out = fp.read()
         out = out.replace(' ', '')
+        out = out.replace('　', '')
         while out.count('\n\n') != 0:
             out = out.replace('\n\n', '\n')
         with open(out_txt, "w") as f:
             f.write(out)
 
 def get_txt(input_file):
-    res = "doc_examples/"
+    res = os.path.abspath(os.curdir)
+    res += "/doc_examples/"
     name = os.path.basename(input_file)[:-4]
     res += "format{}.txt".format(name)
     return res
