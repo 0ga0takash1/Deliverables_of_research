@@ -1,0 +1,214 @@
+* {
+  margin: 0px;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  padding: 8px;
+  background: gray;
+  color: whitesmoke;
+  border-bottom: 2px solid whitesmoke;
+}
+
+header h2 {
+  width: 90%;
+  margin: 4px;
+  padding-bottom: 4px;
+  border-bottom: 2px solid #ccc;
+}
+
+header p {
+  padding-top: 4px;
+}
+
+main {
+  background: whitesmoke;
+  padding-top: 80px;
+}
+
+div.fixed_area {
+  position: fixed;
+}
+
+div.flex_area {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+div.left_area {
+  width: 20%;
+}
+
+div.main_area {
+  width: 55%;
+}
+
+div.right_area {
+  width: 25%;
+}
+
+div.select_list {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 8px;
+  margin: 8px 0 0 8%;
+  background: gray;
+  color: whitesmoke;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 3px 5px dimgray;
+          box-shadow: 0 3px 5px dimgray;
+}
+
+div.select_list .select_item {
+  padding: 4px 0;
+}
+
+div.select_list .select_item h2 {
+  padding: 8px 16px;
+}
+
+div.select_list .select_item div {
+  margin: 4px 16px;
+}
+
+div.memo {
+  width: 90%;
+  margin: 0 auto;
+}
+
+div.memo .memo_item {
+  width: 380px;
+  padding: 16px;
+  margin: 1.5em 0;
+  background: white;
+  border-top: solid 5px #5d627b;
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+          box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+}
+
+div.memo .memo_item p {
+  margin: 0;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+div.memo .memo_item li {
+  list-style: none;
+}
+
+div.memo .memo_item li span {
+  color: blue;
+}
+
+div .contents {
+  line-height: 1.6;
+  margin: auto;
+  width: 95%;
+  padding: 1%;
+  background: white;
+  border-left: 2px solid #ccc;
+  border-right: 2px solid #ccc;
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+          box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+}
+
+div .contents .factor {
+  margin: 16px 8px;
+  background-color: #f7f7f7;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+}
+
+div .contents .factor .factor_title {
+  padding: 8px 16px;
+  background: #ccc;
+  border-radius: 4px 4px 0 0;
+}
+
+div .contents .factor .factor_candi_title {
+  margin: 8px 0;
+  padding: 8px 16px;
+  background: #ccc;
+}
+
+div .contents .output {
+  margin: 16px;
+  background: rgba(200, 200, 220, 0.5);
+  border-radius: 16px;
+}
+
+div .contents .output .sentence {
+  padding: 8px;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+div .contents .output .sentence span {
+  padding: 0 4px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: gold;
+}
+
+div .contents .output .no_one {
+  padding: 8px 16px;
+  font-weight: bold;
+  color: orangered;
+}
+
+div .chapter {
+  padding: 0 8px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: large;
+  font-weight: bold;
+  background-color: cadetblue;
+}
+
+div .other_factors {
+  padding: 0 8px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: large;
+  font-weight: bold;
+  background-color: darkorange;
+}
+
+span {
+  font-weight: bold;
+}
+
+span.cyan {
+  padding: 0 3px;
+  color: darkturquoise;
+}
+
+span.d_cyan {
+  padding: 0 3px;
+  color: darkcyan;
+}
+
+span.gold {
+  padding: 0 8px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: large;
+  background-color: gold;
+}
+
+ol {
+  counter-reset: section;
+}
+
+ol li:before {
+  content: counters(section, ".") ". ";
+  counter-increment: section;
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,4 +1,4 @@
-import os
+import re, os
 import prog_keyword as pk
 import arrays as ar
 
@@ -13,7 +13,7 @@ doc_classify = []
     # [[text, keyword], chapter array, [other factors]]
 result = for_result
 
-def classify(text, now_chapter_array, is_candi):
+def classify(text, root_text, now_chapter_array, is_candi):
     applicable_factors = [] # [factor num, is candi, keyword]
     for i in range(len(ar.id_list)):
         with open(pk.get_path(i)) as fp:
@@ -21,7 +21,14 @@ def classify(text, now_chapter_array, is_candi):
             for word in fp:
                 keywords.append(word.rstrip('\n'))
             for keyword in keywords:
-                if keyword in text:
+                match = re.match('^(\[\[)', keyword)
+                if match:
+                    keyword = keyword[2:]
+                    keyword = keyword.split('++')
+                    if (keyword[0] in root_text) and (keyword[1] in root_text):
+                        applicable_factors.append([i, is_candi, keyword])
+                        break
+                elif keyword in root_text:
                     applicable_factors.append([i, is_candi, keyword])
                     break
     doc_classify.append([text, now_chapter_array[:], applicable_factors])
@@ -31,6 +38,7 @@ def leveling_to_result_array():
         for i in range(len(sent[2])):
             other_factors = sent[2][:]
             see = other_factors.pop(i) # see == [factor num, is candi, keyword]
+            if isinstance(see[2], str): see[2] = [see[2]]
             result[see[0]][see[1]].append([[sent[0], see[2]], sent[1], other_factors])
 
 def print_one_result(i):

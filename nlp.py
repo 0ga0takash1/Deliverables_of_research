@@ -8,7 +8,7 @@ from spacy import displacy
 nlp = spacy.load('ja_ginza')
 
 def is_reference_sentence(text):
-    keywords = ["別紙", "別添", "参照"]
+    keywords = ["別紙", "別添", "参照", "従う"]
     for keyword in keywords:
         if keyword in text:
             return True
@@ -32,22 +32,26 @@ def is_candidate(text):
         return 1
     return 0
 
-def subject_is_system(doc):
-    # if doc:
+def subject_is_system(text):
+    human_action = [
+        "協力",
+    ]
+    if text in human_action: return False
     return True
 
 def correct_root_dep_(dep):
-    if dep == 'acl':
-        return 1
+    tokens = ['acl']
+    if dep in tokens: return 1
+    return 0
+
+def correct_root_verb_dep_(dep):
+    tokens = ['advcl', 'nsubj', 'obj', 'obl']
+    if dep in tokens: return 1
     return 0
 
 def correct_dep_(dep):
-    if dep == 'case' \
-        or dep == 'aux' \
-        or dep == 'obj' \
-        or dep == 'obl' \
-        or dep == 'compound':
-        return 1
+    tokens = ['case', 'aux', 'obj', 'obl', 'nummod', 'compound', 'nsubj', 'csubj', 'advmod', 'nmod', 'acl']
+    if dep in tokens: return 1
     return 0
 
 def make_root_of_sent(root_text):
@@ -61,28 +65,37 @@ def root_of_sent(text):
     root_text = [] # array of [word, is root word]
 
     doc = nlp(text)
+    root_text = []
     for sent in doc.sents:
+        root_i = len(sent)
         for token in sent:
             root_text.append([token.text, 0])
             if token.dep_ == 'ROOT':
-                root_text[token.i][1] = 1
-            if token.head.dep_ == 'ROOT' \
-                and correct_root_dep_(token.dep_):
-                root_text[token.i][1] = 1
-        words_to_add_to_root = 10
-        while words_to_add_to_root > 0:
-            words_to_add_to_root = 0
+                root_i = token.i
+                if token.pos_ == 'VERB':
+                    root_text[token.i][1] = 2
+                else:
+                    root_text[token.i][1] = 1
+            if token.head.dep_ == 'ROOT' and correct_root_dep_(token.dep_):
+                root_text[token.i][1] = 2
+        
+        exist_word_addition = True
+        while exist_word_addition:
+            exist_word_addition = False
             for token in sent:
-                if root_text[token.head.i][1] == 1 \
-                    and token.dep_ != 'ROOT':
-                    if correct_dep_(token.dep_) == 1:
-                        if root_text[token.i][1] != 1:
+                if token.i != root_i and root_text[token.i][1] == 0:
+                    if root_text[token.head.i][1] == 1:
+                        if correct_dep_(token.dep_) == 1:
                             root_text[token.i][1] = 1
-                            words_to_add_to_root += 1
+                            exist_word_addition = True
+                    elif root_text[token.head.i][1] == 2:
+                        if correct_root_verb_dep_(token.dep_) == 1:
+                            root_text[token.i][1] = 1
+                            exist_word_addition = True
     return make_root_of_sent(root_text)
 
 # main
 def nlp_classify(text, now_chapter_array):
-    # text = root_of_sent(text)
+    root_text = root_of_sent(text)
     if subject_is_system(text):
-        cl.classify(text, now_chapter_array, is_candidate(text))
+        cl.classify(text, root_text, now_chapter_array, is_candidate(text))

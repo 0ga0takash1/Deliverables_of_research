@@ -93,7 +93,7 @@ def main(file_path):
                 continue
 
             # 第n章
-            res = re.match('^[1-9１-９](．|.)', s_line)
+            res = re.match('^[1-9１-９](．|\.)[^0-90-9]', s_line)
             if res:
                 txt_array_list.append([s_line])
                 if paragraph_flag == True and not front_paragraph_idx == -1:
@@ -113,7 +113,7 @@ def main(file_path):
                 paragraph_flag = False
                 continue
 
-        tmp_sentences.append(s_line)
+            tmp_sentences.append(s_line)
 
     if paragraph_flag == True and not paragraph_flag == -1:
         now_paragraph.append(tmp_sentences)
@@ -123,5 +123,5 @@ def main(file_path):
         now_chapter.append(tmp_sentences)
 
     txt_array_list = fix_break(txt_array_list)
-    out(txt_array_list)
+    # out(txt_array_list)
     return txt_array_list

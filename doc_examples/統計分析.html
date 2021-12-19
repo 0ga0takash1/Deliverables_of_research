@@ -202,8 +202,65 @@
        </div>
        <div id="3_Performance_requirements">
         <div class="output">
-         <div class="no_one">
-          該当なし
+         <p>
+          <div class="chapter">
+           ６．その他 &gt; (3)特記事項
+          </div>
+          <div class="other_factors">
+           信頼性にも該当
+          </div>
+         </p>
+         <div class="sentence">
+          ・本システムは、ネットワークを介して処理を行うため、ネットワークによる障害及びアプリケーションによる障害、<span>利用者</span>による中断に対して十分考慮して開発すること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ４．規模・性能要件 &gt; （１）規模要件 &gt; ②利用者数
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          本サイトの<span>利用者</span>は、情報システム厚生課の担当者２〜３名、中小企業庁調査課の担当者２〜３名である。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ４．規模・性能要件 &gt; （２）性能要件
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・多数の職員の利用に際し、快適な作業を実現できる<span>処理速度</span>を有すること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ４．規模・性能要件 &gt; （２）性能要件
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・<span>レスポンス</span>時間の目標値は平常時３秒以内、ピーク時５秒以内とする。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ５．信頼性等要件 &gt; （２）拡張性
+          </div>
+          <div class="other_factors">
+           論理データベース要求，移植性にも該当
+          </div>
+         </p>
+         <div class="sentence">
+          ・将来、データ量、<span>利用者</span>数等が調達時に指定した量の5割増となっても、プログラムやファイル等の改修なく対応できるよう、データベースやファイル等の容量に余裕を持たせること。
          </div>
         </div>
        </div>
@@ -228,8 +285,28 @@
        </div>
        <div id="4_Logical_database_requirements">
         <div class="output">
-         <div class="no_one">
-          該当なし
+         <p>
+          <div class="chapter">
+           ３．コンテンツ作成 &gt; （２）コンテンツ作成要件
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          現システムが利用している通関統計加工分析用<span>データベース</span>に登録されている全てのデータを、本開発において構築される<span>データベース</span>に登録すること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ５．信頼性等要件 &gt; （２）拡張性
+          </div>
+          <div class="other_factors">
+           性能要求，移植性にも該当
+          </div>
+         </p>
+         <div class="sentence">
+          ・将来、データ量、利用者数等が調達時に指定した量の5割増となっても、プログラムやファイル等の改修なく対応できるよう、<span>データベース</span>やファイル等の容量に余裕を持たせること。
          </div>
         </div>
        </div>
@@ -254,8 +331,87 @@
        </div>
        <div id="5_Design_constraints">
         <div class="output">
-         <div class="no_one">
-          該当なし
+         <p>
+          <div class="chapter">
+           ５．システム開発条件 &gt; (1)全体構成
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・本システムは、経済産業省の省内PC-LANに接続された一般執務用<span>パソコン</span>、開発用<span>パソコン</span>、および個別業務用イントラネットサーバより構成される。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ５．システム開発条件 &gt; (1)全体構成
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・本システムは<span>クライアント・サーバ方式</span>で稼働すること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ５．システム開発条件 &gt; (3)ネットワーク構成
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・<span>ネットワークトラフィック</span>の効率化を図るために、冗長なトラフィックを発生させないようにすること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           １．作業の概要 &gt; （４）作業の範囲
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          対象業務の内容や手順等を変更することなく、現システムを<span>クライアント・サーバ方式</span>で処理するようにシステムを開発するとともに、システムの稼働に必要なコンテンツを作成する。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ６．システム稼働・開発環境 &gt; （１）全体構成
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・本システムは、経済産業省の省内PC-LANに接続された一般執務用<span>パソコン</span>、開発用<span>パソコン</span>、および個別業務用イントラネットサーバより構成される。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ６．システム稼働・開発環境 &gt; （１）全体構成
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・本システムは<span>クライアント・サーバ方式</span>で稼働すること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ６．システム稼働・開発環境 &gt; （３）ネットワーク環境
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・<span>ネットワークトラフィック</span>の効率化を図るために、冗長なトラフィックを発生させないようにすること。
          </div>
         </div>
        </div>
@@ -266,8 +422,15 @@
        </div>
        <div id="5_Design_constraints_candi">
         <div class="output">
-         <div class="no_one">
-          該当なし
+         <p>
+          <div class="chapter">
+           １．作業内容
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          本作業は、別添の「通関統計加工分析システムの<span>クライアント・サーバ方式</span>への移植作業」に係る仕様書に基づき同システムの基本設計、詳細設計、プログラム開発、システムテスト、ドキュメント作成ならびにコンテンツ作成を行うものである。
          </div>
         </div>
        </div>
@@ -345,8 +508,16 @@
         </div>
         <div id="6_2_Compatibility">
          <div class="output">
-          <div class="no_one">
-           該当なし
+          <p>
+           <div class="chapter">
+            ５．信頼性等要件 &gt; （３）上位互換性
+           </div>
+           <div class="other_factors">
+            移植性にも該当
+           </div>
+          </p>
+          <div class="sentence">
+           ・OS、ミドルウェア等のベンダーから<span>バージョンアップ</span>情報が既に提供されている場合には、それにも対応できるようにシステムを構築すること。
           </div>
          </div>
         </div>
@@ -383,8 +554,16 @@
         </div>
         <div id="6_3_Usability_candi">
          <div class="output">
-          <div class="no_one">
-           該当なし
+          <p>
+           <div class="chapter">
+            ５．信頼性等要件 &gt; （４）アクセシビリティ
+           </div>
+           <div class="other_factors">
+            信頼性にも該当
+           </div>
+          </p>
+          <div class="sentence">
+           ・<span>アクセシビリティ</span>を確保するために、「障害者・高齢者等情報処理機器<span>アクセシビリティ</span>指針」（平成12年6月通商産業省）に従うこと。
           </div>
          </div>
         </div>
@@ -397,8 +576,64 @@
         </div>
         <div id="6_4_Reliability">
          <div class="output">
-          <div class="no_one">
-           該当なし
+          <p>
+           <div class="chapter">
+            ６．その他 &gt; (3)特記事項
+           </div>
+           <div class="other_factors">
+            性能要求にも該当
+           </div>
+          </p>
+          <div class="sentence">
+           ・本システムは、ネットワークを介して処理を行うため、ネットワークによる<span>障害</span>及びアプリケーションによる<span>障害</span>、利用者による中断に対して十分考慮して開発すること。
+          </div>
+         </div>
+         <div class="output">
+          <p>
+           <div class="chapter">
+            ６．その他 &gt; (3)特記事項
+           </div>
+           <div class="other_factors">
+           </div>
+          </p>
+          <div class="sentence">
+           ・特定の日付が原因となって発生するトラブルについて対応しており、いかなる日付においてもシステムが<span>支障</span>なく稼働すること。
+          </div>
+         </div>
+         <div class="output">
+          <p>
+           <div class="chapter">
+            ５．信頼性等要件 &gt; （１）信頼性
+           </div>
+           <div class="other_factors">
+           </div>
+          </p>
+          <div class="sentence">
+           ・<span>障害</span>に伴うシステム停止は年１回以内とすること。
+          </div>
+         </div>
+         <div class="output">
+          <p>
+           <div class="chapter">
+            ５．信頼性等要件 &gt; （１）信頼性
+           </div>
+           <div class="other_factors">
+           </div>
+          </p>
+          <div class="sentence">
+           ・受注者の瑕疵となる<span>障害</span>が発生した場合は、担当者からの連絡を受けてから３時間以内に回復できること。
+          </div>
+         </div>
+         <div class="output">
+          <p>
+           <div class="chapter">
+            ５．信頼性等要件 &gt; （１）信頼性
+           </div>
+           <div class="other_factors">
+           </div>
+          </p>
+          <div class="sentence">
+           ・<span>障害</span>復旧の際、データ復旧はすべてバックアップデータのリストアで対応できること。
           </div>
          </div>
         </div>
@@ -409,8 +644,28 @@
         </div>
         <div id="6_4_Reliability_candi">
          <div class="output">
-          <div class="no_one">
-           該当なし
+          <p>
+           <div class="chapter">
+            ６．その他 &gt; (1)信頼性等要件
+           </div>
+           <div class="other_factors">
+           </div>
+          </p>
+          <div class="sentence">
+           別添「5.<span>信頼性</span>等要件」を参照のこと。
+          </div>
+         </div>
+         <div class="output">
+          <p>
+           <div class="chapter">
+            ５．信頼性等要件 &gt; （４）アクセシビリティ
+           </div>
+           <div class="other_factors">
+            使用性にも該当
+           </div>
+          </p>
+          <div class="sentence">
+           ・アクセシビリティを確保するために、「<span>障害</span>者・高齢者等情報処理機器アクセシビリティ指針」（平成12年6月通商産業省）に従うこと。
           </div>
          </div>
         </div>
@@ -423,8 +678,15 @@
         </div>
         <div id="6_5_Security">
          <div class="output">
-          <div class="no_one">
-           該当なし
+          <p>
+           <div class="chapter">
+            ５．信頼性等要件 &gt; （１）信頼性
+           </div>
+           <div class="other_factors">
+           </div>
+          </p>
+          <div class="sentence">
+           ・システム内の機能や取扱データは、その機能やデータの利用<span>権限</span>を持つユーザのみが利用可能であること。
           </div>
          </div>
         </div>
@@ -475,8 +737,41 @@
         </div>
         <div id="6_7_Portability">
          <div class="output">
-          <div class="no_one">
-           該当なし
+          <p>
+           <div class="chapter">
+            ５．信頼性等要件 &gt; （２）拡張性
+           </div>
+           <div class="other_factors">
+            性能要求，論理データベース要求にも該当
+           </div>
+          </p>
+          <div class="sentence">
+           ・<span>将来</span>、データ量、利用者数等が調達時に指定した量の5割増となっても、プログラムやファイル等の改修なく対応できるよう、データベースやファイル等の容量に余裕を持たせること。
+          </div>
+         </div>
+         <div class="output">
+          <p>
+           <div class="chapter">
+            ５．信頼性等要件 &gt; （２）拡張性
+           </div>
+           <div class="other_factors">
+           </div>
+          </p>
+          <div class="sentence">
+           ・<span>将来</span>、本システムが他システムと接続する際のプロトコルは、TCP/IPを前提とすること。
+          </div>
+         </div>
+         <div class="output">
+          <p>
+           <div class="chapter">
+            ５．信頼性等要件 &gt; （３）上位互換性
+           </div>
+           <div class="other_factors">
+            互換性にも該当
+           </div>
+          </p>
+          <div class="sentence">
+           ・OS、ミドルウェア等のベンダーから<span>バージョンアップ</span>情報が既に提供されている場合には、それにも対応できるようにシステムを構築すること。
           </div>
          </div>
         </div>

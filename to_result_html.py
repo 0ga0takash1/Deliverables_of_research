@@ -48,7 +48,8 @@ def one(chapter_array, other_factors_array, text_keyword):
     text = text_keyword[0]
     keyword = text_keyword[1]
 
-    text = replace_keyword_to_tag(text, keyword)
+    for i in keyword:
+        text = replace_keyword_to_tag(text, i)
 
     text_tag = soup.new_tag('div')
     text_tag.attrs['class'] = "sentence"

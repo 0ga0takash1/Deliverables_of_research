@@ -34,7 +34,7 @@ def main(file_path):
     print("Push to HTML is complete.")
 
 if __name__ == "__main__":
-    # main(sys.argv[1])
+    main(sys.argv[1])
     # 5. html用のローカルサーバをたてる
     # import server
     # exams = os.path.abspath(os.curdir)
@@ -43,4 +43,4 @@ if __name__ == "__main__":
     #     if i[-4:] == ".txt":
     #         i = exams+i
     #         main(i)
-    main("doc_examples/formatニュース速報.txt")
+    # main("doc_examples/formatニュース速報.txt")
