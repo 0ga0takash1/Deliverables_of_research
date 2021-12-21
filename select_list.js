@@ -6,7 +6,7 @@ function checkbox_disable ( flag ) {
 
 
 function action_select_list () {
-    const ids = ["factor1", "factor2", "factor3", "factor4", "factor5", "factor611", "factor612", "factor62", "factor63", "factor64", "factor65", "factor66", "factor67"];
+    const ids = ["factor1", "factor3", "factor4", "factor5", "factor611", "factor612", "factor62", "factor63", "factor64", "factor65", "factor66", "factor67"];
 
     let len = document.checkbox.elements.length;
     
@@ -27,15 +27,17 @@ function action_select_list () {
             }
         }
 
-        if ( !document.checkbox[5].checked && !document.checkbox[6].checked ) {
+        // if ( !document.checkbox[5].checked && !document.checkbox[6].checked ) { // 機能要求除外
+        if ( !document.checkbox[4].checked && !document.checkbox[5].checked ) {
             document.getElementById("factor61").style.display = 'none';
         } else {
             document.getElementById("factor61").style.display = 'block';
         }
     
         let flag6 = 0;
-        for (let i = 5; i < len; i++) {
-            if ( document.checkbox[i].checked ) {
+        // for (let i = 5; i < len; i++) { // 機能要求除外
+        for (let i = 4; i < len; i++) {
+                if ( document.checkbox[i].checked ) {
                 flag6 = 1;
                 break;
             }

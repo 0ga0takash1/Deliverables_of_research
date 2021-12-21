@@ -26,9 +26,11 @@ def main(file_path):
     front_chapter_idx = -1
     front_section_idx = -1
     front_paragraph_idx = -1
+    front_subparagraph_idx = -1
 
     section_flag = False
     paragraph_flag = False
+    subparagraph_flag = False
 
     with open(file_path) as f:
         doc = f.readlines()
@@ -52,14 +54,35 @@ def main(file_path):
                     now_section = now_chapter[1][front_section_idx]
                     if front_paragraph_idx >= 0:
                         now_paragraph = now_section[1][front_paragraph_idx]
-            # 第n項
+                        if front_subparagraph_idx >= 0:
+                            now_subparagraph = now_paragraph[1][front_subparagraph_idx]
+            
+            title = s_line
+            # subparagraph
+            res = re.match('^(\(|（)(ア|イ|ウ|エ|オ|カ|キ|ク|ケ|コ)(\)|）)', s_line)
+            if res:
+                if not subparagraph_flag:
+                    now_paragraph.append([])
+                subparagraph_flag = True
+                now_paragraph[1].append([title])
+
+                if not front_subparagraph_idx == -1:
+                    now_subparagraph.append(tmp_sentences)
+                
+                tmp_sentences = []
+                front_subparagraph_idx += 1
+                continue
+
+            # paragraph
             res = re.match('^[①-⑳]', s_line)
             if res:
                 if not paragraph_flag:
                     now_section.append([])
-                paragraph_flag=True
                 
-                title = s_line
+                if subparagraph_flag == True and not front_subparagraph_idx == -1:
+                    now_subparagraph.append(tmp_sentences)
+                
+                paragraph_flag=True                
                 now_section[1].append([title])
 
                 if not front_paragraph_idx == -1:
@@ -67,20 +90,22 @@ def main(file_path):
                 
                 tmp_sentences = []
                 front_paragraph_idx += 1
+                front_subparagraph_idx = -1
+                subparagraph_flag = False
                 continue
 
-            # 第n節
+            # seciton
             res = re.match('^(\(|（)[1-9１-９](\)|）)', s_line)
             if res:
                 if not section_flag:
                     now_chapter.append([])
-
-                if paragraph_flag == True and not front_paragraph_idx == -1:
+                
+                if subparagraph_flag == True and not front_subparagraph_idx == -1:
+                    now_subparagraph.append(tmp_sentences)
+                elif paragraph_flag == True and not front_paragraph_idx == -1:
                     now_paragraph.append(tmp_sentences)
                             
                 section_flag = True
-
-                title = s_line
                 now_chapter[1].append([title])
 
                 if not front_section_idx == -1:
@@ -89,14 +114,18 @@ def main(file_path):
                 tmp_sentences = []
                 front_section_idx += 1
                 front_paragraph_idx = -1
+                front_subparagraph_idx = -1
                 paragraph_flag = False
+                subparagraph_flag = False
                 continue
 
-            # 第n章
+            # chapter
             res = re.match('^[1-9１-９](．|\.)[^0-90-9]', s_line)
             if res:
-                txt_array_list.append([s_line])
-                if paragraph_flag == True and not front_paragraph_idx == -1:
+                txt_array_list.append([title])
+                if subparagraph_flag == True and not front_subparagraph_idx == -1:
+                    now_subparagraph.append(tmp_sentences)
+                elif paragraph_flag == True and not front_paragraph_idx == -1:
                     now_paragraph.append(tmp_sentences)
                 elif section_flag == True and not front_section_idx == -1:
                     now_section.append(tmp_sentences)
@@ -109,13 +138,17 @@ def main(file_path):
                 front_chapter_idx += 1
                 front_section_idx = -1
                 front_paragraph_idx = -1
+                front_subparagraph_idx = -1
                 section_flag = False
                 paragraph_flag = False
+                subparagraph_flag = False
                 continue
 
             tmp_sentences.append(s_line)
 
-    if paragraph_flag == True and not paragraph_flag == -1:
+    if subparagraph_flag == True and not front_subparagraph_idx == -1:
+        now_subparagraph.append(tmp_sentences)
+    elif paragraph_flag == True and not front_paragraph_idx == -1:
         now_paragraph.append(tmp_sentences)
     elif section_flag == True and not front_section_idx == -1:
         now_section.append(tmp_sentences)

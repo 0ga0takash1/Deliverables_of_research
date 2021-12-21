@@ -1,6 +1,6 @@
 id_list = [
     "1_Interface_with_outside",
-    "2_Functional_requirements",
+    # "2_Functional_requirements",
     "3_Performance_requirements",
     "4_Logical_database_requirements",
     "5_Design_constraints",
@@ -16,7 +16,7 @@ id_list = [
 
 Require_factors = [
     "外部とのインタフェース",
-    "機能要求",
+    # "機能要求",
     "性能要求",
     "論理データベース要求",
     "設計制約",

@@ -52,73 +52,79 @@
           <div>
            <label>
             <input disabled="true" type="checkbox"/>
-            外部とのインタフェース
+            1. 外部とのインタフェース
            </label>
           </div>
           <div>
            <label>
             <input disabled="true" type="checkbox"/>
-            性能要求
+            2. 機能要求
            </label>
           </div>
           <div>
            <label>
             <input disabled="true" type="checkbox"/>
-            論理データベース要求
+            3. 性能要求
            </label>
           </div>
           <div>
            <label>
             <input disabled="true" type="checkbox"/>
-            設計制約
+            4. 論理データベース要求
            </label>
           </div>
           <div>
            <label>
             <input disabled="true" type="checkbox"/>
-            時間効率性
+            5. 設計制約
            </label>
           </div>
           <div>
            <label>
             <input disabled="true" type="checkbox"/>
-            資源効率性
+            6.1.1. 時間効率性
            </label>
           </div>
           <div>
            <label>
             <input disabled="true" type="checkbox"/>
-            互換性
+            6.1.2. 資源効率性
            </label>
           </div>
           <div>
            <label>
             <input disabled="true" type="checkbox"/>
-            使用性
+            6.2. 互換性
            </label>
           </div>
           <div>
            <label>
             <input disabled="true" type="checkbox"/>
-            信頼性
+            6.3. 使用性
            </label>
           </div>
           <div>
            <label>
             <input disabled="true" type="checkbox"/>
-            セキュリティ
+            6.4. 信頼性
            </label>
           </div>
           <div>
            <label>
             <input disabled="true" type="checkbox"/>
-            保守性
+            6.5. セキュリティ
            </label>
           </div>
           <div>
            <label>
             <input disabled="true" type="checkbox"/>
-            移植性
+            6.6. 保守性
+           </label>
+          </div>
+          <div>
+           <label>
+            <input disabled="true" type="checkbox"/>
+            6.7. 移植性
            </label>
           </div>
          </form>
@@ -139,7 +145,7 @@
       <div class="factor" id="factor1">
        <div class="factor_title">
         <h2>
-         外部とのインタフェース
+         1. 外部とのインタフェース
         </h2>
        </div>
        <div id="1_Interface_with_outside">
@@ -194,13 +200,196 @@
         <div class="output">
          <p>
           <div class="chapter">
-           ２．システム開発 &gt; （２）画面要件 &gt; ②画面入出力要件
+           １．作業の概要 &gt; （１）目的
           </div>
           <div class="other_factors">
           </div>
          </p>
          <div class="sentence">
-          なお、ニュース一覧<span>画面</span>において、ニュース見出しを指定すると、ニュース本文<span>画面</span>がポップアップ<span>画面</span>として表示されること。
+          現在、日本電気株式会社星の汎用電子計算機（ACOSPX7900/40）で稼働している「たい積場安定解析プ<span>ログ</span>ラム（MINE/FS-1979）」は、たい積場の設置および変更の工事に係る認可申請の際、たい積場の安全性を判定するために使用している。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           １．作業の概要 &gt; （１）目的
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          現行のシステムについて、クライアント／サーバ方式へ移植し、業務の効率化を図るため、利用者管理、データ<span>ファイル</span>管理、データアクセス管理のシステム拡充を行う。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           １．作業の概要 &gt; （３）対象業務の概要
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          鉱山保安課では、たい積場の設置および変更の工事に係る許可申請において、申請者から提出された図面データ等に基づきたい積場安定解析プ<span>ログ</span>ラムを用いて安全性の確認を行っている。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           １．作業の概要 &gt; （４）システム化の範囲
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          本作業では、1.（3）で説明した業務のうち、たい積場安定解析プ<span>ログ</span>ラムの移植に係るシステム化を対象範囲とする。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           １．作業の概要 &gt; （５）作業内容
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          現行のシステムについて、クライアント／サーバ方式へ移植し、業務の効率化を図るため、利用者管理、データ<span>ファイル</span>管理、データアクセス管理の機能拡充を図る「システム開発」を行う。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ２．システム開発 &gt; （１）システム機能 &gt; ①システム機能一覧
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          本システムは「<span>入力</span>情報作成機能」「計算機能」「図化機能」「データファイル管理機能」「利用者管理機能」「ファイルアクセス管理機能」から構成される。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ２．システム開発 &gt; （１）システム機能 &gt; ②システム機能の説明 &gt; （ア）入力情報作成機能
+          </div>
+          <div class="other_factors">
+           性能要求にも該当
+          </div>
+         </p>
+         <div class="sentence">
+          ・基本計算データ（土質条件、地下水位等）および特殊計算データ（引張りキレツ線、水圧等高線等）について<span>入力</span>情報を簡単に作成できること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ２．システム開発 &gt; （１）システム機能 &gt; ②システム機能の説明 &gt; （イ）計算機能
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・現在当省で運用している「たい積場安定解析プ<span>ログ</span>ラム（MINE/FS-1979）」による解析結果と実務上問題となる誤差が生じないようにすること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ２．システム開発 &gt; （１）システム機能 &gt; ②システム機能の説明 &gt; （イ）計算機能
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・たい積場安定解析システムにおける<span>入力</span>又は計算方式を以下の表に示す。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ２．システム開発 &gt; （１）システム機能 &gt; ②システム機能の説明 &gt; （エ）ファイルアクセス管理機能
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・他管内のデータは、読み込みを可能にし、データの<span>入力</span>・修正を行えないよう制御できること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ２．システム開発 &gt; （１）システム機能 &gt; ②システム機能の説明 &gt; （オ）利用者管理
+          </div>
+          <div class="other_factors">
+           セキュリティにも該当
+          </div>
+         </p>
+         <div class="sentence">
+          ・システム起動前には、利用者にID、パスワードの<span>入力</span>を要求することとする。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ２．システム開発 &gt; （１）システム機能 &gt; ②システム機能の説明 &gt; （オ）利用者管理
+          </div>
+          <div class="other_factors">
+           セキュリティにも該当
+          </div>
+         </p>
+         <div class="sentence">
+          ・<span>ログ</span>インのためのID、パスワードおよび利用できる範囲を指定するための管理者機能を設けること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ２．システム開発 &gt; （１）システム機能 &gt; ②システム機能の説明 &gt; （カ）データファイル管理機能
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・データは、一たい積場ごとに管理・保存し、２回目以降のデータを<span>作成</span>する際に当該データを呼び出すことができること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ２．システム開発 &gt; （１）システム機能 &gt; ②システム機能の説明 &gt; （カ）データファイル管理機能
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・データは、解析単位で登録、検索、削除、<span>ファイル</span>移動ができること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ２．システム開発 &gt; （１）システム機能 &gt; ②システム機能の説明 &gt; （カ）データファイル管理機能
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・データの登録、検索、削除、<span>ファイル</span>移動は、事業所・解析者・解析地域・解析日時を入力指定できること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ４．信頼性等要件 &gt; （１）信頼性
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・画面機能の一部変更は、サーバ側のパラメータ<span>ファイル</span>の修正のみで対応可能なこと。
          </div>
         </div>
         <div class="output">
@@ -213,13 +402,13 @@
           </div>
          </p>
          <div class="sentence">
-          ・将来、データ量、利用者数等が調達時に指定した量の５割増となっても、プログラムや<span>ファイル</span>等の改修なく対応できるよう、データベースや<span>ファイル</span>等の容量に余裕を持たせること。
+          ・将来、データ量、利用者数等が調達時に指定した量の5割増となっても、プログラムや<span>ファイル</span>等の改修なく対応できるよう、データベースや<span>ファイル</span>等の容量に余裕を持たせること。
          </div>
         </div>
         <div class="output">
          <p>
           <div class="chapter">
-           ７．納品・検収 &gt; （２）納入物品
+           ７．納品・検収 &gt; （２）納入物品 &gt; ①基本設計書
           </div>
           <div class="other_factors">
           </div>
@@ -231,13 +420,37 @@
         <div class="output">
          <p>
           <div class="chapter">
-           ７．納品・検収 &gt; （２）納入物品
+           ７．納品・検収 &gt; （２）納入物品 &gt; ①基本設計書
           </div>
           <div class="other_factors">
           </div>
          </p>
          <div class="sentence">
           注2⑦プログラムには、ソースプログラム、実行形式プログラム、利用環境等を定義する<span>ファイル</span>、コンテンツを含めること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ７．納品・検収 &gt; （４）検収方法 &gt; ①システムテスト
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・システムテスト時に使用した一時<span>ファイル</span>等の不要な<span>ファイル</span>等は、システムテスト終了後、削除すること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ７．納品・検収 &gt; （４）検収方法 &gt; ②完成検査
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・これらの記載内容と⑦プ<span>ログ</span>ラムの内容との間に差異や矛盾点がないかを検査する。
          </div>
         </div>
        </div>
@@ -256,7 +469,19 @@
           </div>
          </p>
          <div class="sentence">
-          本作業は、別添の「ニュース速報を外部から取得し、イントラネットを介して職員に提供するシステムの新規開発」に係る仕様書に基づき同システムの基本設計、詳細設計、プログラム開発、システムテスト、ドキュメント<span>作成</span>を行うものである。
+          本作業は、別添の「たい積場安定解析システムのホストシステムからC/S方式への移植」に係る仕様書に基づき同システムの基本設計、詳細設計、プログラム開発、システムテスト、ドキュメント<span>作成</span>を行うものである。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ２．システム開発 &gt; （１）システム機能 &gt; ②システム機能の説明 &gt; （ウ）解析結果図化機能
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・図化設定情報は<span>ファイル</span>保存できるものとし、過去に作成した図面の参照も可能なこと。
          </div>
         </div>
         <div class="output">
@@ -265,10 +490,49 @@
            ４．信頼性等要件 &gt; （４）アクセシビリティ
           </div>
           <div class="other_factors">
+           使用性にも該当
           </div>
          </p>
          <div class="sentence">
           ・アクセシビリティを確保するために、「インターネットにおけるアクセシブルなウェブコンテンツの<span>作成</span>方法に関する指針」（2000年11月に開催された「第5回IT戦略会議・IT戦略本部合同会議」における参考資料）に従うこと。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ６．作業の体制および方法 &gt; （２）開発方法 &gt; ②ドキュメント基準
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・ドキュメントについては、<span>作成</span>に先立ちその構成や記載項目、記載内容および記載水準等を規定した<span>作成</span>要領を提出し、これに従うこと。
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="factor" id="factor2">
+       <div class="factor_title">
+        <h2>
+         2. 機能要求
+        </h2>
+       </div>
+       <div id="2_Functional_requirements">
+        <div class="output">
+         <div class="no_one">
+          該当なし
+         </div>
+        </div>
+       </div>
+       <div class="factor_candi_title">
+        <h3>
+         候補
+        </h3>
+       </div>
+       <div id="2_Functional_requirements_candi">
+        <div class="output">
+         <div class="no_one">
+          該当なし
          </div>
         </div>
        </div>
@@ -276,44 +540,21 @@
       <div class="factor" id="factor3">
        <div class="factor_title">
         <h2>
-         性能要求
+         3. 性能要求
         </h2>
        </div>
        <div id="3_Performance_requirements">
         <div class="output">
          <p>
           <div class="chapter">
-           ３．規模・性能要件 &gt; （１）規模要件 &gt; ②利用者数
+           ２．システム開発 &gt; （１）システム機能 &gt; ②システム機能の説明 &gt; （ア）入力情報作成機能
           </div>
           <div class="other_factors">
+           外部とのインタフェースにも該当
           </div>
          </p>
          <div class="sentence">
-          本サイトの<span>利用</span>者は、<span>全</span>ての経済産業省職員である。
-         </div>
-        </div>
-        <div class="output">
-         <p>
-          <div class="chapter">
-           ３．規模・性能要件 &gt; （１）規模要件 &gt; ②利用者数
-          </div>
-          <div class="other_factors">
-          </div>
-         </p>
-         <div class="sentence">
-          また、サイト管理<span>者</span>は２<span>名</span>である。
-         </div>
-        </div>
-        <div class="output">
-         <p>
-          <div class="chapter">
-           ３．規模・性能要件 &gt; （１）規模要件 &gt; ③アクセス数
-          </div>
-          <div class="other_factors">
-          </div>
-         </p>
-         <div class="sentence">
-          本サイトへのアクセス数は、3,000<span>件</span>／日を想定している。
+          ・基本計算データ（土質条<span>件</span>、地下水位等）および特殊計算データ（引張りキレツ線、水圧等高線等）について入力情報を簡単に作成できること。
          </div>
         </div>
         <div class="output">
@@ -348,8 +589,16 @@
        </div>
        <div id="3_Performance_requirements_candi">
         <div class="output">
-         <div class="no_one">
-          該当なし
+         <p>
+          <div class="chapter">
+           ６．その他 &gt; (1)信頼性等要件
+          </div>
+          <div class="other_factors">
+           信頼性にも該当
+          </div>
+         </p>
+         <div class="sentence">
+          別添「4.信頼性等要<span>件</span>」を参照のこと。
          </div>
         </div>
        </div>
@@ -357,7 +606,7 @@
       <div class="factor" id="factor4">
        <div class="factor_title">
         <h2>
-         論理データベース要求
+         4. 論理データベース要求
         </h2>
        </div>
        <div id="4_Logical_database_requirements">
@@ -371,7 +620,19 @@
           </div>
          </p>
          <div class="sentence">
-          ・将来、データ量、利用者数等が調達時に指定した量の５割増となっても、プログラムやファイル等の改修なく対応できるよう、<span>データベース</span>やファイル等の容量に余裕を持たせること。
+          ・将来、データ量、利用者数等が調達時に指定した量の5割増となっても、プログラムやファイル等の改修なく対応できるよう、<span>データベース</span>やファイル等の容量に余裕を持たせること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ６．作業の体制および方法 &gt; （１）作業体制 &gt; ②主要担当者
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          主要担当者は、<span>データベース</span>・システムの企画・設計に関する知見や技術を有すること。
          </div>
         </div>
        </div>
@@ -391,7 +652,7 @@
       <div class="factor" id="factor5">
        <div class="factor_title">
         <h2>
-         設計制約
+         5. 設計制約
         </h2>
        </div>
        <div id="5_Design_constraints">
@@ -404,7 +665,19 @@
           </div>
          </p>
          <div class="sentence">
-          ・本システムは、経済産業省の省内PC-LANに接続されたNTサーバ、UNIXサーバ、イントラサーバ、およびクライアント<span>パソコン</span>より構成される。
+          ・本システムは、経済産業省の省内PC-LANに接続された一般執務用<span>パソコン</span>、個別業務用イントラネットサーバ、および開発用<span>パソコン</span>より構成される。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ５．システム開発条件 &gt; (1)全体構成
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・本システムは<span>クライアント・サーバ方式</span>で稼働すること。
          </div>
         </div>
         <div class="output">
@@ -417,6 +690,18 @@
          </p>
          <div class="sentence">
           ・ネットワーク<span>トラフィック</span>の効率化を図るために、冗長な<span>トラフィック</span>を発生させないようにすること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ５．システム稼働・開発環境 &gt; （１）全体構成
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・本システムは<span>クライアント・サーバ方式</span>で稼働すること。
          </div>
         </div>
         <div class="output">
@@ -448,19 +733,19 @@
       <div class="factor" id="factor6">
        <div class="factor_title">
         <h3>
-         システムの属性
+         6. システムの属性
         </h3>
        </div>
        <div class="factor" id="factor61">
         <div class="factor_title">
          <h3>
-          性能効率性
+          6.1. 性能効率性
          </h3>
         </div>
         <div class="factor" id="factor611">
          <div class="factor_title">
           <h2>
-           時間効率性
+           6.1.1. 時間効率性
           </h2>
          </div>
          <div id="6_1_1_Time_behaviour">
@@ -486,7 +771,7 @@
         <div class="factor" id="factor612">
          <div class="factor_title">
           <h2>
-           資源効率性
+           6.1.2. 資源効率性
           </h2>
          </div>
          <div id="6_1_2_Resource_utilization">
@@ -513,7 +798,7 @@
        <div class="factor" id="factor62">
         <div class="factor_title">
          <h2>
-          互換性
+          6.2. 互換性
          </h2>
         </div>
         <div id="6_2_Compatibility">
@@ -547,7 +832,7 @@
        <div class="factor" id="factor63">
         <div class="factor_title">
          <h2>
-          使用性
+          6.3. 使用性
          </h2>
         </div>
         <div id="6_3_Usability">
@@ -564,8 +849,16 @@
         </div>
         <div id="6_3_Usability_candi">
          <div class="output">
-          <div class="no_one">
-           該当なし
+          <p>
+           <div class="chapter">
+            ４．信頼性等要件 &gt; （４）アクセシビリティ
+           </div>
+           <div class="other_factors">
+            外部とのインタフェースにも該当
+           </div>
+          </p>
+          <div class="sentence">
+           ・<span>アクセシビリティ</span>を確保するために、「インターネットにおけるアクセシブルなウェブコンテンツの作成方法に関する指針」（2000年11月に開催された「第5回IT戦略会議・IT戦略本部合同会議」における参考資料）に従うこと。
           </div>
          </div>
         </div>
@@ -573,10 +866,34 @@
        <div class="factor" id="factor64">
         <div class="factor_title">
          <h2>
-          信頼性
+          6.4. 信頼性
          </h2>
         </div>
         <div id="6_4_Reliability">
+         <div class="output">
+          <p>
+           <div class="chapter">
+            ６．その他 &gt; (3)特記事項
+           </div>
+           <div class="other_factors">
+           </div>
+          </p>
+          <div class="sentence">
+           ・本システムは、ネットワークを介して処理を行うため、ネットワークによる<span>障害</span>及びアプリケーションによる<span>障害</span>、利用者による中断に対して十分考慮して開発すること。
+          </div>
+         </div>
+         <div class="output">
+          <p>
+           <div class="chapter">
+            ６．その他 &gt; (3)特記事項
+           </div>
+           <div class="other_factors">
+           </div>
+          </p>
+          <div class="sentence">
+           ・特定の日付が原因となって発生するトラブルについて対応しており、いかなる日付においてもシステムが<span>支障</span>なく稼働すること。
+          </div>
+         </div>
          <div class="output">
           <p>
            <div class="chapter">
@@ -609,8 +926,16 @@
         </div>
         <div id="6_4_Reliability_candi">
          <div class="output">
-          <div class="no_one">
-           該当なし
+          <p>
+           <div class="chapter">
+            ６．その他 &gt; (1)信頼性等要件
+           </div>
+           <div class="other_factors">
+            性能要求にも該当
+           </div>
+          </p>
+          <div class="sentence">
+           別添「4.<span>信頼性</span>等要件」を参照のこと。
           </div>
          </div>
         </div>
@@ -618,10 +943,72 @@
        <div class="factor" id="factor65">
         <div class="factor_title">
          <h2>
-          セキュリティ
+          6.5. セキュリティ
          </h2>
         </div>
         <div id="6_5_Security">
+         <div class="output">
+          <p>
+           <div class="chapter">
+            ２．システム開発 &gt; （１）システム機能 &gt; ②システム機能の説明 &gt; （オ）利用者管理
+           </div>
+           <div class="other_factors">
+            外部とのインタフェースにも該当
+           </div>
+          </p>
+          <div class="sentence">
+           ・システム起動前には、利用者に<span>ID</span>、パスワードの入力を要求することとする。
+          </div>
+         </div>
+         <div class="output">
+          <p>
+           <div class="chapter">
+            ２．システム開発 &gt; （１）システム機能 &gt; ②システム機能の説明 &gt; （オ）利用者管理
+           </div>
+           <div class="other_factors">
+           </div>
+          </p>
+          <div class="sentence">
+           ・権限管理、<span>セキュリティ</span>を考慮し、それぞれのID、パスワードにより利用できる範囲を制限できること。
+          </div>
+         </div>
+         <div class="output">
+          <p>
+           <div class="chapter">
+            ２．システム開発 &gt; （１）システム機能 &gt; ②システム機能の説明 &gt; （オ）利用者管理
+           </div>
+           <div class="other_factors">
+            外部とのインタフェースにも該当
+           </div>
+          </p>
+          <div class="sentence">
+           ・ログインのための<span>ID</span>、パスワードおよび利用できる範囲を指定するための管理者機能を設けること。
+          </div>
+         </div>
+         <div class="output">
+          <p>
+           <div class="chapter">
+            ２．システム開発 &gt; （１）システム機能 &gt; ②システム機能の説明 &gt; （オ）利用者管理
+           </div>
+           <div class="other_factors">
+           </div>
+          </p>
+          <div class="sentence">
+           ・<span>ID</span>、パスワードは、それぞれの管理者と利用者別に割り振りできること。
+          </div>
+         </div>
+         <div class="output">
+          <p>
+           <div class="chapter">
+            ４．信頼性等要件 &gt; （１）信頼性
+           </div>
+           <div class="other_factors">
+           </div>
+          </p>
+          <div class="sentence">
+           ・システム内の機能や取扱データは、その機能やデータの利用<span>権限</span>を持つユーザのみが利用可能であること。
+          </div>
+         </div>
          <div class="output">
           <p>
            <div class="chapter">
@@ -651,7 +1038,7 @@
        <div class="factor" id="factor66">
         <div class="factor_title">
          <h2>
-          保守性
+          6.6. 保守性
          </h2>
         </div>
         <div id="6_6_Maintainability">
@@ -677,7 +1064,7 @@
        <div class="factor" id="factor67">
         <div class="factor_title">
          <h2>
-          移植性
+          6.7. 移植性
          </h2>
         </div>
         <div id="6_7_Portability">
@@ -691,7 +1078,19 @@
            </div>
           </p>
           <div class="sentence">
-           ・将来、データ量、利用者数等が調達時に指定した量の５割増となっても、プログラムやファイル等の<span>改修</span>なく対応できるよう、データベースやファイル等の容量に余裕を持たせること。
+           ・<span>将来</span>、データ量、利用者数等が調達時に指定した量の5割増となっても、プログラムやファイル等の改修なく対応できるよう、データベースやファイル等の容量に余裕を持たせること。
+          </div>
+         </div>
+         <div class="output">
+          <p>
+           <div class="chapter">
+            ４．信頼性等要件 &gt; （２）拡張性
+           </div>
+           <div class="other_factors">
+           </div>
+          </p>
+          <div class="sentence">
+           ・<span>将来</span>、本システムが他システムと接続する際のプロトコルは、TCP/IPを前提とすること。
           </div>
          </div>
          <div class="output">
@@ -774,11 +1173,9 @@
          <span class="d_cyan">
           要求要素
          </span>
-         とは、要求文書に記述される、
+         とは、
          <br/>
-         ソフトウェア要求の種別のことです。
-         <br/>
-         本ツールは以下の青字になっている12個を扱います。
+         以下の青字になっている13個です。
          <ol>
           <li>
            <span>
@@ -786,7 +1183,9 @@
            </span>
           </li>
           <li>
-           機能要求
+           <span>
+            機能要求
+           </span>
           </li>
           <li>
            <span>

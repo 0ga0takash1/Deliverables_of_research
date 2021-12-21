@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="ja">
+ <head>
+  <meta charset="utf-8"/>
+  <link href="style.css" rel="stylesheet" type="text/css"/>
+  <script src="select_list.js" type="text/javascript">
+  </script>
+  <title>
+   要求関連文書解析結果
+  </title>
+ </head>
+ <body>
+  <header>
+   <h2>
+    要求関連文書解析結果
+   </h2>
+   <p>
+    文書中の要求に関する文章を、
+    <span class="cyan">
+     要求要素
+    </span>
+    別に出力します。
+   </p>
+  </header>
+  <main>
+   <div class="flex_area">
+    <div class="left_area">
+     <div class="fixed_area">
+      <div class="select_list">
+       <div class="select_item">
+        <h2>
+         表示する要求要素にチェック
+        </h2>
+       </div>
+       <div class="select_item">
+        <form>
+         <div>
+          <label>
+           <input checked="" name="all_or_part" onclick="checkbox_disable(true);" type="radio"/>
+           すべての要求要素を表示する
+          </label>
+         </div>
+         <div>
+          <label>
+           <input name="all_or_part" onclick="checkbox_disable(false);" type="radio"/>
+           選択した要求要素だけを表示する
+          </label>
+         </div>
+        </form>
+        <div>
+         <form name="checkbox">
+          <div>
+           <label>
+            <input disabled="true" type="checkbox"/>
+            1. 外部とのインタフェース
+           </label>
+          </div>
+          <div>
+           <label>
+            <input disabled="true" type="checkbox"/>
+            2. 機能要求
+           </label>
+          </div>
+          <div>
+           <label>
+            <input disabled="true" type="checkbox"/>
+            3. 性能要求
+           </label>
+          </div>
+          <div>
+           <label>
+            <input disabled="true" type="checkbox"/>
+            4. 論理データベース要求
+           </label>
+          </div>
+          <div>
+           <label>
+            <input disabled="true" type="checkbox"/>
+            5. 設計制約
+           </label>
+          </div>
+          <div>
+           <label>
+            <input disabled="true" type="checkbox"/>
+            6.1.1. 時間効率性
+           </label>
+          </div>
+          <div>
+           <label>
+            <input disabled="true" type="checkbox"/>
+            6.1.2. 資源効率性
+           </label>
+          </div>
+          <div>
+           <label>
+            <input disabled="true" type="checkbox"/>
+            6.2. 互換性
+           </label>
+          </div>
+          <div>
+           <label>
+            <input disabled="true" type="checkbox"/>
+            6.3. 使用性
+           </label>
+          </div>
+          <div>
+           <label>
+            <input disabled="true" type="checkbox"/>
+            6.4. 信頼性
+           </label>
+          </div>
+          <div>
+           <label>
+            <input disabled="true" type="checkbox"/>
+            6.5. セキュリティ
+           </label>
+          </div>
+          <div>
+           <label>
+            <input disabled="true" type="checkbox"/>
+            6.6. 保守性
+           </label>
+          </div>
+          <div>
+           <label>
+            <input disabled="true" type="checkbox"/>
+            6.7. 移植性
+           </label>
+          </div>
+         </form>
+        </div>
+       </div>
+       <div class="select_item">
+        <div>
+         <button onclick="action_select_list();">
+          submit
+         </button>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="main_area">
+     <div class="contents">
+      <div class="factor" id="factor1">
+       <div class="factor_title">
+        <h2>
+         1. 外部とのインタフェース
+        </h2>
+       </div>
+       <div id="1_Interface_with_outside">
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ２．納入物品
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          注1①〜⑥までの納入物品については、紙媒体および電子<span>ファイル</span>（一太郎Ver.9.0以前又はMicrosoftWord98以前の形式）で保存したCD-ROM又はMOで納品すること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ２．納入物品
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          注2⑦プログラムには、ソースプログラム、実行形式プログラム、利用環境等を定義する<span>ファイル</span>、コンテンツを含めること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ６．その他 &gt; (3)特記事項
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・本システムの検索機能等により一時<span>ファイル</span>を作成する場合、又は、設定された作業<span>ファイル</span>を利用する場合は、資源が有効に活用できるよう配慮したシステムとすること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ６．その他 &gt; (3)特記事項
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          また不必要な一時<span>ファイル</span>等は削除すること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           １．作業の概要 &gt; （１）目的
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          本システムは、情報の増加、簡単な<span>表示</span>レイアウトの変さらに対応できるよう柔軟性の高いシステムを目指すものとする。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ２．システム開発 &gt; （１）システム機能 &gt; ①システム機能一覧
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          本システムは「登録機能」「項目変更機能」「検索機能」「<span>画面</span>表示機能」の各システム機能から構成される。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ２．システム開発 &gt; （１）システム機能 &gt; ②システム機能の説明 &gt; （ア）登録機能
+          </div>
+          <div class="other_factors">
+           論理データベース要求にも該当
+          </div>
+         </p>
+         <div class="sentence">
+          ・管理者は、「報告書<span>ファイル</span>」「概要<span>ファイル</span>」「目次<span>ファイル</span>」「書誌事項<span>ファイル</span>」の技術調査報告書データベースへの新規登録、変更（追加・修正・削除）ができること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ２．システム開発 &gt; （１）システム機能 &gt; ②システム機能の説明 &gt; （ア）登録機能
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・登録の際、必要事項の欠落等がある場合には、そのことを<span>画面</span>に表示すること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ２．システム開発 &gt; （１）システム機能 &gt; ②システム機能の説明 &gt; （ア）登録機能
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・テキスト形式やCSV形式<span>ファイル</span>の定形フォーマットデータから一括登録ができるようにすること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ２．システム開発 &gt; （１）システム機能 &gt; ②システム機能の説明 &gt; （イ）項目変更機能
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・<span>表示</span>するデータの順番は項目を変更できること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ２．システム開発 &gt; （１）システム機能 &gt; ②システム機能の説明 &gt; （ウ）検索機能
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・書誌事項<span>ファイル</span>については発行年月による範囲指定ができること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ２．システム開発 &gt; （１）システム機能 &gt; ②システム機能の説明 &gt; （ウ）検索機能
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・これ以外の<span>ファイル</span>についてはフリーワード検索ができること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ２．システム開発 &gt; （１）システム機能 &gt; ②システム機能の説明 &gt; （エ）画面表示機能
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・一<span>画面</span>で全てを表示できない場合には、分割表示、スクロール表示等を用いること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ２．システム開発 &gt; （１）システム機能 &gt; ②システム機能の説明 &gt; （エ）画面表示機能
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・目次、概要の各<span>ファイル</span>は、別画面にリンクさせることにより表示すること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ２．システム開発 &gt; （１）システム機能 &gt; ②システム機能の説明 &gt; （エ）画面表示機能
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・報告書<span>ファイル</span>はAcrobatReaderを起動させることによって内容を表示すること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ２．システム開発 &gt; （１）システム機能 &gt; ②システム機能の説明 &gt; （エ）画面表示機能
+          </div>
+          <div class="other_factors">
+           論理データベース要求にも該当
+          </div>
+         </p>
+         <div class="sentence">
+          ・報告書、目次および概要データ領域の制御を行う「部分制御・検索エンジン」と書誌事項・表示情報データベースと部分制御・検索エンジンとのデータ制御を行う「全体制御・検索エンジン<span>画面</span>制御」を実現すること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ２．システム開発 &gt; （２）画面要件 &gt; ②画面入出力要件
+          </div>
+          <div class="other_factors">
+           性能要求にも該当
+          </div>
+         </p>
+         <div class="sentence">
+          画面入<span>出力</span>要件として具体的に以下を満たすこと。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ２．システム開発 &gt; （２）画面要件 &gt; ②画面入出力要件
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・本システムで使用する<span>画面</span>は、WEBブラウザ上で表示されること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ２．システム開発 &gt; （２）画面要件 &gt; ②画面入出力要件
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・報告書,概要、目次および書誌事項の各<span>ファイル</span>の内容を完結かつ見やすく表示すること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ２．システム開発 &gt; （２）画面要件 &gt; ②画面入出力要件
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・一<span>画面</span>で全てを表示できない場合には、分割表示、スクロール等を用いて表示すること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ２．システム開発 &gt; （２）画面要件 &gt; ②画面入出力要件
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          本システムで使用する<span>画面</span>は、WEBブラウザ上で表示されること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ２．システム開発 &gt; （２）画面要件 &gt; ②画面入出力要件
+          </div>
+          <div class="other_factors">
+           セキュリティにも該当
+          </div>
+         </p>
+         <div class="sentence">
+          ・一般ユーザが誤って管理者<span>画面</span>に入れないよう、<span>画面</span>移行の際はパスワードを要求すること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ２．システム開発 &gt; （２）画面要件 &gt; ②画面入出力要件
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・管理者<span>画面</span>からいつでも抜けられるようボタン等が常に表示されていること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ２．システム開発 &gt; （３）データベース要件 &gt; ②データベース要件
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・登録項目の増加や画像レイアウトの変さらに対応できるよう,書誌事項データに報告書、目次、概要データのファイル名の管理、検索対象情報とするか否かの有無、データ形式（ファイルリンク、直接データ<span>入力</span>）の情報を管理する書誌制御データと項目の表示順位の入れ換え、画面表示の有無を管理する表示情報データを用いること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ４．信頼性等要件 &gt; （１）信頼性
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・画面機能の一部変更は、サーバ側のパラメータ<span>ファイル</span>の修正のみで対応可能なこと。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ４．信頼性等要件 &gt; （２）拡張性
+          </div>
+          <div class="other_factors">
+           論理データベース要求，移植性にも該当
+          </div>
+         </p>
+         <div class="sentence">
+          ・将来、データ量、利用者数等が調達時に指定した量の5割増となっても、プログラムや<span>ファイル</span>等の改修なく対応できるよう、データベースや<span>ファイル</span>等の容量に余裕を持たせること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ７．納品・検収 &gt; （２）納入物品
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          注1①〜⑥までの納入物品については、紙媒体および電子<span>ファイル</span>（一太郎Ver.9.0以前又はMicrosoftWord98以前の形式）で保存したCD-ROM又はMOで納品すること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ７．納品・検収 &gt; （２）納入物品
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          注2⑦プログラムには、ソースプログラム、実行形式プログラム、利用環境等を定義する<span>ファイル</span>、コンテンツを含めること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ７．納品・検収 &gt; （４）検収方法 &gt; ①システムテスト
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・システムテスト時に使用した一時<span>ファイル</span>等の不要な<span>ファイル</span>等は、システムテスト終了後、削除すること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ７．納品・検収 &gt; （４）検収方法 &gt; ②完成検査
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・これらの記載内容と⑦プ<span>ログ</span>ラムの内容との間に差異や矛盾点がないかを検査する。
+         </div>
+        </div>
+       </div>
+       <div class="factor_candi_title">
+        <h3>
+         候補
+        </h3>
+       </div>
+       <div id="1_Interface_with_outside_candi">
+        <div class="output">
+         <p>
+          <div class="chapter">
+           １．作業内容
+          </div>
+          <div class="other_factors">
+           論理データベース要求にも該当
+          </div>
+         </p>
+         <div class="sentence">
+          本作業は、別添の「技術調査関連報告書の省内共有データベース・システムの新規開発」に係る仕様書に基づき同システムの基本設計、詳細設計、プログラム開発、システムテスト、ドキュメント<span>作成</span>を行うものである。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ４．信頼性等要件 &gt; （４）アクセシビリティ
+          </div>
+          <div class="other_factors">
+           使用性にも該当
+          </div>
+         </p>
+         <div class="sentence">
+          ・アクセシビリティを確保するために、「インターネットにおけるアクセシブルなウェブコンテンツの<span>作成</span>方法に関する指針」（2000年11月に開催された「第5回IT戦略会議・IT戦略本部合同会議」における参考資料）に従うこと。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ６．作業の体制および方法 &gt; （２）開発方法 &gt; ②ドキュメント基準
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・ドキュメントについては、<span>作成</span>に先立ちその構成や記載項目、記載内容および記載水準等を規定した<span>作成</span>要領を提出し、これに従うこと。
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="factor" id="factor2">
+       <div class="factor_title">
+        <h2>
+         2. 機能要求
+        </h2>
+       </div>
+       <div id="2_Functional_requirements">
+        <div class="output">
+         <div class="no_one">
+          該当なし
+         </div>
+        </div>
+       </div>
+       <div class="factor_candi_title">
+        <h3>
+         候補
+        </h3>
+       </div>
+       <div id="2_Functional_requirements_candi">
+        <div class="output">
+         <div class="no_one">
+          該当なし
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="factor" id="factor3">
+       <div class="factor_title">
+        <h2>
+         3. 性能要求
+        </h2>
+       </div>
+       <div id="3_Performance_requirements">
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ２．システム開発 &gt; （１）システム機能 &gt; ②システム機能の説明 &gt; （ウ）検索機能
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・次に示す検索条<span>件</span>による検索を行う。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ２．システム開発 &gt; （１）システム機能 &gt; ②システム機能の説明 &gt; （エ）画面表示機能
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・検索結果のヒット<span>件</span>数を表示すること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ２．システム開発 &gt; （２）画面要件 &gt; ②画面入出力要件
+          </div>
+          <div class="other_factors">
+           外部とのインタフェースにも該当
+          </div>
+         </p>
+         <div class="sentence">
+          画面入出力要<span>件</span>として具体的に以下を満たすこと。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ２．システム開発 &gt; （３）データベース要件 &gt; ②データベース要件
+          </div>
+          <div class="other_factors">
+           論理データベース要求にも該当
+          </div>
+         </p>
+         <div class="sentence">
+          データベース要<span>件</span>として具体的に以下を満たすこと。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ３．規模・性能要件 &gt; （２）性能要件
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・多数の職員の利用に際し、快適な作業を実現できる<span>処理速度</span>を有すること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ３．規模・性能要件 &gt; （２）性能要件
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・<span>レスポンス</span>時間の目標値は平常時３秒以内、ピーク時５秒以内とする。
+         </div>
+        </div>
+       </div>
+       <div class="factor_candi_title">
+        <h3>
+         候補
+        </h3>
+       </div>
+       <div id="3_Performance_requirements_candi">
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ６．その他 &gt; (1)信頼性等要件
+          </div>
+          <div class="other_factors">
+           信頼性にも該当
+          </div>
+         </p>
+         <div class="sentence">
+          別添「4.信頼性等要<span>件</span>」を参照のこと。
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="factor" id="factor4">
+       <div class="factor_title">
+        <h2>
+         4. 論理データベース要求
+        </h2>
+       </div>
+       <div id="4_Logical_database_requirements">
+        <div class="output">
+         <p>
+          <div class="chapter">
+           １．作業の概要 &gt; （４）作業内容
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          技術調査関連報告書を省内の関係局・課・室で情報共有するための<span>データベース</span>・システムを構築する「システム開発」を行う。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ２．システム開発 &gt; （１）システム機能 &gt; ②システム機能の説明 &gt; （ア）登録機能
+          </div>
+          <div class="other_factors">
+           外部とのインタフェースにも該当
+          </div>
+         </p>
+         <div class="sentence">
+          ・管理者は、「報告書ファイル」「概要ファイル」「目次ファイル」「書誌事項ファイル」の技術調査報告書<span>データベース</span>への新規登録、変更（追加・修正・削除）ができること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ２．システム開発 &gt; （１）システム機能 &gt; ②システム機能の説明 &gt; （エ）画面表示機能
+          </div>
+          <div class="other_factors">
+           外部とのインタフェースにも該当
+          </div>
+         </p>
+         <div class="sentence">
+          ・報告書、目次および概要データ領域の制御を行う「部分制御・検索エンジン」と書誌事項・表示情報<span>データベース</span>と部分制御・検索エンジンとのデータ制御を行う「全体制御・検索エンジン画面制御」を実現すること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ２．システム開発 &gt; （３）データベース要件 &gt; ②データベース要件
+          </div>
+          <div class="other_factors">
+           性能要求にも該当
+          </div>
+         </p>
+         <div class="sentence">
+          <span>データベース</span>要件として具体的に以下を満たすこと。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ４．信頼性等要件 &gt; （２）拡張性
+          </div>
+          <div class="other_factors">
+           外部とのインタフェース，移植性にも該当
+          </div>
+         </p>
+         <div class="sentence">
+          ・将来、データ量、利用者数等が調達時に指定した量の5割増となっても、プログラムやファイル等の改修なく対応できるよう、<span>データベース</span>やファイル等の容量に余裕を持たせること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ６．作業の体制および方法 &gt; （１）作業体制 &gt; ②主要担当者
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          主要担当者は、<span>データベース</span>・システムの企画・設計に関する知見や技術を有すること。
+         </div>
+        </div>
+       </div>
+       <div class="factor_candi_title">
+        <h3>
+         候補
+        </h3>
+       </div>
+       <div id="4_Logical_database_requirements_candi">
+        <div class="output">
+         <p>
+          <div class="chapter">
+           １．作業内容
+          </div>
+          <div class="other_factors">
+           外部とのインタフェースにも該当
+          </div>
+         </p>
+         <div class="sentence">
+          本作業は、別添の「技術調査関連報告書の省内共有<span>データベース</span>・システムの新規開発」に係る仕様書に基づき同システムの基本設計、詳細設計、プログラム開発、システムテスト、ドキュメント作成を行うものである。
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="factor" id="factor5">
+       <div class="factor_title">
+        <h2>
+         5. 設計制約
+        </h2>
+       </div>
+       <div id="5_Design_constraints">
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ５．システム開発条件 &gt; (1)全体構成
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・本システムは、経済産業省の省内PC-LANに接続されたクライアント<span>パソコン</span>、個別DBサーバ、および開発用<span>パソコン</span>より構成される。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ５．システム開発条件 &gt; (3)ネットワーク構成
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・ネットワーク<span>トラフィック</span>の効率化を図るために、冗長な<span>トラフィック</span>を発生させないようにすること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ５．システム稼働・開発環境 &gt; （３）ネットワーク構成
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・ネットワーク<span>トラフィック</span>の効率化を図るために、冗長な<span>トラフィック</span>を発生させないようにすること。
+         </div>
+        </div>
+       </div>
+       <div class="factor_candi_title">
+        <h3>
+         候補
+        </h3>
+       </div>
+       <div id="5_Design_constraints_candi">
+        <div class="output">
+         <div class="no_one">
+          該当なし
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="factor" id="factor6">
+       <div class="factor_title">
+        <h3>
+         6. システムの属性
+        </h3>
+       </div>
+       <div class="factor" id="factor61">
+        <div class="factor_title">
+         <h3>
+          6.1. 性能効率性
+         </h3>
+        </div>
+        <div class="factor" id="factor611">
+         <div class="factor_title">
+          <h2>
+           6.1.1. 時間効率性
+          </h2>
+         </div>
+         <div id="6_1_1_Time_behaviour">
+          <div class="output">
+           <div class="no_one">
+            該当なし
+           </div>
+          </div>
+         </div>
+         <div class="factor_candi_title">
+          <h3>
+           候補
+          </h3>
+         </div>
+         <div id="6_1_1_Time_behaviour_candi">
+          <div class="output">
+           <div class="no_one">
+            該当なし
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="factor" id="factor612">
+         <div class="factor_title">
+          <h2>
+           6.1.2. 資源効率性
+          </h2>
+         </div>
+         <div id="6_1_2_Resource_utilization">
+          <div class="output">
+           <div class="no_one">
+            該当なし
+           </div>
+          </div>
+         </div>
+         <div class="factor_candi_title">
+          <h3>
+           候補
+          </h3>
+         </div>
+         <div id="6_1_2_Resource_utilization_candi">
+          <div class="output">
+           <div class="no_one">
+            該当なし
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="factor" id="factor62">
+        <div class="factor_title">
+         <h2>
+          6.2. 互換性
+         </h2>
+        </div>
+        <div id="6_2_Compatibility">
+         <div class="output">
+          <p>
+           <div class="chapter">
+            ４．信頼性等要件 &gt; （３）上位互換性
+           </div>
+           <div class="other_factors">
+            移植性にも該当
+           </div>
+          </p>
+          <div class="sentence">
+           ・OS、ミドルウェア等のベンダーから<span>バージョンアップ</span>情報が既に提供されている場合には、それにも対応できるようにシステムを構築すること。
+          </div>
+         </div>
+        </div>
+        <div class="factor_candi_title">
+         <h3>
+          候補
+         </h3>
+        </div>
+        <div id="6_2_Compatibility_candi">
+         <div class="output">
+          <div class="no_one">
+           該当なし
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="factor" id="factor63">
+        <div class="factor_title">
+         <h2>
+          6.3. 使用性
+         </h2>
+        </div>
+        <div id="6_3_Usability">
+         <div class="output">
+          <div class="no_one">
+           該当なし
+          </div>
+         </div>
+        </div>
+        <div class="factor_candi_title">
+         <h3>
+          候補
+         </h3>
+        </div>
+        <div id="6_3_Usability_candi">
+         <div class="output">
+          <p>
+           <div class="chapter">
+            ４．信頼性等要件 &gt; （４）アクセシビリティ
+           </div>
+           <div class="other_factors">
+            外部とのインタフェースにも該当
+           </div>
+          </p>
+          <div class="sentence">
+           ・<span>アクセシビリティ</span>を確保するために、「インターネットにおけるアクセシブルなウェブコンテンツの作成方法に関する指針」（2000年11月に開催された「第5回IT戦略会議・IT戦略本部合同会議」における参考資料）に従うこと。
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="factor" id="factor64">
+        <div class="factor_title">
+         <h2>
+          6.4. 信頼性
+         </h2>
+        </div>
+        <div id="6_4_Reliability">
+         <div class="output">
+          <p>
+           <div class="chapter">
+            ６．その他 &gt; (3)特記事項
+           </div>
+           <div class="other_factors">
+           </div>
+          </p>
+          <div class="sentence">
+           ・本システムは、ネットワークを介して処理を行うため、ネットワークによる<span>障害</span>及びアプリケーションによる<span>障害</span>、利用者による中断に対して十分考慮して開発すること。
+          </div>
+         </div>
+         <div class="output">
+          <p>
+           <div class="chapter">
+            ６．その他 &gt; (3)特記事項
+           </div>
+           <div class="other_factors">
+           </div>
+          </p>
+          <div class="sentence">
+           ・特定の日付が原因となって発生するトラブルについて対応しており、いかなる日付においてもシステムが<span>支障</span>なく稼働すること。
+          </div>
+         </div>
+         <div class="output">
+          <p>
+           <div class="chapter">
+            ４．信頼性等要件 &gt; （１）信頼性
+           </div>
+           <div class="other_factors">
+           </div>
+          </p>
+          <div class="sentence">
+           ・<span>障害</span>に伴うシステム停止は年１回以内とすること。
+          </div>
+         </div>
+         <div class="output">
+          <p>
+           <div class="chapter">
+            ４．信頼性等要件 &gt; （１）信頼性
+           </div>
+           <div class="other_factors">
+           </div>
+          </p>
+          <div class="sentence">
+           ・<span>障害</span>復旧の際、データ復旧はすべてバックアップデータのリストアで対応できること。
+          </div>
+         </div>
+        </div>
+        <div class="factor_candi_title">
+         <h3>
+          候補
+         </h3>
+        </div>
+        <div id="6_4_Reliability_candi">
+         <div class="output">
+          <p>
+           <div class="chapter">
+            ６．その他 &gt; (1)信頼性等要件
+           </div>
+           <div class="other_factors">
+            性能要求にも該当
+           </div>
+          </p>
+          <div class="sentence">
+           別添「4.<span>信頼性</span>等要件」を参照のこと。
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="factor" id="factor65">
+        <div class="factor_title">
+         <h2>
+          6.5. セキュリティ
+         </h2>
+        </div>
+        <div id="6_5_Security">
+         <div class="output">
+          <p>
+           <div class="chapter">
+            ２．システム開発 &gt; （１）システム機能 &gt; ②システム機能の説明 &gt; （ア）登録機能
+           </div>
+           <div class="other_factors">
+           </div>
+          </p>
+          <div class="sentence">
+           ・管理<span>者</span><span>だけ</span>が利用できるようにすること。
+          </div>
+         </div>
+         <div class="output">
+          <p>
+           <div class="chapter">
+            ２．システム開発 &gt; （１）システム機能 &gt; ②システム機能の説明 &gt; （イ）項目変更機能
+           </div>
+           <div class="other_factors">
+           </div>
+          </p>
+          <div class="sentence">
+           ・管理<span>者</span><span>だけ</span>が利用できるようにすること。
+          </div>
+         </div>
+         <div class="output">
+          <p>
+           <div class="chapter">
+            ２．システム開発 &gt; （２）画面要件 &gt; ②画面入出力要件
+           </div>
+           <div class="other_factors">
+            外部とのインタフェースにも該当
+           </div>
+          </p>
+          <div class="sentence">
+           ・一般ユーザが誤って管理者画面に入れないよう、画面移行の際は<span>パスワード</span>を要求すること。
+          </div>
+         </div>
+         <div class="output">
+          <p>
+           <div class="chapter">
+            ４．信頼性等要件 &gt; （１）信頼性
+           </div>
+           <div class="other_factors">
+           </div>
+          </p>
+          <div class="sentence">
+           ・システム内の機能や取扱データは、その機能やデータの利用<span>権限</span>を持つユーザのみが利用可能であること。
+          </div>
+         </div>
+         <div class="output">
+          <p>
+           <div class="chapter">
+            ４．信頼性等要件 &gt; （１）信頼性
+           </div>
+           <div class="other_factors">
+           </div>
+          </p>
+          <div class="sentence">
+           また、サーバ上のデータ、システム等がシステム利用者の不注意、故意等により失われることのないよう、例えば、ＣＧＩプログラム等に保護機能を設けるなどして、<span>セキュリティ</span>に十分配慮したシステムを構築すること。
+          </div>
+         </div>
+        </div>
+        <div class="factor_candi_title">
+         <h3>
+          候補
+         </h3>
+        </div>
+        <div id="6_5_Security_candi">
+         <div class="output">
+          <div class="no_one">
+           該当なし
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="factor" id="factor66">
+        <div class="factor_title">
+         <h2>
+          6.6. 保守性
+         </h2>
+        </div>
+        <div id="6_6_Maintainability">
+         <div class="output">
+          <div class="no_one">
+           該当なし
+          </div>
+         </div>
+        </div>
+        <div class="factor_candi_title">
+         <h3>
+          候補
+         </h3>
+        </div>
+        <div id="6_6_Maintainability_candi">
+         <div class="output">
+          <div class="no_one">
+           該当なし
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="factor" id="factor67">
+        <div class="factor_title">
+         <h2>
+          6.7. 移植性
+         </h2>
+        </div>
+        <div id="6_7_Portability">
+         <div class="output">
+          <p>
+           <div class="chapter">
+            ４．信頼性等要件 &gt; （２）拡張性
+           </div>
+           <div class="other_factors">
+            外部とのインタフェース，論理データベース要求にも該当
+           </div>
+          </p>
+          <div class="sentence">
+           ・<span>将来</span>、データ量、利用者数等が調達時に指定した量の5割増となっても、プログラムやファイル等の改修なく対応できるよう、データベースやファイル等の容量に余裕を持たせること。
+          </div>
+         </div>
+         <div class="output">
+          <p>
+           <div class="chapter">
+            ４．信頼性等要件 &gt; （２）拡張性
+           </div>
+           <div class="other_factors">
+           </div>
+          </p>
+          <div class="sentence">
+           ・<span>将来</span>、本システムが他システムと接続する際のプロトコルは、TCP/IPを前提とすること。
+          </div>
+         </div>
+         <div class="output">
+          <p>
+           <div class="chapter">
+            ４．信頼性等要件 &gt; （３）上位互換性
+           </div>
+           <div class="other_factors">
+            互換性にも該当
+           </div>
+          </p>
+          <div class="sentence">
+           ・OS、ミドルウェア等のベンダーから<span>バージョンアップ</span>情報が既に提供されている場合には、それにも対応できるようにシステムを構築すること。
+          </div>
+         </div>
+        </div>
+        <div class="factor_candi_title">
+         <h3>
+          候補
+         </h3>
+        </div>
+        <div id="6_7_Portability_candi">
+         <div class="output">
+          <div class="no_one">
+           該当なし
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="right_area">
+     <div class="fixed_area">
+      <div class="memo">
+       <div class="memo_item">
+        <p>
+         ハイライトについて
+        </p>
+        <div class="chapter">
+         その文章がある章や節
+        </div>
+        <div class="other_factors">
+         該当する他の要求要素
+        </div>
+        <span class="gold">
+         文章中に含まれるキーワード
+        </span>
+       </div>
+       <div class="memo_item">
+        <p>
+         文書中の要求に関する文章を、
+         <br/>
+         <span class="d_cyan">
+          要求要素
+         </span>
+         別に出力します。
+        </p>
+        <p>
+         「
+         <span>
+          候補
+         </span>
+         」欄には、
+         <br/>
+         <span class="d_cyan">
+          要求要素
+         </span>
+         に該当すると推測される文章を出力します。
+        </p>
+       </div>
+       <div class="memo_item">
+        <details>
+         <summary>
+          <span class="d_cyan">
+           要求要素
+          </span>
+          とは
+         </summary>
+         <span class="d_cyan">
+          要求要素
+         </span>
+         とは、
+         <br/>
+         以下の青字になっている13個です。
+         <ol>
+          <li>
+           <span>
+            外部とのインタフェース
+           </span>
+          </li>
+          <li>
+           <span>
+            機能要求
+           </span>
+          </li>
+          <li>
+           <span>
+            性能要求
+           </span>
+          </li>
+          <li>
+           <span>
+            論理データベース要求
+           </span>
+          </li>
+          <li>
+           <span>
+            設計制約
+           </span>
+          </li>
+          <li>
+           システムの属性
+           <ol>
+            <li>
+             性能効率性
+             <ol>
+              <li>
+               <span>
+                時間効率性
+               </span>
+              </li>
+              <li>
+               <span>
+                資源効率性
+               </span>
+              </li>
+             </ol>
+            </li>
+            <li>
+             <span>
+              互換性
+             </span>
+            </li>
+            <li>
+             <span>
+              使用性
+             </span>
+            </li>
+            <li>
+             <span>
+              信頼性
+             </span>
+            </li>
+            <li>
+             <span>
+              セキュリティ
+             </span>
+            </li>
+            <li>
+             <span>
+              保守性
+             </span>
+            </li>
+            <li>
+             <span>
+              移植性
+             </span>
+            </li>
+           </ol>
+          </li>
+         </ol>
+        </details>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </main>
+ </body>
+</html>
