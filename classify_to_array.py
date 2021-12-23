@@ -13,8 +13,8 @@ doc_classify = []
     # [[text, keyword], chapter array, [other factors]]
 result = for_result[:]
 
-def applicable_factors(text):
-    res = [] # [factor num, is candi, keyword]
+def classify(text, root_text, now_chapter_array, is_candi):
+    applicable_factors = [] # [factor num, is candi, keyword]
     for i in range(len(ar.id_list)):
         with open(pk.get_path(i)) as fp:
             keywords = []
@@ -26,15 +26,14 @@ def applicable_factors(text):
                     keyword = keyword[2:]
                     keyword = keyword.split('++')
                     if (keyword[0] in root_text) and (keyword[1] in root_text):
-                        res.append([i, is_candi, keyword])
+                        applicable_factors.append([i, is_candi, keyword])
                         break
                 elif keyword in root_text:
-                    res.append([i, is_candi, keyword])
+                    if keyword == "ログ" and "プログラム" in root_text:
+                        continue
+                    applicable_factors.append([i, is_candi, keyword])
                     break
-    return res
-
-def classify(text, root_text, now_chapter_array, is_candi):
-    doc_classify.append([text, now_chapter_array[:], applicable_factors(text)])
+    doc_classify.append([text, now_chapter_array[:], applicable_factors])
 
 def leveling_to_result_array():
     result = for_result[:]

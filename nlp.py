@@ -23,7 +23,7 @@ def is_specific_syntax(text):
         for token in sent:
             # following syntax
             if token.head.text == "以下" \
-                and token.dep_ != 'case':
+                and (token.dep_ == 'compound' or token.dep_ == 'nummod'):
                     return 2
     return 0
 
@@ -41,7 +41,7 @@ def subject_is_system(text):
     return True
 
 def correct_root_dep_(dep):
-    tokens = ['acl', 'advcl']
+    tokens = ['acl', 'advcl', 'advmod']
     if dep in tokens: return 1
     return 0
 
@@ -104,8 +104,8 @@ def root_of_sent(text):
 
 # main
 def nlp_classify(text, now_chapter_array):
-    # root_text = root_of_sent(text)
-    # if not is_specific_syntax(text) == 2:
-    #     if subject_is_system(text):
-    #         cl.classify(text, root_text, now_chapter_array, is_candidate(text))
-    cl.classify(text, text, now_chapter_array, 0)
+    root_text = root_of_sent(text)
+    if not is_specific_syntax(text) == 2:
+        if subject_is_system(text):
+            cl.classify(text, root_text, now_chapter_array, is_candidate(text))
+    # cl.classify(text, text, now_chapter_array, 0)

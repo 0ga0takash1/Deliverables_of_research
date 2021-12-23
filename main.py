@@ -22,7 +22,7 @@ def main(file_path):
     # formated_array = sample.formated_array
     # cl.result = toukei_bunseki.to_html
     result = os.path.abspath(os.curdir)+"/doc_examples/"
-    result += "unnlp"
+    # result += "unnlp"
     result += os.path.basename(file_path)[6:-3]
     result += 'html'
     # ----------------------------------- #
@@ -48,7 +48,7 @@ if __name__ == "__main__":
     #         i = exams+i
     #         main(i)
     #         cl.result_clear()
-    # main("doc_examples/formatニュース速報.txt")
+    # main("doc_examples/formatニュース速報.txt")k
     # main("doc_examples/format解析システム移植.txt")
     # main("doc_examples/format技術調査報告書DB.txt")
     # main("doc_examples/format集計システム.txt")
