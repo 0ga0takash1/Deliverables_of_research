@@ -1,6 +1,7 @@
 import re, os
 import prog_keyword as pk
 import arrays as ar
+import nlp
 
 for_result = []
 for i in range(12): for_result.append([[], []])
@@ -13,27 +14,24 @@ doc_classify = []
     # [[text, keyword], chapter array, [other factors]]
 result = for_result[:]
 
-def classify(text, root_text, now_chapter_array, is_candi):
+def unnlp_classify(text, now_chapter_array, is_candi):
     applicable_factors = [] # [factor num, is candi, keyword]
-    for i in range(len(ar.id_list)):
-        with open(pk.get_path(i)) as fp:
-            keywords = []
-            for word in fp:
-                keywords.append(word.rstrip('\n'))
-            for keyword in keywords:
-                match = re.match('^(\[\[)', keyword)
-                if match:
-                    keyword = keyword[2:]
-                    keyword = keyword.split('++')
-                    if (keyword[0] in root_text) and (keyword[1] in root_text):
-                        applicable_factors.append([i, is_candi, keyword])
-                        break
-                elif keyword in root_text:
-                    if keyword == "ログ" and "プログラム" in root_text:
-                        continue
+    for keywords in pk.keywords_list:
+        for keyword in keywords:
+            if isinstance(keyword, list):
+                if (keyword[0] in text) and (keyword[1] in text):
+                    applicable_factors.append([i, is_candi, keyword])
+                    break
+            else:
+                if keyword in text:
                     applicable_factors.append([i, is_candi, keyword])
                     break
     doc_classify.append([text, now_chapter_array[:], applicable_factors])
+
+def classify():
+    for content in doc_classify: # [text, chapter array, [factors]]
+        for sent in nlp.get_nlp(content[0]):
+            pass
 
 def leveling_to_result_array():
     result = for_result[:]

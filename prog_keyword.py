@@ -1,4 +1,4 @@
-import os
+import os, re
 import arrays as ar
 
 def get_path(list_num):
@@ -14,7 +14,6 @@ def add(keyword, list_num):
         fp.write(keyword)
     print("keyword addition completed!")
     return True
-
 # add("パスワード", 1)
 # add("パスワード", 61)
 
@@ -27,5 +26,19 @@ def delete(keyword, list_num):
                 fp.write(key)
         fp.truncate()
     return True
-
 # delete("キーワード", 1)
+
+def get_keywords():
+    res = []
+    for i in range(len(ar.id_list)):
+        with open(get_path(i)) as fp:
+            keywords = []
+            for word in fp:
+                keywords.append(word.rstrip('\n'))
+            match = re.match('^(\[\[)', keyword)
+            if match:
+                keyword = keyword[2:]
+                keyword = keyword.split('++')
+            res.append(keywords)
+    return res
+keywords_list = get_keywords()

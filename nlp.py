@@ -7,6 +7,9 @@ from spacy import displacy
 
 nlp = spacy.load('ja_ginza')
 
+def get_nlp(text):
+    return nlp(text)
+
 def is_reference_sentence(text):
     keywords = ["別紙", "別添", "参照", "従う"]
     for keyword in keywords:
@@ -18,7 +21,7 @@ def is_specific_syntax(text):
     # reference syntax
     if is_reference_sentence(text): return 1
     
-    doc = nlp(text)
+    doc = get_nlp(text)
     for sent in doc.sents:
         for token in sent:
             # following syntax
@@ -65,7 +68,7 @@ def make_root_of_sent(root_text):
 def root_of_sent(text):
     root_text = [] # array of [word, is root word]
 
-    doc = nlp(text)
+    doc = get_nlp(text)
     root_text = []
     for sent in doc.sents:
         root_i = len(sent)
@@ -107,5 +110,5 @@ def nlp_classify(text, now_chapter_array):
     root_text = root_of_sent(text)
     if not is_specific_syntax(text) == 2:
         if subject_is_system(text):
-            cl.classify(text, root_text, now_chapter_array, is_candidate(text))
+            cl.unnlp_classify(text, now_chapter_array, is_candi(text))
     # cl.classify(text, text, now_chapter_array, 0)
