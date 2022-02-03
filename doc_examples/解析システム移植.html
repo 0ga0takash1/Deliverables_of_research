@@ -149,7 +149,7 @@
            ２．システム開発 &gt; （１）システム機能 &gt; ①システム機能一覧
           </div>
           <div class="other_factors">
-           信頼性にも該当
+           
           </div>
          </p>
          <div class="sentence">
@@ -169,17 +169,29 @@
          </div>
         </div>
         <div class="output">
-         <p>
-          <div class="chapter">
-           ２．システム開発 &gt; （１）システム機能 &gt; ②システム機能の説明 &gt; （イ）計算機能
-          </div>
-          <div class="other_factors">
-          </div>
-         </p>
-         <div class="sentence">
-          ・たい積場安定解析システムにおける<span>入力</span>又は計算方式を以下の表に示す。
-         </div>
-        </div>
+            <p>
+             <div class="chapter">
+              ２．システム開発 &gt; （１）システム機能 &gt; ②システム機能の説明 &gt; （ウ）解析結果図化機能
+             </div>
+             <div class="other_factors">
+             </div>
+            </p>
+            <div class="sentence">
+             ・図化したものに印刷する際には、タイトル、モデル、スケール、座標軸、水位線マーク等の図化位置指定ができるものとし、それに対応した用紙<span>レイアウト</span>を設定できること。
+            </div>
+           </div>
+        <div class="output">
+            <p>
+             <div class="chapter">
+              ２．システム開発 &gt; （１）システム機能 &gt; ②システム機能の説明 &gt; （エ）ファイルアクセス管理機能
+             </div>
+             <div class="other_factors">
+             </div>
+            </p>
+            <div class="sentence">
+             ・他管内のデータは、読み込みを可能にし、データの<span>入力</span>・修正を行えないよう制御できること。
+            </div>
+           </div>
         <div class="output">
          <p>
           <div class="chapter">
@@ -196,14 +208,25 @@
         <div class="output">
          <p>
           <div class="chapter">
-           ２．システム開発 &gt; （１）システム機能 &gt; ②システム機能の説明 &gt; （オ）利用者管理
+           ２．システム開発 &gt; （１）システム機能 &gt; ②システム機能の説明 &gt; （カ）データファイル管理機能
           </div>
           <div class="other_factors">
-           セキュリティにも該当
           </div>
          </p>
          <div class="sentence">
-          ・<span>ログ</span>インのためのID、パスワードおよび利用できる範囲を指定するための管理者機能を設けること。
+          ・データの登録、検索、削除、ファイル移動は、事業所・解析者・解析地域・解析日時を<span>入力</span>指定できること。
+         </div>
+        </div>
+        <div class="output">
+         <p>
+          <div class="chapter">
+           ４．信頼性等要件 &gt; （１）信頼性
+          </div>
+          <div class="other_factors">
+          </div>
+         </p>
+         <div class="sentence">
+          ・<span>画面</span>機能の一部変更は、サーバ側のパラメータファイルの修正のみで対応可能なこと。
          </div>
         </div>
        </div>
@@ -344,6 +367,19 @@
          </div>
         </div>
         <div class="output">
+            <p>
+             <div class="chapter">
+              ５．システム開発条件 &gt; (3)ネットワーク構成
+             </div>
+             <div class="other_factors">
+              保守性にも該当
+             </div>
+            </p>
+            <div class="sentence">
+             ・当省が運用している省内<span>PC-LAN</span>を利用し、プロトコルとしてTCP/IPを利用すること。
+            </div>
+           </div>
+        <div class="output">
          <p>
           <div class="chapter">
            ５．システム開発条件 &gt; (3)ネットワーク構成
@@ -355,6 +391,19 @@
           ・ネットワーク<span>トラフィック</span>の効率化を図るために、冗長な<span>トラフィック</span>を発生させないようにすること。
          </div>
         </div>
+        <div class="output">
+            <p>
+             <div class="chapter">
+              １．作業の概要 &gt; （１）目的
+             </div>
+             <div class="other_factors">
+              保守性にも該当
+             </div>
+            </p>
+            <div class="sentence">
+             なお、現在当省で<span>運用</span>している「たい積場安定解析プログラム（MINE/FS-1979）」による解析結果と実務上問題となる誤差が生じないようにする。
+            </div>
+           </div>
         <div class="output">
          <p>
           <div class="chapter">
@@ -390,7 +439,7 @@
           </div>
          </p>
          <div class="sentence">
-          ・当省が運用している<span>PC</span>-LAN環境において、TCP/IPを利用すること。
+          ・当省が運用している<span>PC-LAN</span>環境において、TCP/IPを利用すること。
          </div>
         </div>
         <div class="output">
@@ -496,6 +545,18 @@
             また不必要な<span>一時ファイル</span>等は削除すること。
            </div>
           </div>
+          <div class="output">
+            <p>
+             <div class="chapter">
+              ７．納品・検収 &gt; （４）検収方法 &gt; ①システムテスト
+             </div>
+             <div class="other_factors">
+             </div>
+            </p>
+            <div class="sentence">
+             ・システムテスト時に使用した<span>一時ファイル</span>等の不要なファイル等は、システムテスト終了後、削除すること。
+            </div>
+           </div>
          </div>
          <div class="factor_candi_title">
           <h3>
@@ -578,43 +639,30 @@
          </h2>
         </div>
         <div id="6_4_Reliability">
-         <div class="output">
-          <p>
-           <div class="chapter">
-            １．作業の概要 &gt; （１）目的
-           </div>
-           <div class="other_factors">
-           </div>
-          </p>
-          <div class="sentence">
-           現行のシステムについて、クライアント／サーバ方式へ移植し、業務の効率化を図るため、利用者管理、データファイル管理、データ<span>アクセス</span>管理のシステム拡充を行う。
-          </div>
-         </div>
-         <div class="output">
-          <p>
-           <div class="chapter">
-            １．作業の概要 &gt; （５）作業内容
-           </div>
-           <div class="other_factors">
-           </div>
-          </p>
-          <div class="sentence">
-           現行のシステムについて、クライアント／サーバ方式へ移植し、業務の効率化を図るため、利用者管理、データファイル管理、データ<span>アクセス</span>管理の機能拡充を図る「システム開発」を行う。
-          </div>
-         </div>
-         <div class="output">
-          <p>
-           <div class="chapter">
-            ２．システム開発 &gt; （１）システム機能 &gt; ①システム機能一覧
-           </div>
-           <div class="other_factors">
-            外部とのインタフェースにも該当
-           </div>
-          </p>
-          <div class="sentence">
-           本システムは「入力情報作成機能」「計算機能」「図化機能」「データファイル管理機能」「利用者管理機能」「ファイル<span>アクセス</span>管理機能」から構成される。
-          </div>
-         </div>
+            <div class="output">
+                <p>
+                 <div class="chapter">
+                  ６．その他 &gt; (3)特記事項
+                 </div>
+                 <div class="other_factors">
+                 </div>
+                </p>
+                <div class="sentence">
+                 ・本システムは、ネットワークを介して処理を行うため、ネットワークによる<span>障害</span>及びアプリケーションによる<span>障害</span>、利用者による中断に対して十分考慮して開発すること。
+                </div>
+               </div>
+               <div class="output">
+                <p>
+                 <div class="chapter">
+                  ６．その他 &gt; (3)特記事項
+                 </div>
+                 <div class="other_factors">
+                 </div>
+                </p>
+                <div class="sentence">
+                 ・特定の日付が原因となって発生するトラブルについて対応しており、いかなる日付においてもシステムが<span>支障</span>なく稼働すること。
+                </div>
+               </div>
          <div class="output">
           <p>
            <div class="chapter">
@@ -646,11 +694,18 @@
          </h3>
         </div>
         <div id="6_4_Reliability_candi">
-         <div class="output">
-          <div class="no_one">
-           該当なし
-          </div>
-         </div>
+            <div class="output">
+                <p>
+                 <div class="chapter">
+                  ６．その他 &gt; (1)信頼性等要件
+                 </div>
+                 <div class="other_factors">
+                 </div>
+                </p>
+                <div class="sentence">
+                 別添「4.<span>信頼性</span>等要件」を参照のこと。
+                </div>
+               </div>
         </div>
        </div>
        <div class="factor" id="factor65">

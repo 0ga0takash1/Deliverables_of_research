@@ -43,8 +43,8 @@ def leveling_to_result_array():
             see = other_factors.pop(i) # see == [factor num, is candi, keyword]
             if isinstance(see[2], str): see[2] = [see[2]]
             result[see[0]][see[1]].append([[sent[0], see[2]], sent[1], other_factors])
-    for i in range(len(result)):
-        print(ar.Require_factors[i], len(result[i][0]), len(result[i][1]))
+    # for i in range(len(result)):
+    #     print(ar.Require_factors[i], len(result[i][0]), len(result[i][1]))
 
 def print_one_result(i):
     for req in result[i]: # req == [[requirement], [candidate]]
