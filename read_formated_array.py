@@ -13,7 +13,10 @@ def read_and_process(chapter):
 
     for chap_txt_tbl in chapter[1]:
         if isinstance(chap_txt_tbl, str):
-            nlp.nlp_classify(chap_txt_tbl, now_chapter_array)
+            if chap_txt_tbl[0] == "・": 
+                chap_txt_tbl = chap_txt_tbl[1:]
+            print(chap_txt_tbl)
+            # nlp.nlp_classify(chap_txt_tbl, now_chapter_array)
         elif isinstance(chap_txt_tbl, list):
             if chap_txt_tbl[0][0] == "is table":
                 read_formated_table(chap_txt_tbl)
