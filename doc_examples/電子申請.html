@@ -167,6 +167,18 @@
           汎用電子申請システムに対して提出された化審法製造（輸入）実績等届出について、現システムへの<span>取り込</span>みおよび受理状況の管理を行う機能を持つシステムを開発する。
          </div>
         </div>
+        <div class="output">
+            <p>
+             <div class="chapter">
+              ５．信頼性等要件 &gt; （１）信頼性
+             </div>
+             <div class="other_factors">
+             </div>
+            </p>
+            <div class="sentence">
+             ・<span>画面</span>機能の一部変更は、サーバ側のパラメータファイルの修正のみで対応可能なこと。
+            </div>
+           </div>
        </div>
        <div class="factor_candi_title">
         <h3>
@@ -221,7 +233,7 @@
           </div>
          </p>
          <div class="sentence">
-          ・届出件数は、1,00<span>0件</span>／日を想定している。
+          ・届出件数は、<span>1,000件</span>／日を想定している。
          </div>
         </div>
         <div class="output">
@@ -342,54 +354,67 @@
        </div>
        <div id="5_Design_constraints">
         <div class="output">
-         <p>
-          <div class="chapter">
-           ５．システム開発条件 &gt; (1)全体構成
-          </div>
-          <div class="other_factors">
-           論理データベース要求にも該当
-          </div>
-         </p>
-         <div class="sentence">
-          本システムは、経済産業省の省内PC-LANに接続された個別業務用データベースサーバ、一般執務用<span>パソコン</span>、および開発用<span>パソコン</span>より構成される。
-         </div>
-        </div>
-        <div class="output">
-         <p>
-          <div class="chapter">
-           ５．システム開発条件 &gt; (3)ネットワーク構成
-          </div>
-          <div class="other_factors">
-          </div>
-         </p>
-         <div class="sentence">
-          ・ネットワーク<span>トラフィック</span>の効率化を図るために、冗長な<span>トラフィック</span>を発生させないようにすること。
-         </div>
-        </div>
-        <div class="output">
-         <p>
-          <div class="chapter">
-           ６．システム稼働・課発環境 &gt; （３）ネットワーク環境
-          </div>
-          <div class="other_factors">
-          </div>
-         </p>
-         <div class="sentence">
-          ・当省の<span>PC</span>-LAN環境において、TCP/IPを利用すること。
-         </div>
-        </div>
-        <div class="output">
-         <p>
-          <div class="chapter">
-           ６．システム稼働・課発環境 &gt; （３）ネットワーク環境
-          </div>
-          <div class="other_factors">
-          </div>
-         </p>
-         <div class="sentence">
-          ・ネットワーク<span>トラフィック</span>の効率化を図るために、冗長な<span>トラフィック</span>を発生させないようにすること。
-         </div>
-        </div>
+            <p>
+             <div class="chapter">
+              ５．システム開発条件 &gt; (1)全体構成
+             </div>
+             <div class="other_factors">
+              論理データベース要求にも該当
+             </div>
+            </p>
+            <div class="sentence">
+             本システムは、経済産業省の省内<span>PC-LAN</span>に接続された個別業務用データベースサーバ、一般執務用パソコン、および開発用パソコンより構成される。
+            </div>
+           </div>
+           <div class="output">
+            <p>
+             <div class="chapter">
+              ５．システム開発条件 &gt; (3)ネットワーク構成
+             </div>
+             <div class="other_factors">
+              保守性にも該当
+             </div>
+            </p>
+            <div class="sentence">
+             ・当省が運用している省内<span>PC-LAN</span>を利用し、プロトコルとしてTCP/IPを利用すること。
+            </div>
+           </div>
+           <div class="output">
+            <p>
+             <div class="chapter">
+              ５．システム開発条件 &gt; (3)ネットワーク構成
+             </div>
+             <div class="other_factors">
+             </div>
+            </p>
+            <div class="sentence">
+             ・ネットワーク<span>トラフィック</span>の効率化を図るために、冗長な<span>トラフィック</span>を発生させないようにすること。
+            </div>
+           </div>
+           <div class="output">
+            <p>
+             <div class="chapter">
+              ６．システム稼働・課発環境 &gt; （３）ネットワーク環境
+             </div>
+             <div class="other_factors">
+             </div>
+            </p>
+            <div class="sentence">
+             ・当省の<span>PC-LAN</span>環境において、TCP/IPを利用すること。
+            </div>
+           </div>
+           <div class="output">
+            <p>
+             <div class="chapter">
+              ６．システム稼働・課発環境 &gt; （３）ネットワーク環境
+             </div>
+             <div class="other_factors">
+             </div>
+            </p>
+            <div class="sentence">
+             ・ネットワーク<span>トラフィック</span>の効率化を図るために、冗長な<span>トラフィック</span>を発生させないようにすること。
+            </div>
+           </div>
        </div>
        <div class="factor_candi_title">
         <h3>
@@ -457,31 +482,43 @@
           </h2>
          </div>
          <div id="6_1_2_Resource_utilization">
-          <div class="output">
-           <p>
-            <div class="chapter">
-             ６．その他 &gt; (3)特記事項
+            <div class="output">
+             <p>
+              <div class="chapter">
+               ６．その他 &gt; (3)特記事項
+              </div>
+              <div class="other_factors">
+              </div>
+             </p>
+             <div class="sentence">
+              ・本システムの検索機能等により一時ファイルを作成する場合、又は、設定された作業ファイルを利用する場合は、<span>資源</span>が有効に活用できるよう配慮したシステムとすること。
+             </div>
             </div>
-            <div class="other_factors">
+            <div class="output">
+             <p>
+              <div class="chapter">
+               ６．その他 &gt; (3)特記事項
+              </div>
+              <div class="other_factors">
+              </div>
+             </p>
+             <div class="sentence">
+              また不必要な<span>一時ファイル</span>等は削除すること。
+             </div>
             </div>
-           </p>
-           <div class="sentence">
-            ・本システムの検索機能等により一時ファイルを作成する場合、又は、設定された作業ファイルを利用する場合は、<span>資源</span>が有効に活用できるよう配慮したシステムとすること。
+            <div class="output">
+             <p>
+              <div class="chapter">
+               ８．納品・検収 &gt; （４）検収方法 &gt; ①システムテスト
+              </div>
+              <div class="other_factors">
+              </div>
+             </p>
+             <div class="sentence">
+              ・システムテスト時に使用した<span>一時ファイル</span>等の不要なファイル等は、システムテスト終了後、削除すること。
+             </div>
+            </div>
            </div>
-          </div>
-          <div class="output">
-           <p>
-            <div class="chapter">
-             ６．その他 &gt; (3)特記事項
-            </div>
-            <div class="other_factors">
-            </div>
-           </p>
-           <div class="sentence">
-            また不必要な<span>一時ファイル</span>等は削除すること。
-           </div>
-          </div>
-         </div>
          <div class="factor_candi_title">
           <h3>
            候補
@@ -571,6 +608,30 @@
          </h2>
         </div>
         <div id="6_4_Reliability">
+            <div class="output">
+                <p>
+                 <div class="chapter">
+                  ６．その他 &gt; (3)特記事項
+                 </div>
+                 <div class="other_factors">
+                 </div>
+                </p>
+                <div class="sentence">
+                 ・本システムは、ネットワークを介して処理を行うため、ネットワークによる<span>障害</span>及びアプリケーションによる<span>障害</span>、利用者による中断に対して十分考慮して開発すること。
+                </div>
+               </div>
+               <div class="output">
+                <p>
+                 <div class="chapter">
+                  ６．その他 &gt; (3)特記事項
+                 </div>
+                 <div class="other_factors">
+                 </div>
+                </p>
+                <div class="sentence">
+                 ・特定の日付が原因となって発生するトラブルについて対応しており、いかなる日付においてもシステムが<span>支障</span>なく稼働すること。
+                </div>
+               </div>
          <div class="output">
           <p>
            <div class="chapter">
@@ -614,6 +675,18 @@
          </h3>
         </div>
         <div id="6_4_Reliability_candi">
+            <div class="output">
+                <p>
+                 <div class="chapter">
+                  ６．その他 &gt; (1)信頼性等要件
+                 </div>
+                 <div class="other_factors">
+                 </div>
+                </p>
+                <div class="sentence">
+                 別添「5.<span>信頼性</span>等要件」を参照のこと。
+                </div>
+               </div>
          <div class="output">
           <p>
            <div class="chapter">
@@ -636,18 +709,30 @@
          </h2>
         </div>
         <div id="6_5_Security">
-         <div class="output">
-          <p>
-           <div class="chapter">
-            ５．信頼性等要件 &gt; （１）信頼性
-           </div>
-           <div class="other_factors">
-           </div>
-          </p>
-          <div class="sentence">
-           また、サーバ上のデータ、システム等がシステム利用者の不注意、故意等により失われることのないよう、例えば、ＣＧＩプログラム等に保護機能を設けるなどして、<span>セキュリティ</span>に十分配慮したシステムを構築すること。
-          </div>
-         </div>
+            <div class="output">
+             <p>
+              <div class="chapter">
+               ５．信頼性等要件 &gt; （１）信頼性
+              </div>
+              <div class="other_factors">
+              </div>
+             </p>
+             <div class="sentence">
+              ・システム内の機能や取扱データは、その機能やデータの利用<span>権限</span>を持つユーザのみが利用可能であること。
+             </div>
+            </div>
+            <div class="output">
+             <p>
+              <div class="chapter">
+               ５．信頼性等要件 &gt; （１）信頼性
+              </div>
+              <div class="other_factors">
+              </div>
+             </p>
+             <div class="sentence">
+              また、サーバ上のデータ、システム等がシステム利用者の不注意、故意等により失われることのないよう、例えば、ＣＧＩプログラム等に保護機能を設けるなどして、<span>セキュリティ</span>に十分配慮したシステムを構築すること。
+             </div>
+            </div>
         </div>
         <div class="factor_candi_title">
          <h3>
@@ -669,11 +754,19 @@
          </h2>
         </div>
         <div id="6_6_Maintainability">
-         <div class="output">
-          <div class="no_one">
-           該当なし
-          </div>
-         </div>
+            <div class="output">
+                <p>
+                 <div class="chapter">
+                  ５．システム開発条件 &gt; (3)ネットワーク構成
+                 </div>
+                 <div class="other_factors">
+                  設計制約にも該当
+                 </div>
+                </p>
+                <div class="sentence">
+                 ・当省が<span>運用</span>している省内PC-LANを利用し、プロトコルとしてTCP/IPを利用すること。
+                </div>
+               </div>
         </div>
         <div class="factor_candi_title">
          <h3>

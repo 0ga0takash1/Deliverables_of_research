@@ -1,5 +1,6 @@
 import classify_to_array as cl
 import arrays as ar
+import main
 
 from bs4 import BeautifulSoup
 import re
@@ -59,8 +60,8 @@ def one(chapter_array, other_factors_array, text_keyword):
 
 # print(one(['1. aa', '(1) bb', '① cc'], ['機能', '使用性'], 'あああ'))
 
-def clear(result_html):
-    with open('sample.html') as f:
+def clear(file, result_html):
+    with open(file) as f:
         with open(result_html, 'w') as f2:
             f2.write(f.read())
     return True
@@ -74,8 +75,10 @@ def fix_escape(result_html):
             f.write(file)
     return True
 
-def push(result_html):
-    clear(result_html)
+def push(file_name, result_html):
+    file = "doc_examples/"+file_name+".html"
+    clear(file, result_html)
+    return True
     # [[requirement], [candidate]]
         # [[text, keyword], chapter, [other factors]]
     for i in range(len(cl.result)):
