@@ -1,5 +1,6 @@
-import nlp
-
+########################################################################
+# format_document_to_array.pyのmain関数で生成した
+########################################################################
 def read_formated_table(table):
     return True
     # for i in range(table[0][2][0]):
@@ -7,6 +8,9 @@ def read_formated_table(table):
     #         pass
 
 now_chapter_array = []
+
+# 引数：
+# 出力：
 def read_and_process(chapter):
     # print("\n", "see: ", chapter, "\n")
     now_chapter_array.append(chapter[0])

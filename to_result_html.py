@@ -1,11 +1,16 @@
+########################################################################
+# 結果のhtmlを生成するコード
+########################################################################
 import classify_to_array as cl
 import arrays as ar
-import main
 
 from bs4 import BeautifulSoup
 import re
 from xml.sax.saxutils import unescape
 
+# 章を示す部分（緑のハイライト）についてのhtmlコードを生成
+# 引数：
+# 出力：
 def chapter(array):
     res = ''
     for i in range(len(array)):
@@ -14,6 +19,9 @@ def chapter(array):
             res += ' &gt; '
     return res
 
+# 他の該当する品質特性（オレンジのハイライト）についてのhtmlコードを生成
+# 引数：
+# 出力：
 def other_factors(array):
     res = ''
     if len(array):
@@ -24,9 +32,15 @@ def other_factors(array):
         res += 'にも該当'
     return res
 
+# 抽出した文章中に含まれるキーワードをspanタグではさむように置換
+# 引数：
+# 出力：
 def replace_keyword_to_tag(text: str, target: str) ->str:
     return re.sub(rf"(?<!<span>)({target})(?!</span>)", r"<span>\1</span>", text)
 
+# 1つの文章に関してhtmlのコードを生成
+# 引数：
+# 出力：
 def one(chapter_array, other_factors_array, text_keyword):
     soup = BeautifulSoup('', 'html.parser')
     res = soup.new_tag('div')
@@ -60,25 +74,36 @@ def one(chapter_array, other_factors_array, text_keyword):
 
 # print(one(['1. aa', '(1) bb', '① cc'], ['機能', '使用性'], 'あああ'))
 
-def clear(file, result_html):
-    with open(file) as f:
+
+# 引数：
+# 出力：
+def clear(File, result_html):
+    with open(File) as f:
         with open(result_html, 'w') as f2:
             f2.write(f.read())
     return True
 
+# エスケープされているhtmlタグを修正
+# 引数：
+# 出力：
 def fix_escape(result_html):
     with open(result_html) as fp:
-        file = fp.read()
-        file = file.replace("&lt;span&gt;", r"<span>")
-        file = file.replace("&lt;/span&gt;", r"</span>")
+        File = fp.read()
+        File = File.replace("&lt;span&gt;", r"<span>")
+        File = File.replace("&lt;/span&gt;", r"</span>")
         with open(result_html, 'w') as f:
-            f.write(file)
+            f.write(File)
     return True
 
+# 生成したhtmlコードをhtmlファイルに適用する
+# 引数：
+# 出力：
 def push(file_name, result_html):
-    file = "doc_examples/"+file_name+".html"
-    clear(file, result_html)
-    return True
+    # デバッグ用お手軽出力指定
+    # File = "doc_examples/"+file_name+".html"
+    # clear(File, result_html)
+    # return True
+
     # [[requirement], [candidate]]
         # [[text, keyword], chapter, [other factors]]
     for i in range(len(cl.result)):

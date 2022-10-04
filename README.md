@@ -4,6 +4,15 @@
 - Ubuntu20.04
 - Python 3.7.6
 
+## 使用しているPythonライブラリ
+- sys
+- os
+- re
+- pdfminer
+- collections
+- subprocess
+- spacy
+
 # 使い方
 ## 0. 前準備
 **現状は、<br>本プログラムはPDFをtxtファイル化したものを、<br>前もって`doc_examples`ディレクトリ内に作った状態でなければ実行できないことに注意**

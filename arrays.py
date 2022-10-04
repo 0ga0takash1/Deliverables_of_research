@@ -1,3 +1,4 @@
+# 品質特性に対応したID
 id_list = [
     "1_Interface_with_outside",
     # "2_Functional_requirements",
@@ -14,6 +15,7 @@ id_list = [
     "6_7_Portability"
 ]
 
+# 品質特性の名称
 Require_factors = [
     "外部とのインタフェース",
     # "機能要求",

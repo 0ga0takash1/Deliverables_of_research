@@ -1,5 +1,30 @@
+########################################################################
+# 「format<文書名>.txt」を読み込み、配列に整形するコード
+
+# 整形した配列=["タイトル", <文章or子階層の整形した配列>]
+# 例
+[
+    [
+        "1章タイトル", [
+            ["1-1節タイトル", ["文章1-1_1", "文章1-1_2", "文章1-1_3"]],
+            ["1-2節タイトル", ["文章1-2_1", "文章1-2_2"]],
+            "文章1_1",
+            "文章1_2",
+        ]
+    ],[
+        "2章タイトル", [
+            ["2-1節タイトル", ["文章2-1_1", "文章2-1_2", "文章2-1_3", "文章2-1_4"]],
+        ]
+    ]
+]
+########################################################################
+
+
 import re
 
+# 不自然な開業を解消する関数
+# 引数：
+# 出力：
 def fix_break(ar):
     all_text = 1
     for i in ar:
@@ -11,6 +36,9 @@ def fix_break(ar):
         ar = re.findall(".*?。", ar)
     return ar
 
+# デバッグ用出力関数
+# 引数：
+# 出力：
 def out(ar):
     for i in ar:
         if isinstance(i, str):
@@ -19,35 +47,43 @@ def out(ar):
             print('\ntitle: ', i[0])
             out(i[1])
 
+# 引数：document_read.pyで生成したテキストファイル
+# 出力：
 def main(file_path):
-    txt_array_list = []
-    tmp_sentences = []
+    txt_array_list = [] # テキスト情報を配列に格納する変数
+    tmp_sentences = [] # 文章情報を一時的に格納する変数
 
-    front_chapter_idx = -1
-    front_section_idx = -1
-    front_paragraph_idx = -1
-    front_subparagraph_idx = -1
+    front_chapter_idx = -1 # 一つ前の章idxを格納する変数
+    front_section_idx = -1 # 一つ前の節idxを格納する変数
+    front_paragraph_idx = -1 # 一つ前の段落idxを格納する変数
+    front_subparagraph_idx = -1 # 一つ前のサブ段落idxを格納する変数
 
-    section_flag = False
-    paragraph_flag = False
-    subparagraph_flag = False
+    # 節、段落、サブ段落かを判定するフラグ
+    # 配列の初期化を行うために利用
+    section_flag = False        # 節かどうか
+    paragraph_flag = False      # 段落かどうか
+    subparagraph_flag = False   # サブ段落かどうか
 
     with open(file_path) as f:
         doc = f.readlines()
-        # doc = tbl_escape(doc, tbls)
-        tbl_flag = False
+
+        escape_flag = False
         for s_line in doc:
             s_line = s_line.strip()
-            if s_line == "/://*--- table start ---*//:/":
-                tbl_flag = True
+    
+            # エスケープ処理
+            if s_line == "/://*--- escape start ---*//:/":
+                escape_flag = True
                 continue
-            elif s_line == "/://*--- table end ---*//:/":
-                tbl_flag = False
+            elif s_line == "/://*--- escape end ---*//:/":
+                escape_flag = False
                 continue
             
-            if tbl_flag == True: continue
+            if escape_flag == True: continue
 
             # now_XXX = [title, [sentences]]
+            # now_chapter：章, now_section：節, now_paragraph：段落
+            # 現状は3階層までしか対応できない
             if front_chapter_idx >= 0: 
                 now_chapter = txt_array_list[front_chapter_idx]
                 if front_section_idx >= 0: 
@@ -58,7 +94,9 @@ def main(file_path):
                             now_subparagraph = now_paragraph[1][front_subparagraph_idx]
             
             title = s_line
-            # subparagraph
+
+            # 正規表現を利用して、サブ段落にマッチする場合の処理を行う
+            # 注意>>>>>>>正規表現について、再設定をし直す必要あり
             res = re.match('^(\(|（)(ア|イ|ウ|エ|オ|カ|キ|ク|ケ|コ)(\)|）)', s_line)
             if res:
                 if not subparagraph_flag:
@@ -73,7 +111,8 @@ def main(file_path):
                 front_subparagraph_idx += 1
                 continue
 
-            # paragraph
+            # 正規表現を利用して、段落にマッチする場合の処理を行う
+            # 注意>>>>>>>正規表現について、再設定をし直す必要あり
             res = re.match('^[①-⑳]', s_line)
             if res:
                 if not paragraph_flag:
@@ -94,7 +133,8 @@ def main(file_path):
                 subparagraph_flag = False
                 continue
 
-            # seciton
+            # 正規表現を利用して、節にマッチする場合の処理を行う
+            # 注意>>>>>>>正規表現について、再設定をし直す必要あり
             res = re.match('^(\(|（)[1-9１-９](\)|）)', s_line)
             if res:
                 if not section_flag:
@@ -119,7 +159,8 @@ def main(file_path):
                 subparagraph_flag = False
                 continue
 
-            # chapter
+            # 正規表現を利用して、章にマッチする場合の処理を行う
+            # 注意>>>>>>>正規表現について、再設定をし直す必要あり
             res = re.match('^[1-9１-９](．|\.)[^0-90-9]', s_line)
             if res:
                 txt_array_list.append([title])
@@ -146,6 +187,7 @@ def main(file_path):
 
             tmp_sentences.append(s_line)
 
+    # 最後の文章の情報を格納するための処理
     if subparagraph_flag == True and not front_subparagraph_idx == -1:
         now_subparagraph.append(tmp_sentences)
     elif paragraph_flag == True and not front_paragraph_idx == -1:

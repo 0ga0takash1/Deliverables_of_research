@@ -1,3 +1,7 @@
+########################################################################
+# 品質特性別に文章を割り振って、result配列を作成する際の変数、関数群
+########################################################################
+
 import re, os
 import prog_keyword as pk
 import arrays as ar
@@ -14,6 +18,8 @@ doc_classify = []
     # [[text, keyword], chapter array, [other factors]]
 result = for_result[:]
 
+# 引数：
+# 出力：
 def unnlp_classify(text, now_chapter_array, is_candi):
     applicable_factors = [] # [factor num, is candi, keyword]
     for keywords in pk.keywords_list:
@@ -28,11 +34,15 @@ def unnlp_classify(text, now_chapter_array, is_candi):
                     break
     doc_classify.append([text, now_chapter_array[:], applicable_factors])
 
+# 引数：
+# 出力：
 def classify():
     for content in doc_classify: # [text, chapter array, [factors]]
         for sent in nlp.get_nlp(content[0]):
             pass
 
+# 引数：
+# 出力：
 def leveling_to_result_array():
     result = for_result[:]
     for sent in doc_classify: # sent == [text, chapter array, [factors]]
@@ -44,6 +54,8 @@ def leveling_to_result_array():
     # for i in range(len(result)):
     #     print(ar.Require_factors[i], len(result[i][0]), len(result[i][1]))
 
+# 引数：
+# 出力：
 def print_one_result(i):
     for req in result[i]: # req == [[requirement], [candidate]]
         for j in range(2):
@@ -64,11 +76,15 @@ def print_one_result(i):
                 print(text[0])
     return True
 
+# 引数：
+# 出力：
 def print_all_result():
     for i in range(len(result)):
         print_one_result(i)
     return True
 
+# 引数：
+# 出力：
 def result_clear():
     doc_classify = []
     result = for_result[:]

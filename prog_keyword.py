@@ -1,6 +1,14 @@
+########################################################################
+# キーワードに関するコード
+# キーワードを管理するテキストファイルに対する処理
+########################################################################
+
 import os, re
 import arrays as ar
 
+# キーワードを格納するテキストファイルのパスを取得
+# 引数：
+# 出力：
 def get_path(list_num):
     path = os.getcwd()
     path += "/keyword_lists/"
@@ -8,6 +16,9 @@ def get_path(list_num):
     path += "/_.txt"
     return path
 
+# 引数の単語を、指定した品質特性のキーワードとして追加
+# 引数：
+# 出力：
 def add(keyword, list_num):
     with open(get_path(list_num-1), 'a') as fp:
         fp.write('\n')
@@ -17,6 +28,9 @@ def add(keyword, list_num):
 # add("パスワード", 1)
 # add("パスワード", 61)
 
+# 引数の単語を指定した品質特性のキーワードから除外
+# 引数：
+# 出力：
 def delete(keyword, list_num):
     with open(get_path(list_num-1), 'r+') as fp:
         new = fp.readlines()
@@ -28,6 +42,9 @@ def delete(keyword, list_num):
     return True
 # delete("キーワード", 1)
 
+# すべてのテキストファイルを検索し、品質特性別のキーワードを格納する配列を生成
+# 引数：
+# 出力：
 def get_keywords():
     res = []
     for i in range(len(ar.id_list)):

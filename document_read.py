@@ -1,3 +1,10 @@
+########################################################################
+# PDFをtxtファイルにするコード
+
+# main関数を実行することで、
+# doc_examplesフォルダ内に「format<文書名>.txt」を作ってくれる
+########################################################################
+
 from pdfminer.high_level import extract_pages
 from pdfminer.layout import LAParams, LTTextBox
 import collections
