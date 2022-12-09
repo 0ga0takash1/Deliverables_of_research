@@ -7,8 +7,8 @@ import os, re
 import arrays as ar
 
 # キーワードを格納するテキストファイルのパスを取得
-# 引数：
-# 出力：
+# 引数：品質特性のID番号
+# 出力：キーワードのテキストファイルのパス
 def get_path(list_num):
     path = os.getcwd()
     path += "/keyword_lists/"
@@ -17,8 +17,8 @@ def get_path(list_num):
     return path
 
 # 引数の単語を、指定した品質特性のキーワードとして追加
-# 引数：
-# 出力：
+# 引数：加えるキーワード、品質特性のID番号
+# 出力：テキストファイルに書き加えてTrue
 def add(keyword, list_num):
     with open(get_path(list_num-1), 'a') as fp:
         fp.write('\n')
@@ -29,8 +29,8 @@ def add(keyword, list_num):
 # add("パスワード", 61)
 
 # 引数の単語を指定した品質特性のキーワードから除外
-# 引数：
-# 出力：
+# 引数：削除するキーワード、品質特性のID番号
+# 出力：テキストファイルから削除してTrue
 def delete(keyword, list_num):
     with open(get_path(list_num-1), 'r+') as fp:
         new = fp.readlines()
@@ -44,7 +44,7 @@ def delete(keyword, list_num):
 
 # すべてのテキストファイルを検索し、品質特性別のキーワードを格納する配列を生成
 # 引数：
-# 出力：
+# 出力：品質特性のID番号順にキーワードを格納した配列
 def get_keywords():
     res = []
     for i in range(len(ar.id_list)):

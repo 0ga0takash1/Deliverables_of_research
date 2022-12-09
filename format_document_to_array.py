@@ -22,9 +22,9 @@
 
 import re
 
-# 不自然な開業を解消する関数
-# 引数：
-# 出力：
+# 不自然な改行を解消する関数
+# 引数：フォーマット途中の配列
+# 出力：不自然な改行による配列分割を解消したフォーマット配列
 def fix_break(ar):
     all_text = 1
     for i in ar:
@@ -37,8 +37,8 @@ def fix_break(ar):
     return ar
 
 # デバッグ用出力関数
-# 引数：
-# 出力：
+# 引数：フォーマット配列
+# 出力：章タイトルと章内の文章を出力
 def out(ar):
     for i in ar:
         if isinstance(i, str):
@@ -48,7 +48,7 @@ def out(ar):
             out(i[1])
 
 # 引数：document_read.pyで生成したテキストファイル
-# 出力：
+# 出力：フォーマット配列
 def main(file_path):
     txt_array_list = [] # テキスト情報を配列に格納する変数
     tmp_sentences = [] # 文章情報を一時的に格納する変数
