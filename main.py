@@ -16,7 +16,8 @@ def main(file_path):
     # doc.main(file_path)
     # ----------------------------------- #
     # 2. PDFからフォーマット配列を作成
-    file_path = os.path.abspath(os.curdir)+"/doc_examples/format"+file_path[:-3]+"txt"
+    # file_path = os.path.join(os.path.abspath(os.curdir), "doc_examples", "format"+file_path[:-3]+"txt")
+    file_path = file_path[:-3]+"txt"
     formated_array = f_doc_ar.main(file_path)
     # ----------------------------------- #
     # 3. キーワードから文章を抽出・分配 -> 文法解析による取捨選択

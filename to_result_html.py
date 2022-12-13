@@ -77,8 +77,8 @@ def one(chapter_array, other_factors_array, text_keyword):
 
 # 引数：
 # 出力：
-def clear(File, result_html):
-    with open(File) as f:
+def clear(templete_file, result_html):
+    with open(templete_file) as f:
         with open(result_html, 'w') as f2:
             f2.write(f.read())
     return True
@@ -101,7 +101,8 @@ def fix_escape(result_html):
 def push(file_name, result_html):
     # デバッグ用お手軽出力指定
     # File = "doc_examples/"+file_name+".html"
-    # clear(File, result_html)
+    File = "sample.html"
+    clear(File, result_html)
     # return True
 
     # [[requirement], [candidate]]

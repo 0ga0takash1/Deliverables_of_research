@@ -64,7 +64,7 @@ def main(file_path):
     paragraph_flag = False      # 段落かどうか
     subparagraph_flag = False   # サブ段落かどうか
 
-    with open(file_path) as f:
+    with open(file_path, encoding="utf-8") as f:
         doc = f.readlines()
 
         escape_flag = False

@@ -1,6 +1,8 @@
 ########################################################################
 # format_document_to_array.pyのmain関数で生成した
 ########################################################################
+import nlp
+
 def read_formated_table(table):
     return True
     # for i in range(table[0][2][0]):
@@ -20,7 +22,7 @@ def read_and_process(chapter):
             if chap_txt_tbl[0] == "・": 
                 chap_txt_tbl = chap_txt_tbl[1:]
             print(chap_txt_tbl)
-            # nlp.nlp_classify(chap_txt_tbl, now_chapter_array)
+            nlp.nlp_classify(chap_txt_tbl, now_chapter_array)
         elif isinstance(chap_txt_tbl, list):
             if chap_txt_tbl[0][0] == "is table":
                 read_formated_table(chap_txt_tbl)

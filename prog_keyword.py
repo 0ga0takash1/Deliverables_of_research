@@ -10,10 +10,7 @@ import arrays as ar
 # 引数：品質特性のID番号
 # 出力：キーワードのテキストファイルのパス
 def get_path(list_num):
-    path = os.getcwd()
-    path += "/keyword_lists/"
-    path += ar.id_list[list_num]
-    path += "/_.txt"
+    path = os.path.join(os.getcwd(), "keyword_lists", ar.id_list[list_num], "_.txt")
     return path
 
 # 引数の単語を、指定した品質特性のキーワードとして追加
@@ -48,14 +45,15 @@ def delete(keyword, list_num):
 def get_keywords():
     res = []
     for i in range(len(ar.id_list)):
-        with open(get_path(i)) as fp:
+        with open(get_path(i), encoding="utf-8") as fp:
             keywords = []
             for word in fp:
                 keywords.append(word.rstrip('\n'))
-            match = re.match('^(\[\[)', keyword)
-            if match:
-                keyword = keyword[2:]
-                keyword = keyword.split('++')
+            for keyword in keywords:
+                match = re.match('^(\[\[)', keyword)
+                if match:
+                    keyword = keyword[2:]
+                    keyword = keyword.split('++')
             res.append(keywords)
     return res
 keywords_list = get_keywords()

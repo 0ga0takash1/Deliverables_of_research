@@ -115,10 +115,9 @@ def make_clear_txt(out_txt):
             f.write(out)
 
 def get_txt(input_file):
-    res = os.path.abspath(os.curdir)
-    res += "/doc_examples/"
+    res = os.path.join(os.path.abspath(os.curdir), "doc_examples")
     name = os.path.basename(input_file)[:-4]
-    res += "format{}.txt".format(name)
+    res = os.path.join(res, "format{}.txt".format(name))
     return res
 
 def main(input_path):
